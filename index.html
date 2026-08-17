@@ -7,11 +7,13 @@
   <title>NEXUS-AWAKENING</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       width: 100%;
       height: 100%;
@@ -19,7 +21,9 @@
     }
 
     body {
+
       font-family: Georgia, serif;
+
       color: white;
 
       background:
@@ -38,39 +42,64 @@
       align-items: center;
     }
 
+
+    /* =========================
+       SOMBRA INFERIOR
+    ========================= */
+
     body::after {
+
       content: "";
+
       position: fixed;
+
       inset: 0;
 
       pointer-events: none;
+
       z-index: 2;
 
-      background: linear-gradient(
-        to bottom,
-        transparent 40%,
-        rgba(0, 0, 0, 0.15) 55%,
-        rgba(0, 0, 0, 0.95) 100%
-      );
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(0, 0, 0, 0.15) 55%,
+          rgba(0, 0, 0, 0.95) 100%
+        );
     }
 
+
+    /* =========================
+       CONTEÚDO
+    ========================= */
+
     .conteudo {
+
       position: relative;
+
       z-index: 3;
 
       width: 90%;
+
       max-width: 900px;
 
       text-align: center;
+
       padding: 40px;
     }
 
-    /* NEXUS */
+
+    /* =========================
+       NEXUS
+    ========================= */
 
     .titulo {
+
       margin: 0;
 
-      font-size: clamp(45px, 10vw, 95px);
+      font-size:
+        clamp(45px, 10vw, 95px);
+
       letter-spacing: 10px;
 
       text-shadow:
@@ -79,7 +108,9 @@
         0 0 55px #581c87;
     }
 
+
     .titulo span {
+
       display: inline-block;
 
       opacity: 0;
@@ -95,6 +126,7 @@
         cubic-bezier(0.22, 1, 0.36, 1)
         forwards;
     }
+
 
     .titulo span:nth-child(1) {
       animation-delay: 0.25s;
@@ -116,9 +148,11 @@
       animation-delay: 0.85s;
     }
 
+
     @keyframes surgirLetra {
 
       0% {
+
         opacity: 0;
 
         transform:
@@ -129,11 +163,14 @@
       }
 
       60% {
+
         opacity: 1;
+
         filter: blur(2px);
       }
 
       100% {
+
         opacity: 1;
 
         transform:
@@ -144,19 +181,25 @@
       }
     }
 
-    /* AWAKENING */
+
+    /* =========================
+       AWAKENING
+    ========================= */
 
     .subtitulo {
+
       margin-top: 10px;
 
       font-size: 18px;
+
       letter-spacing: 6px;
 
       color: #d8b4fe;
 
       opacity: 0;
 
-      transform: translateY(20px);
+      transform:
+        translateY(20px);
 
       animation:
         aparecer 1.4s ease forwards;
@@ -164,10 +207,15 @@
       animation-delay: 1.25s;
     }
 
-    /* LINHA */
+
+    /* =========================
+       LINHA
+    ========================= */
 
     .linha {
+
       width: 0;
+
       height: 2px;
 
       margin: 30px auto;
@@ -184,22 +232,31 @@
       animation-delay: 1.65s;
     }
 
+
     @keyframes crescerLinha {
 
       from {
+
         width: 0;
+
         opacity: 0;
       }
 
       to {
+
         width: 130px;
+
         opacity: 1;
       }
     }
 
-    /* FRASE */
+
+    /* =========================
+       FRASE
+    ========================= */
 
     .descricao {
+
       color: #ddd6fe;
 
       font-size: 17px;
@@ -212,7 +269,8 @@
 
       opacity: 0;
 
-      transform: translateY(20px);
+      transform:
+        translateY(20px);
 
       filter: blur(5px);
 
@@ -222,9 +280,11 @@
       animation-delay: 1.9s;
     }
 
+
     @keyframes aparecerFrase {
 
       from {
+
         opacity: 0;
 
         transform:
@@ -234,6 +294,7 @@
       }
 
       to {
+
         opacity: 1;
 
         transform:
@@ -243,9 +304,13 @@
       }
     }
 
-    /* BOTÕES */
+
+    /* =========================
+       BOTÕES
+    ========================= */
 
     .botoes {
+
       display: flex;
 
       justify-content: center;
@@ -258,7 +323,8 @@
 
       opacity: 0;
 
-      transform: translateY(25px);
+      transform:
+        translateY(25px);
 
       animation:
         aparecer 1.3s ease forwards;
@@ -266,12 +332,15 @@
       animation-delay: 2.7s;
     }
 
+
     .botao {
+
       min-width: 230px;
 
       padding: 18px 25px;
 
-      border: 1px solid #a855f7;
+      border:
+        1px solid #a855f7;
 
       border-radius: 8px;
 
@@ -291,6 +360,7 @@
       transition: 0.3s;
     }
 
+
     .botao:hover {
 
       transform:
@@ -304,14 +374,19 @@
         rgba(168, 85, 247, 0.7);
     }
 
-    /* MÚSICA */
+
+    /* =========================
+       MÚSICA
+    ========================= */
 
     .musica {
+
       margin-top: 35px;
 
       opacity: 0;
 
-      transform: translateY(20px);
+      transform:
+        translateY(20px);
 
       animation:
         aparecer 1.2s ease forwards;
@@ -319,9 +394,11 @@
       animation-delay: 3.1s;
     }
 
+
     .musica button {
 
-      border: 1px solid #8b5cf6;
+      border:
+        1px solid #8b5cf6;
 
       border-radius: 25px;
 
@@ -339,6 +416,7 @@
       transition: 0.3s;
     }
 
+
     .musica button:hover {
 
       background:
@@ -349,29 +427,44 @@
         rgba(139, 92, 246, 0.5);
     }
 
-    /* PLAYER TOTALMENTE INVISÍVEL */
+
+    /* =========================
+       PLAYER YOUTUBE
+       
+       IMPORTANTE:
+       Não usamos display:none.
+       Não usamos visibility:hidden.
+       
+       O player continua existindo,
+       mas está fora da área visível.
+    ========================= */
 
     #youtube-player {
+
       position: fixed;
 
       width: 200px;
+
       height: 200px;
 
-      left: -10000px;
-      top: -10000px;
+      left: -300px;
+
+      top: -300px;
 
       opacity: 0;
-
-      visibility: hidden;
 
       pointer-events: none;
 
       border: 0;
     }
 
-    /* RODAPÉ */
+
+    /* =========================
+       RODAPÉ
+    ========================= */
 
     .rodape {
+
       margin-top: 35px;
 
       font-size: 12px;
@@ -386,9 +479,11 @@
       animation-delay: 3.4s;
     }
 
+
     @keyframes aparecer {
 
       from {
+
         opacity: 0;
 
         transform:
@@ -396,6 +491,7 @@
       }
 
       to {
+
         opacity: 1;
 
         transform:
@@ -403,86 +499,139 @@
       }
     }
 
+
+    /* =========================
+       CELULAR
+    ========================= */
+
     @media (max-width: 600px) {
 
       .conteudo {
+
         padding: 25px;
       }
 
       .titulo {
+
         letter-spacing: 5px;
       }
 
       .subtitulo {
+
         font-size: 14px;
+
         letter-spacing: 4px;
       }
 
       .descricao {
+
         font-size: 15px;
       }
 
       .botao {
+
         width: 100%;
+
         min-width: unset;
       }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
   <main class="conteudo">
 
+
     <h1 class="titulo">
+
       <span>N</span>
       <span>E</span>
       <span>X</span>
       <span>U</span>
       <span>S</span>
+
     </h1>
 
+
     <div class="subtitulo">
+
       AWAKENING
+
     </div>
+
 
     <div class="linha"></div>
 
+
     <p class="descricao">
+
       <em>
+
         “Nem toda sombra esconde algo.
         Algumas apenas revelam o que a luz não mostra.”
+
       </em>
+
     </p>
+
 
     <div class="botoes">
 
-      <a href="livro.html" class="botao">
+
+      <a
+        href="livro.html"
+        class="botao"
+      >
+
         📖<br>
+
         Livro do RPG
+
       </a>
 
-      <a href="ficha.html" class="botao">
+
+      <a
+        href="ficha.html"
+        class="botao"
+      >
+
         📝<br>
+
         Ficha do Personagem
+
       </a>
+
 
     </div>
 
+
     <div class="musica">
+
 
       <button
         id="botao-musica"
         onclick="alternarMusica()"
       >
+
         🎸 Tocar música
+
       </button>
 
+
     </div>
 
+
     <div class="rodape">
+
       NEXUS-AWAKENING • RPG
+
     </div>
+
 
   </main>
 
@@ -494,144 +643,227 @@
 
   <script>
 
+
     let player = null;
-    let tocando = false;
+
     let playerPronto = false;
+
+    let tocando = false;
 
 
     /*
-      CARREGAR API DO YOUTUBE
+      CARREGA A API
     */
 
-    const tag = document.createElement("script");
+    const tag =
+      document.createElement("script");
+
 
     tag.src =
       "https://www.youtube.com/iframe_api";
+
 
     document.head.appendChild(tag);
 
 
     /*
-      CRIAR PLAYER
+      QUANDO A API TERMINAR
+      DE CARREGAR
     */
 
     function onYouTubeIframeAPIReady() {
 
-      player = new YT.Player(
-        "youtube-player",
-        {
 
-          width: "200",
-          height: "200",
+      player =
+        new YT.Player(
+          "youtube-player",
+          {
 
-          videoId: "NLaMyAbKNYo",
+            width: "200",
 
-          playerVars: {
+            height: "200",
 
-            playsinline: 1,
+            videoId:
+              "NLaMyAbKNYo",
 
-            controls: 0,
 
-            rel: 0,
+            playerVars: {
 
-            modestbranding: 1
+              /*
+                ESSENCIAL PARA A API
+              */
 
-          },
+              enablejsapi: 1,
 
-          events: {
+              /*
+                IDENTIFICA O SITE
+              */
 
-            onReady: function(event) {
+              origin:
+                window.location.origin,
 
-              playerPronto = true;
+              /*
+                Reprodução dentro da página
+              */
 
-              event.target.setVolume(45);
+              playsinline: 1,
+
+              /*
+                Sem controles
+              */
+
+              controls: 0,
+
+              /*
+                Não mostrar vídeos
+                relacionados de outros canais
+              */
+
+              rel: 0
 
             },
 
-            onStateChange:
-              estadoMusica,
 
-            onError:
-              erroMusica
+            events: {
+
+
+              onReady:
+                function(event) {
+
+
+                  playerPronto = true;
+
+
+                  event.target.setVolume(45);
+
+
+                  console.log(
+                    "YouTube pronto."
+                  );
+
+                },
+
+
+              onStateChange:
+                function(event) {
+
+
+                  console.log(
+                    "Estado do YouTube:",
+                    event.data
+                  );
+
+
+                  /*
+                    1 = tocando
+                  */
+
+                  if (
+                    event.data ===
+                    YT.PlayerState.PLAYING
+                  ) {
+
+
+                    tocando = true;
+
+
+                    document
+                      .getElementById(
+                        "botao-musica"
+                      )
+                      .innerHTML =
+                      "🔊 Música ligada";
+
+                  }
+
+
+                  /*
+                    2 = pausado
+                  */
+
+                  if (
+                    event.data ===
+                    YT.PlayerState.PAUSED
+                  ) {
+
+
+                    tocando = false;
+
+
+                    document
+                      .getElementById(
+                        "botao-musica"
+                      )
+                      .innerHTML =
+                      "🎸 Tocar música";
+
+                  }
+
+
+                  /*
+                    0 = terminou
+                  */
+
+                  if (
+                    event.data ===
+                    YT.PlayerState.ENDED
+                  ) {
+
+
+                    tocando = false;
+
+
+                    document
+                      .getElementById(
+                        "botao-musica"
+                      )
+                      .innerHTML =
+                      "🎸 Tocar música";
+
+                  }
+
+                },
+
+
+              onError:
+                function(event) {
+
+
+                  console.log(
+                    "ERRO DO YOUTUBE:",
+                    event.data
+                  );
+
+
+                  /*
+                    2  = parâmetro inválido
+                    5  = erro HTML5
+                    100 = vídeo não encontrado
+                    101 = incorporação não permitida
+                    150 = incorporação não permitida
+                  */
+
+
+                  if (
+                    event.data === 101 ||
+                    event.data === 150
+                  ) {
+
+                    console.log(
+                      "Este vídeo não permite incorporação."
+                    );
+
+                  }
+
+
+                  tocando = false;
+
+                }
+
+            }
 
           }
-
-        }
-      );
-
-    }
-
-
-    /*
-      ESTADO DA MÚSICA
-    */
-
-    function estadoMusica(event) {
-
-      const botao =
-        document.getElementById(
-          "botao-musica"
         );
-
-
-      if (
-        event.data ===
-        YT.PlayerState.PLAYING
-      ) {
-
-        tocando = true;
-
-        botao.innerHTML =
-          "🔊 Música ligada";
-
-      }
-
-
-      if (
-        event.data ===
-        YT.PlayerState.PAUSED
-      ) {
-
-        tocando = false;
-
-        botao.innerHTML =
-          "🎸 Tocar música";
-
-      }
-
-
-      if (
-        event.data ===
-        YT.PlayerState.ENDED
-      ) {
-
-        tocando = false;
-
-        botao.innerHTML =
-          "🎸 Tocar música";
-
-      }
-
-    }
-
-
-    /*
-      ERRO
-    */
-
-    function erroMusica(event) {
-
-      console.log(
-        "Erro do YouTube:",
-        event.data
-      );
-
-      tocando = false;
-
-      document.getElementById(
-        "botao-musica"
-      ).innerHTML =
-        "🎸 Tocar música";
 
     }
 
@@ -642,35 +874,76 @@
 
     function alternarMusica() {
 
+
       const botao =
         document.getElementById(
           "botao-musica"
         );
 
 
-      if (!player || !playerPronto) {
+      /*
+        A API ainda não terminou
+        de carregar
+      */
+
+      if (
+        !player ||
+        !playerPronto
+      ) {
+
 
         botao.innerHTML =
           "⏳ Carregando...";
 
-        setTimeout(function() {
 
-          botao.innerHTML =
-            "🎸 Tocar música";
+        setTimeout(
+          function() {
 
-        }, 1500);
+            if (!tocando) {
+
+              botao.innerHTML =
+                "🎸 Tocar música";
+
+            }
+
+          },
+          1500
+        );
+
 
         return;
+
       }
 
 
+      /*
+        TOCAR
+    */
+
       if (!tocando) {
+
 
         player.setVolume(45);
 
+
+        /*
+          O clique do usuário
+          chama diretamente
+          playVideo()
+        */
+
         player.playVideo();
 
-      } else {
+
+      }
+
+
+      /*
+        PAUSAR
+      */
+
+      else {
+
 
         player.pauseVideo();
 
@@ -678,7 +951,9 @@
 
     }
 
+
   </script>
+
 
 </body>
 </html>
