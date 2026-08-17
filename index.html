@@ -7,81 +7,184 @@
   <title>NEXUS-AWAKENING</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0f;
-      color: white;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      color: #ffffff;
+      background:
+        linear-gradient(
+          rgba(15, 5, 25, 0.72),
+          rgba(8, 3, 15, 0.88)
+        ),
+        url("https://i.pinimg.com/736x/4d/f4/13/4df413311ed3c8c83c3031f24a909f75.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
       text-align: center;
+      padding: 50px 25px;
     }
 
-    header {
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #111827, #1e1b4b);
+    .titulo {
+      font-size: clamp(45px, 9vw, 90px);
+      letter-spacing: 8px;
+      margin: 0;
+
+      text-shadow:
+        0 0 10px #8b5cf6,
+        0 0 30px #5b21b6,
+        0 0 60px #3b0764;
     }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #b8b8c7;
+    .subtitulo {
+      margin-top: 15px;
+      color: #d8c7ff;
       font-size: 18px;
+      letter-spacing: 3px;
+    }
+
+    .linha {
+      width: 120px;
+      height: 2px;
+      background: #9b6cff;
+      margin: 30px auto;
+      box-shadow: 0 0 15px #8b5cf6;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 45px;
     }
 
     .botao {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 25px;
-      background: #5865f2;
+      min-width: 220px;
+      padding: 18px 25px;
+
       color: white;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
+
+      border: 1px solid #9b6cff;
+      border-radius: 8px;
+
+      background: rgba(30, 10, 50, 0.65);
+
+      box-shadow:
+        0 0 15px rgba(139, 92, 246, 0.25);
+
+      transition: 0.3s;
     }
 
-    .conteudo {
-      padding: 40px 20px;
+    .botao:hover {
+      transform: translateY(-4px);
+
+      background: rgba(91, 33, 182, 0.55);
+
+      box-shadow:
+        0 0 25px rgba(139, 92, 246, 0.65);
     }
 
-    .card {
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 25px;
-      background: #15151d;
-      border: 1px solid #292936;
-      border-radius: 15px;
+    .musica {
+      margin-top: 35px;
+    }
+
+    .musica button {
+      padding: 12px 22px;
+      border: 1px solid #7650b8;
+      border-radius: 20px;
+
+      background: rgba(10, 5, 20, 0.65);
+      color: #ddd0ff;
+
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .musica button:hover {
+      background: rgba(91, 33, 182, 0.5);
+    }
+
+    .rodape {
+      margin-top: 50px;
+      color: #9588a8;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>NEXUS-AWAKENING</h1>
-    <p>O início da sua jornada.</p>
+  <main class="container">
 
-    <a href="#" class="botao">Criar Ficha</a>
-  </header>
+    <h1 class="titulo">NEXUS</h1>
 
-  <div class="conteudo">
-
-    <div class="card">
-      <h2>Bem-vindo ao Nexus</h2>
-      <p>
-        Crie, edite e gerencie sua ficha diretamente pelo site.
-      </p>
+    <div class="subtitulo">
+      AWAKENING
     </div>
 
-    <div class="card">
-      <h2>⚔️ Sistema de Fichas</h2>
-      <p>
-        Em breve você poderá criar sua ficha e salvar seus dados.
-      </p>
+    <div class="linha"></div>
+
+    <p>
+      Entre no mundo onde cada escolha molda sua história.
+    </p>
+
+    <div class="botoes">
+
+      <a href="livro.html" class="botao">
+        📖<br>
+        Livro do RPG
+      </a>
+
+      <a href="ficha.html" class="botao">
+        📝<br>
+        Ficha do Personagem
+      </a>
+
     </div>
 
-  </div>
+    <div class="musica">
+      <button onclick="tocarMusica()">
+        🎸 Tocar música
+      </button>
+    </div>
+
+    <div class="rodape">
+      NEXUS-AWAKENING • RPG
+    </div>
+
+  </main>
+
+  <audio id="musica">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function tocarMusica() {
+      const musica = document.getElementById("musica");
+
+      if (musica.paused) {
+        musica.play();
+      } else {
+        musica.pause();
+      }
+    }
+  </script>
 
 </body>
 </html>
