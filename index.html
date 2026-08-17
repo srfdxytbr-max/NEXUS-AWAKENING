@@ -38,8 +38,6 @@
       align-items: center;
     }
 
-    /* SOMBRA INFERIOR */
-
     body::after {
       content: "";
       position: fixed;
@@ -55,8 +53,6 @@
         rgba(0, 0, 0, 0.95) 100%
       );
     }
-
-    /* CONTEÚDO */
 
     .conteudo {
       position: relative;
@@ -121,6 +117,7 @@
     }
 
     @keyframes surgirLetra {
+
       0% {
         opacity: 0;
 
@@ -188,6 +185,7 @@
     }
 
     @keyframes crescerLinha {
+
       from {
         width: 0;
         opacity: 0;
@@ -225,6 +223,7 @@
     }
 
     @keyframes aparecerFrase {
+
       from {
         opacity: 0;
 
@@ -289,14 +288,13 @@
         0 0 15px
         rgba(168, 85, 247, 0.25);
 
-      transition:
-        transform 0.3s,
-        background 0.3s,
-        box-shadow 0.3s;
+      transition: 0.3s;
     }
 
     .botao:hover {
-      transform: translateY(-5px);
+
+      transform:
+        translateY(-5px);
 
       background:
         rgba(126, 34, 206, 0.5);
@@ -322,6 +320,7 @@
     }
 
     .musica button {
+
       border: 1px solid #8b5cf6;
 
       border-radius: 25px;
@@ -337,25 +336,20 @@
 
       font-size: 15px;
 
-      transition:
-        background 0.3s,
-        box-shadow 0.3s,
-        transform 0.3s;
+      transition: 0.3s;
     }
 
     .musica button:hover {
+
       background:
         rgba(91, 33, 182, 0.6);
 
       box-shadow:
         0 0 20px
         rgba(139, 92, 246, 0.5);
-
-      transform:
-        translateY(-2px);
     }
 
-    /* PLAYER COMPLETAMENTE INVISÍVEL */
+    /* PLAYER TOTALMENTE INVISÍVEL */
 
     #youtube-player {
       position: fixed;
@@ -363,32 +357,16 @@
       width: 200px;
       height: 200px;
 
-      left: -500px;
-      top: -500px;
+      left: -10000px;
+      top: -10000px;
 
       opacity: 0;
 
-      border: 0;
+      visibility: hidden;
 
       pointer-events: none;
-    }
 
-    /* ANIMAÇÃO GERAL */
-
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-
-        transform:
-          translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-
-        transform:
-          translateY(0);
-      }
+      border: 0;
     }
 
     /* RODAPÉ */
@@ -408,7 +386,22 @@
       animation-delay: 3.4s;
     }
 
-    /* CELULAR */
+    @keyframes aparecer {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
 
     @media (max-width: 600px) {
 
@@ -464,18 +457,12 @@
 
     <div class="botoes">
 
-      <a
-        href="livro.html"
-        class="botao"
-      >
+      <a href="livro.html" class="botao">
         📖<br>
         Livro do RPG
       </a>
 
-      <a
-        href="ficha.html"
-        class="botao"
-      >
+      <a href="ficha.html" class="botao">
         📝<br>
         Ficha do Personagem
       </a>
@@ -500,11 +487,7 @@
   </main>
 
 
-  <!--
-    PLAYER DO YOUTUBE.
-    Ele existe para reproduzir a música,
-    mas fica completamente fora da tela.
-  -->
+  <!-- PLAYER INVISÍVEL -->
 
   <div id="youtube-player"></div>
 
@@ -513,14 +496,14 @@
 
     let player = null;
     let tocando = false;
+    let playerPronto = false;
 
 
     /*
-      CARREGA A API DO YOUTUBE
+      CARREGAR API DO YOUTUBE
     */
 
-    const tag =
-      document.createElement("script");
+    const tag = document.createElement("script");
 
     tag.src =
       "https://www.youtube.com/iframe_api";
@@ -529,7 +512,7 @@
 
 
     /*
-      CRIA O PLAYER
+      CRIAR PLAYER
     */
 
     function onYouTubeIframeAPIReady() {
@@ -541,8 +524,7 @@
           width: "200",
           height: "200",
 
-          videoId:
-            "NLaMyAbKNYo",
+          videoId: "NLaMyAbKNYo",
 
           playerVars: {
 
@@ -550,17 +532,27 @@
 
             controls: 0,
 
-            rel: 0
+            rel: 0,
+
+            modestbranding: 1
 
           },
 
           events: {
 
-            onReady:
-              playerPronto,
+            onReady: function(event) {
+
+              playerPronto = true;
+
+              event.target.setVolume(45);
+
+            },
 
             onStateChange:
-              estadoMudou
+              estadoMusica,
+
+            onError:
+              erroMusica
 
           }
 
@@ -571,21 +563,10 @@
 
 
     /*
-      PLAYER PRONTO
-    */
-
-    function playerPronto(event) {
-
-      event.target.setVolume(45);
-
-    }
-
-
-    /*
       ESTADO DA MÚSICA
     */
 
-    function estadoMudou(event) {
+    function estadoMusica(event) {
 
       const botao =
         document.getElementById(
@@ -635,7 +616,28 @@
 
 
     /*
-      BOTÃO DE MÚSICA
+      ERRO
+    */
+
+    function erroMusica(event) {
+
+      console.log(
+        "Erro do YouTube:",
+        event.data
+      );
+
+      tocando = false;
+
+      document.getElementById(
+        "botao-musica"
+      ).innerHTML =
+        "🎸 Tocar música";
+
+    }
+
+
+    /*
+      BOTÃO
     */
 
     function alternarMusica() {
@@ -646,13 +648,19 @@
         );
 
 
-      if (!player) {
+      if (!player || !playerPronto) {
 
         botao.innerHTML =
           "⏳ Carregando...";
 
-        return;
+        setTimeout(function() {
 
+          botao.innerHTML =
+            "🎸 Tocar música";
+
+        }, 1500);
+
+        return;
       }
 
 
@@ -662,9 +670,7 @@
 
         player.playVideo();
 
-      }
-
-      else {
+      } else {
 
         player.pauseVideo();
 
