@@ -39,6 +39,7 @@
     }
 
     /* SOMBRA INFERIOR */
+
     body::after {
       content: "";
       position: fixed;
@@ -56,6 +57,7 @@
     }
 
     /* CONTEÚDO */
+
     .conteudo {
       position: relative;
       z-index: 3;
@@ -67,9 +69,7 @@
       padding: 40px;
     }
 
-    /* =========================
-       NEXUS
-    ========================= */
+    /* NEXUS */
 
     .titulo {
       margin: 0;
@@ -121,7 +121,6 @@
     }
 
     @keyframes surgirLetra {
-
       0% {
         opacity: 0;
 
@@ -148,9 +147,7 @@
       }
     }
 
-    /* =========================
-       AWAKENING
-    ========================= */
+    /* AWAKENING */
 
     .subtitulo {
       margin-top: 10px;
@@ -170,9 +167,7 @@
       animation-delay: 1.25s;
     }
 
-    /* =========================
-       LINHA
-    ========================= */
+    /* LINHA */
 
     .linha {
       width: 0;
@@ -193,7 +188,6 @@
     }
 
     @keyframes crescerLinha {
-
       from {
         width: 0;
         opacity: 0;
@@ -205,9 +199,7 @@
       }
     }
 
-    /* =========================
-       FRASE
-    ========================= */
+    /* FRASE */
 
     .descricao {
       color: #ddd6fe;
@@ -233,7 +225,6 @@
     }
 
     @keyframes aparecerFrase {
-
       from {
         opacity: 0;
 
@@ -253,9 +244,7 @@
       }
     }
 
-    /* =========================
-       BOTÕES
-    ========================= */
+    /* BOTÕES */
 
     .botoes {
       display: flex;
@@ -307,9 +296,7 @@
     }
 
     .botao:hover {
-
-      transform:
-        translateY(-5px);
+      transform: translateY(-5px);
 
       background:
         rgba(126, 34, 206, 0.5);
@@ -319,9 +306,7 @@
         rgba(168, 85, 247, 0.7);
     }
 
-    /* =========================
-       MÚSICA
-    ========================= */
+    /* MÚSICA */
 
     .musica {
       margin-top: 35px;
@@ -337,7 +322,6 @@
     }
 
     .musica button {
-
       border: 1px solid #8b5cf6;
 
       border-radius: 25px;
@@ -360,7 +344,6 @@
     }
 
     .musica button:hover {
-
       background:
         rgba(91, 33, 182, 0.6);
 
@@ -372,32 +355,27 @@
         translateY(-2px);
     }
 
-    /* =========================
-       RODAPÉ
-    ========================= */
+    /* PLAYER COMPLETAMENTE INVISÍVEL */
 
-    .rodape {
+    #youtube-player {
+      position: fixed;
 
-      margin-top: 35px;
+      width: 200px;
+      height: 200px;
 
-      font-size: 12px;
-
-      color: #8b8199;
+      left: -500px;
+      top: -500px;
 
       opacity: 0;
 
-      animation:
-        aparecer 1s ease forwards;
+      border: 0;
 
-      animation-delay: 3.4s;
+      pointer-events: none;
     }
 
-    /* =========================
-       ANIMAÇÃO GERAL
-    ========================= */
+    /* ANIMAÇÃO GERAL */
 
     @keyframes aparecer {
-
       from {
         opacity: 0;
 
@@ -413,28 +391,24 @@
       }
     }
 
-    /* =========================
-       PLAYER DO YOUTUBE
-    ========================= */
+    /* RODAPÉ */
 
-    #youtube-player {
+    .rodape {
+      margin-top: 35px;
 
-      position: fixed;
+      font-size: 12px;
 
-      width: 200px;
-      height: 200px;
-
-      left: -1000px;
-      top: -1000px;
+      color: #8b8199;
 
       opacity: 0;
 
-      pointer-events: none;
+      animation:
+        aparecer 1s ease forwards;
+
+      animation-delay: 3.4s;
     }
 
-    /* =========================
-       CELULAR
-    ========================= */
+    /* CELULAR */
 
     @media (max-width: 600px) {
 
@@ -456,57 +430,37 @@
       }
 
       .botao {
-
         width: 100%;
-
         min-width: unset;
       }
     }
-
   </style>
 </head>
-
 
 <body>
 
   <main class="conteudo">
 
-    <!-- NEXUS -->
-
     <h1 class="titulo">
-
       <span>N</span>
       <span>E</span>
       <span>X</span>
       <span>U</span>
       <span>S</span>
-
     </h1>
-
-
-    <!-- AWAKENING -->
 
     <div class="subtitulo">
       AWAKENING
     </div>
 
-
     <div class="linha"></div>
 
-
-    <!-- FRASE -->
-
     <p class="descricao">
-
       <em>
         “Nem toda sombra esconde algo.
         Algumas apenas revelam o que a luz não mostra.”
       </em>
-
     </p>
-
-
-    <!-- BOTÕES -->
 
     <div class="botoes">
 
@@ -514,29 +468,19 @@
         href="livro.html"
         class="botao"
       >
-
         📖<br>
-
         Livro do RPG
-
       </a>
-
 
       <a
         href="ficha.html"
         class="botao"
       >
-
         📝<br>
-
         Ficha do Personagem
-
       </a>
 
     </div>
-
-
-    <!-- MÚSICA -->
 
     <div class="musica">
 
@@ -544,26 +488,23 @@
         id="botao-musica"
         onclick="alternarMusica()"
       >
-
         🎸 Tocar música
-
       </button>
 
     </div>
 
-
-    <!-- RODAPÉ -->
-
     <div class="rodape">
-
       NEXUS-AWAKENING • RPG
-
     </div>
 
   </main>
 
 
-  <!-- PLAYER DO YOUTUBE -->
+  <!--
+    PLAYER DO YOUTUBE.
+    Ele existe para reproduzir a música,
+    mas fica completamente fora da tela.
+  -->
 
   <div id="youtube-player"></div>
 
@@ -571,7 +512,6 @@
   <script>
 
     let player = null;
-
     let tocando = false;
 
 
@@ -594,43 +534,38 @@
 
     function onYouTubeIframeAPIReady() {
 
-      player =
-        new YT.Player(
-          "youtube-player",
-          {
+      player = new YT.Player(
+        "youtube-player",
+        {
 
-            width: "200",
+          width: "200",
+          height: "200",
 
-            height: "200",
+          videoId:
+            "NLaMyAbKNYo",
 
-            videoId:
-              "NLaMyAbKNYo",
+          playerVars: {
 
-            playerVars: {
+            playsinline: 1,
 
-              playsinline: 1,
+            controls: 0,
 
-              controls: 0,
+            rel: 0
 
-              rel: 0
+          },
 
-            },
+          events: {
 
-            events: {
+            onReady:
+              playerPronto,
 
-              onReady:
-                quandoPlayerPronto,
-
-              onStateChange:
-                quandoEstadoMudar,
-
-              onError:
-                quandoDerErro
-
-            }
+            onStateChange:
+              estadoMudou
 
           }
-        );
+
+        }
+      );
 
     }
 
@@ -639,22 +574,18 @@
       PLAYER PRONTO
     */
 
-    function quandoPlayerPronto(event) {
+    function playerPronto(event) {
 
       event.target.setVolume(45);
-
-      console.log(
-        "Player do YouTube carregado."
-      );
 
     }
 
 
     /*
-      MUDANÇA DE ESTADO
+      ESTADO DA MÚSICA
     */
 
-    function quandoEstadoMudar(event) {
+    function estadoMudou(event) {
 
       const botao =
         document.getElementById(
@@ -704,29 +635,7 @@
 
 
     /*
-      CASO O YOUTUBE DÊ ERRO
-    */
-
-    function quandoDerErro(event) {
-
-      console.log(
-        "Erro do YouTube:",
-        event.data
-      );
-
-      const botao =
-        document.getElementById(
-          "botao-musica"
-        );
-
-      botao.innerHTML =
-        "🎸 Abrir música";
-
-    }
-
-
-    /*
-      BOTÃO DA MÚSICA
+      BOTÃO DE MÚSICA
     */
 
     function alternarMusica() {
@@ -737,24 +646,15 @@
         );
 
 
-      /*
-        Se o player ainda não carregou
-      */
-
       if (!player) {
 
-        alert(
-          "A música ainda está carregando. Tente novamente em alguns segundos."
-        );
+        botao.innerHTML =
+          "⏳ Carregando...";
 
         return;
 
       }
 
-
-      /*
-        TOCAR
-      */
 
       if (!tocando) {
 
@@ -763,11 +663,6 @@
         player.playVideo();
 
       }
-
-
-      /*
-        PAUSAR
-      */
 
       else {
 
@@ -780,4 +675,4 @@
   </script>
 
 </body>
-        </html>
+</html>
