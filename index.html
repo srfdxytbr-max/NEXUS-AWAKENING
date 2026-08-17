@@ -1,145 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>NEXUS-AWAKENING</title>
 
-
   <style>
-
     * {
       box-sizing: border-box;
     }
 
-
-    html,
-    body {
-
+    html, body {
       margin: 0;
-
       width: 100%;
       height: 100%;
-
       overflow: hidden;
     }
 
-
     body {
-
       font-family: Georgia, serif;
-
       color: white;
 
-
       background:
-
         linear-gradient(
           rgba(20, 5, 35, 0.45),
           rgba(0, 0, 0, 0.92)
         ),
-
-        url(
-          "https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif"
-        );
-
+        url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
 
       background-size: cover;
-
       background-position: center;
-
       background-repeat: no-repeat;
 
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
     }
-
 
     /* SOMBRA INFERIOR */
 
     body::after {
-
       content: "";
-
       position: fixed;
-
       inset: 0;
 
       pointer-events: none;
-
       z-index: 2;
 
-
-      background:
-
-        linear-gradient(
-          to bottom,
-
-          transparent 40%,
-
-          rgba(0, 0, 0, 0.15) 55%,
-
-          rgba(0, 0, 0, 0.95) 100%
-        );
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(0, 0, 0, 0.15) 55%,
+        rgba(0, 0, 0, 0.95) 100%
+      );
     }
-
 
     /* CONTEÚDO */
 
     .conteudo {
-
       position: relative;
-
       z-index: 3;
 
       width: 90%;
-
       max-width: 900px;
 
       text-align: center;
-
       padding: 40px;
     }
-
 
     /* NEXUS */
 
     .titulo {
-
       margin: 0;
 
       font-family: Georgia, serif;
 
-      font-size:
-        clamp(45px, 10vw, 95px);
+      font-size: clamp(45px, 10vw, 95px);
 
       letter-spacing: 10px;
 
-
       text-shadow:
-
         0 0 10px #a855f7,
-
         0 0 25px #7e22ce,
-
         0 0 55px #581c87;
     }
-
 
     /* ANIMAÇÃO DAS LETRAS */
 
     .titulo span {
-
       display: inline-block;
 
       opacity: 0;
@@ -150,14 +99,11 @@
 
       filter: blur(12px);
 
-
       animation:
-
         surgirLetra 1.1s
         cubic-bezier(0.22, 1, 0.36, 1)
         forwards;
     }
-
 
     .titulo span:nth-child(1) {
       animation-delay: 0.25s;
@@ -179,11 +125,8 @@
       animation-delay: 0.85s;
     }
 
-
     @keyframes surgirLetra {
-
       0% {
-
         opacity: 0;
 
         transform:
@@ -193,17 +136,12 @@
         filter: blur(12px);
       }
 
-
       60% {
-
         opacity: 1;
-
         filter: blur(2px);
       }
 
-
       100% {
-
         opacity: 1;
 
         transform:
@@ -214,90 +152,63 @@
       }
     }
 
-
     /* AWAKENING */
 
     .subtitulo {
-
       margin-top: 10px;
 
       font-family: Georgia, serif;
 
       font-size: 18px;
-
       letter-spacing: 6px;
 
       color: #d8b4fe;
 
-
       opacity: 0;
 
-      transform:
-        translateY(20px);
-
+      transform: translateY(20px);
 
       animation:
-
         aparecer 1.4s ease forwards;
-
 
       animation-delay: 1.25s;
     }
 
-
     /* LINHA */
 
     .linha {
-
       width: 0;
-
       height: 2px;
 
       margin: 30px auto;
 
-
       background: #a855f7;
 
-
       box-shadow:
-
         0 0 10px #a855f7,
-
         0 0 25px #7e22ce;
 
-
       animation:
-
         crescerLinha 1.2s ease forwards;
-
 
       animation-delay: 1.65s;
     }
 
-
     @keyframes crescerLinha {
-
       from {
-
         width: 0;
-
         opacity: 0;
       }
 
-
       to {
-
         width: 130px;
-
         opacity: 1;
       }
     }
 
-
     /* FRASE */
 
     .descricao {
-
       color: #ddd6fe;
 
       font-family: Georgia, serif;
@@ -310,28 +221,20 @@
 
       margin: 0 auto;
 
-
       opacity: 0;
 
-      transform:
-        translateY(20px);
+      transform: translateY(20px);
 
       filter: blur(5px);
 
-
       animation:
-
         aparecerFrase 1.5s ease forwards;
-
 
       animation-delay: 1.9s;
     }
 
-
     @keyframes aparecerFrase {
-
       from {
-
         opacity: 0;
 
         transform:
@@ -340,9 +243,7 @@
         filter: blur(5px);
       }
 
-
       to {
-
         opacity: 1;
 
         transform:
@@ -352,11 +253,9 @@
       }
     }
 
-
     /* BOTÕES */
 
     .botoes {
-
       display: flex;
 
       justify-content: center;
@@ -367,39 +266,27 @@
 
       margin-top: 45px;
 
-
       opacity: 0;
 
-      transform:
-        translateY(25px);
-
+      transform: translateY(25px);
 
       animation:
-
         aparecer 1.3s ease forwards;
-
 
       animation-delay: 2.7s;
     }
 
-
     .botao {
-
       min-width: 230px;
 
       padding: 18px 25px;
 
-
-      border:
-        1px solid #a855f7;
-
+      border: 1px solid #a855f7;
 
       border-radius: 8px;
 
-
       background:
         rgba(25, 5, 40, 0.65);
-
 
       color: white;
 
@@ -409,137 +296,73 @@
 
       font-size: 16px;
 
-
       box-shadow:
-
         0 0 15px
         rgba(168, 85, 247, 0.25);
-
 
       transition: 0.3s;
     }
 
-
     .botao:hover {
-
-      transform:
-        translateY(-5px);
-
+      transform: translateY(-5px);
 
       background:
         rgba(126, 34, 206, 0.5);
 
-
       box-shadow:
-
         0 0 30px
         rgba(168, 85, 247, 0.7);
     }
 
-
     /* MÚSICA */
 
     .musica {
-
       margin-top: 35px;
-
 
       opacity: 0;
 
-      transform:
-        translateY(20px);
-
+      transform: translateY(20px);
 
       animation:
-
         aparecer 1.2s ease forwards;
-
 
       animation-delay: 3.1s;
     }
 
-
     .musica button {
-
-      border:
-        1px solid #8b5cf6;
-
+      border: 1px solid #8b5cf6;
 
       border-radius: 25px;
 
-
-      padding:
-        12px 24px;
-
+      padding: 12px 24px;
 
       color: #ede9fe;
-
 
       background:
         rgba(10, 3, 18, 0.75);
 
-
       cursor: pointer;
-
 
       font-family: Georgia, serif;
 
       font-size: 15px;
 
-
       transition: 0.3s;
     }
 
-
     .musica button:hover {
-
       background:
         rgba(91, 33, 182, 0.6);
 
-
       box-shadow:
-
         0 0 20px
         rgba(139, 92, 246, 0.5);
     }
 
-
-    /*
-      PLAYER
-
-      O YouTube exige pelo menos
-      200 x 200.
-
-      Ele fica fora da tela,
-      portanto não aparece no site.
-    */
-
-    #youtube-player {
-
-      position: fixed;
-
-      width: 200px;
-
-      height: 200px;
-
-
-      left: -250px;
-
-      top: -250px;
-
-
-      opacity: 0;
-
-      pointer-events: none;
-    }
-
-
     /* RODAPÉ */
 
     .rodape {
-
       margin-top: 35px;
-
 
       font-family: Georgia, serif;
 
@@ -547,32 +370,23 @@
 
       color: #8b8199;
 
-
       opacity: 0;
 
-
       animation:
-
         aparecer 1s ease forwards;
-
 
       animation-delay: 3.4s;
     }
 
-
     @keyframes aparecer {
-
       from {
-
         opacity: 0;
 
         transform:
           translateY(20px);
       }
 
-
       to {
-
         opacity: 1;
 
         transform:
@@ -580,366 +394,206 @@
       }
     }
 
-
     /* CELULAR */
 
     @media (max-width: 600px) {
 
       .conteudo {
-
         padding: 25px;
       }
 
-
       .titulo {
-
         letter-spacing: 5px;
       }
 
-
       .subtitulo {
-
         font-size: 14px;
-
         letter-spacing: 4px;
       }
 
-
       .descricao {
-
         font-size: 15px;
       }
 
-
       .botao {
-
         width: 100%;
-
         min-width: unset;
       }
-
     }
 
   </style>
 
 </head>
 
-
 <body>
-
 
   <main class="conteudo">
 
-
     <h1 class="titulo">
-
       <span>N</span>
       <span>E</span>
       <span>X</span>
       <span>U</span>
       <span>S</span>
-
     </h1>
 
-
     <div class="subtitulo">
-
       AWAKENING
-
     </div>
-
 
     <div class="linha"></div>
 
-
     <p class="descricao">
-
       <em>
-
         “Nem toda sombra esconde algo.
         Algumas apenas revelam o que
         a luz não mostra.”
-
       </em>
-
     </p>
-
 
     <div class="botoes">
 
-
-      <a
-        href="livro.html"
-        class="botao"
-      >
-
+      <a href="livro.html" class="botao">
         📖<br>
-
         Livro do RPG
-
       </a>
 
-
-      <a
-        href="ficha.html"
-        class="botao"
-      >
-
+      <a href="ficha.html" class="botao">
         📝<br>
-
         Ficha do Personagem
-
       </a>
-
 
     </div>
 
+    <!-- BOTÃO DA MÚSICA -->
 
     <div class="musica">
-
 
       <button
         id="botao-musica"
         onclick="alternarMusica()"
       >
-
         🎸 Tocar música
-
       </button>
 
-
     </div>
-
 
     <div class="rodape">
-
       NEXUS-AWAKENING • RPG
-
     </div>
-
 
   </main>
 
 
-  <!-- PLAYER INVISÍVEL -->
+  <!-- ==================================================
+       🎵 MÚSICA DO SITE
+       
+       O ARQUIVO MP3 DEVE ESTAR NO MESMO LUGAR
+       QUE O index.html.
 
-  <div id="youtube-player"></div>
+       NOME DO ARQUIVO:
+       musica.mp3
+
+       EXEMPLO:
+
+       📁 repositório
+       ├── index.html
+       ├── musica.mp3
+       ├── livro.html
+       └── ficha.html
+
+       Se o seu MP3 tiver outro nome, altere
+       "musica.mp3" abaixo.
+       ================================================== -->
+
+  <audio
+    id="musica"
+    preload="auto"
+  >
+
+    <source
+      src="musica.mp3"
+      type="audio/mpeg"
+    >
+
+  </audio>
 
 
   <script>
 
+    const musica =
+      document.getElementById("musica");
 
-    let player = null;
+    const botaoMusica =
+      document.getElementById("botao-musica");
 
     let tocando = false;
 
-    let pronto = false;
 
+    /* Volume da música: 45% */
 
-    /*
-      CARREGAR API
-    */
+    musica.volume = 0.45;
 
-    const tag =
-      document.createElement("script");
 
-
-    tag.src =
-      "https://www.youtube.com/iframe_api";
-
-
-    document.head.appendChild(tag);
-
-
-    /*
-      CRIAR PLAYER
-    */
-
-    function onYouTubeIframeAPIReady() {
-
-
-      player =
-        new YT.Player(
-          "youtube-player",
-          {
-
-            width: "200",
-
-            height: "200",
-
-
-            videoId:
-              "NLaMyAbKNYo",
-
-
-            playerVars: {
-
-              playsinline: 1,
-
-              controls: 0,
-
-              rel: 0,
-
-              enablejsapi: 1,
-
-              origin:
-                window.location.origin
-
-            },
-
-
-            events: {
-
-              onReady:
-                function(event) {
-
-                  pronto = true;
-
-                  event.target.setVolume(45);
-
-                },
-
-
-              onStateChange:
-                function(event) {
-
-
-                  if (
-                    event.data ===
-                    YT.PlayerState.PLAYING
-                  ) {
-
-                    tocando = true;
-
-
-                    document
-                      .getElementById(
-                        "botao-musica"
-                      )
-                      .textContent =
-                      "🔊 Música ligada";
-
-                  }
-
-
-                  if (
-                    event.data ===
-                    YT.PlayerState.PAUSED
-                  ) {
-
-                    tocando = false;
-
-
-                    document
-                      .getElementById(
-                        "botao-musica"
-                      )
-                      .textContent =
-                      "🎸 Tocar música";
-
-                  }
-
-
-                  if (
-                    event.data ===
-                    YT.PlayerState.ENDED
-                  ) {
-
-                    tocando = false;
-
-
-                    document
-                      .getElementById(
-                        "botao-musica"
-                      )
-                      .textContent =
-                      "🎸 Tocar música";
-
-                  }
-
-                },
-
-
-              onAutoplayBlocked:
-                function() {
-
-                  console.log(
-                    "O navegador bloqueou a reprodução."
-                  );
-
-                  tocando = false;
-
-                },
-
-
-              onError:
-                function(event) {
-
-                  console.log(
-                    "ERRO YOUTUBE:",
-                    event.data
-                  );
-
-                }
-
-            }
-
-          }
-        );
-
-    }
-
-
-    /*
-      BOTÃO
-    */
+    /* Botão de tocar/pausar */
 
     function alternarMusica() {
 
+      if (!tocando) {
 
-      const botao =
-        document.getElementById(
-          "botao-musica"
-        );
+        musica.play()
+          .then(() => {
 
+            tocando = true;
 
-      if (!player || !pronto) {
+            botaoMusica.innerHTML =
+              "🔊 Música ligada";
 
-        botao.textContent =
-          "⏳ Carregando...";
+          })
 
-        return;
+          .catch((erro) => {
+
+            console.error(
+              "Erro ao tocar o MP3:",
+              erro
+            );
+
+            botaoMusica.innerHTML =
+              "❌ Erro ao carregar";
+
+          });
 
       }
 
+      else {
 
-      if (!tocando) {
+        musica.pause();
 
+        tocando = false;
 
-        /*
-          IMPORTANTE:
-
-          playVideo() é chamado
-          diretamente pelo clique
-          do usuário.
-        */
-
-        player.setVolume(45);
-
-        player.playVideo();
-
-
-      } else {
-
-
-        player.pauseVideo();
+        botaoMusica.innerHTML =
+          "🎸 Tocar música";
 
       }
 
     }
 
-  </script>
 
+    /* Quando a música terminar */
+
+    musica.addEventListener(
+      "ended",
+      () => {
+
+        tocando = false;
+
+        botaoMusica.innerHTML =
+          "🎸 Tocar música";
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
