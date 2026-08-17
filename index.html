@@ -38,18 +38,19 @@
       align-items: center;
     }
 
-    /* Escurece principalmente a parte inferior */
+    /* Sombra cinematográfica na parte inferior */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
+
       pointer-events: none;
       z-index: 2;
 
       background: linear-gradient(
         to bottom,
-        transparent 45%,
-        rgba(0, 0, 0, 0.15) 60%,
+        transparent 40%,
+        rgba(0, 0, 0, 0.15) 55%,
         rgba(0, 0, 0, 0.95) 100%
       );
     }
@@ -178,7 +179,7 @@
       color: #8b8199;
     }
 
-    /* Player do YouTube fica invisível */
+    /* Player do YouTube */
     #youtube-player {
       position: fixed;
 
@@ -225,9 +226,11 @@
     </div>
 
     <div class="musica">
+
       <button id="botao-musica" onclick="alternarMusica()">
         🎸 Tocar música
       </button>
+
     </div>
 
     <div class="rodape">
@@ -236,18 +239,20 @@
 
   </main>
 
-  <!-- Player invisível -->
+
+  <!-- Player invisível do YouTube -->
   <div id="youtube-player"></div>
+
 
   <script>
 
     let player;
-
     let tocando = false;
 
     /*
       Carrega a API do YouTube
     */
+
     const tag = document.createElement("script");
 
     tag.src = "https://www.youtube.com/iframe_api";
@@ -256,18 +261,20 @@
 
 
     /*
-      Cria o player usando o ID
-      do vídeo que você mandou.
+      Cria o player.
+      
+      ID da música:
+      NLaMyAbKNYo
     */
+
     function onYouTubeIframeAPIReady() {
 
       player = new YT.Player("youtube-player", {
 
         height: "1",
-
         width: "1",
 
-        videoId: "3M3uarvzsOs",
+        videoId: "NLaMyAbKNYo",
 
         playerVars: {
           playsinline: 1,
@@ -282,14 +289,22 @@
     /*
       Botão de música
     */
+
     function alternarMusica() {
 
       if (!player) {
-        alert("A música ainda está carregando. Tente novamente em alguns segundos.");
+
+        alert(
+          "A música ainda está carregando. Tente novamente em alguns segundos."
+        );
+
         return;
       }
 
-      const botao = document.getElementById("botao-musica");
+
+      const botao =
+        document.getElementById("botao-musica");
+
 
       if (!tocando) {
 
