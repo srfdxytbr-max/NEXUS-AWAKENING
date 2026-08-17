@@ -38,7 +38,7 @@
       align-items: center;
     }
 
-    /* Sombra cinematográfica na parte inferior */
+    /* Sombra cinematográfica inferior */
     body::after {
       content: "";
       position: fixed;
@@ -66,6 +66,10 @@
       padding: 40px;
     }
 
+    /* =========================
+       NEXUS
+    ========================= */
+
     .titulo {
       margin: 0;
 
@@ -78,6 +82,70 @@
         0 0 55px #581c87;
     }
 
+    .titulo span {
+      display: inline-block;
+
+      opacity: 0;
+
+      transform:
+        translateY(35px)
+        scale(0.85);
+
+      filter: blur(12px);
+
+      animation:
+        surgirLetra 1.1s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+    }
+
+    .titulo span:nth-child(1) {
+      animation-delay: 0.25s;
+    }
+
+    .titulo span:nth-child(2) {
+      animation-delay: 0.40s;
+    }
+
+    .titulo span:nth-child(3) {
+      animation-delay: 0.55s;
+    }
+
+    .titulo span:nth-child(4) {
+      animation-delay: 0.70s;
+    }
+
+    .titulo span:nth-child(5) {
+      animation-delay: 0.85s;
+    }
+
+    @keyframes surgirLetra {
+      0% {
+        opacity: 0;
+        transform:
+          translateY(35px)
+          scale(0.85);
+        filter: blur(12px);
+      }
+
+      60% {
+        opacity: 1;
+        filter: blur(2px);
+      }
+
+      100% {
+        opacity: 1;
+        transform:
+          translateY(0)
+          scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* =========================
+       AWAKENING
+    ========================= */
+
     .subtitulo {
       margin-top: 10px;
 
@@ -85,10 +153,24 @@
       letter-spacing: 6px;
 
       color: #d8b4fe;
+
+      opacity: 0;
+
+      transform: translateY(20px);
+
+      animation:
+        aparecer 1.4s
+        ease forwards;
+
+      animation-delay: 1.25s;
     }
 
+    /* =========================
+       LINHA
+    ========================= */
+
     .linha {
-      width: 130px;
+      width: 0;
       height: 2px;
 
       margin: 30px auto;
@@ -98,21 +180,92 @@
       box-shadow:
         0 0 10px #a855f7,
         0 0 25px #7e22ce;
+
+      animation:
+        crescerLinha 1.2s
+        ease forwards;
+
+      animation-delay: 1.65s;
     }
+
+    @keyframes crescerLinha {
+      from {
+        width: 0;
+        opacity: 0;
+      }
+
+      to {
+        width: 130px;
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+       FRASE
+    ========================= */
 
     .descricao {
       color: #ddd6fe;
+
       font-size: 17px;
+
+      line-height: 1.7;
+
+      max-width: 650px;
+
+      margin: 0 auto;
+
+      opacity: 0;
+
+      transform:
+        translateY(20px);
+
+      filter: blur(5px);
+
+      animation:
+        aparecerFrase 1.5s
+        ease forwards;
+
+      animation-delay: 1.9s;
     }
+
+    @keyframes aparecerFrase {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    /* =========================
+       BOTÕES
+    ========================= */
 
     .botoes {
       display: flex;
       justify-content: center;
+
       gap: 20px;
 
       flex-wrap: wrap;
 
       margin-top: 45px;
+
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      animation:
+        aparecer 1.3s
+        ease forwards;
+
+      animation-delay: 2.7s;
     }
 
     .botao {
@@ -123,63 +276,127 @@
       border: 1px solid #a855f7;
       border-radius: 8px;
 
-      background: rgba(25, 5, 40, 0.65);
+      background:
+        rgba(25, 5, 40, 0.65);
 
       color: white;
+
       text-decoration: none;
 
       font-size: 16px;
 
       box-shadow:
-        0 0 15px rgba(168, 85, 247, 0.25);
+        0 0 15px
+        rgba(168, 85, 247, 0.25);
 
-      transition: 0.3s;
+      transition:
+        transform 0.3s,
+        background 0.3s,
+        box-shadow 0.3s;
     }
 
     .botao:hover {
       transform: translateY(-5px);
 
-      background: rgba(126, 34, 206, 0.5);
+      background:
+        rgba(126, 34, 206, 0.5);
 
       box-shadow:
-        0 0 30px rgba(168, 85, 247, 0.7);
+        0 0 30px
+        rgba(168, 85, 247, 0.7);
     }
+
+    /* =========================
+       MÚSICA
+    ========================= */
 
     .musica {
       margin-top: 35px;
+
+      opacity: 0;
+
+      transform: translateY(20px);
+
+      animation:
+        aparecer 1.2s
+        ease forwards;
+
+      animation-delay: 3.1s;
     }
 
     .musica button {
       border: 1px solid #8b5cf6;
+
       border-radius: 25px;
 
       padding: 12px 24px;
 
       color: #ede9fe;
-      background: rgba(10, 3, 18, 0.75);
+
+      background:
+        rgba(10, 3, 18, 0.75);
 
       cursor: pointer;
 
       font-size: 15px;
 
-      transition: 0.3s;
+      transition:
+        background 0.3s,
+        box-shadow 0.3s,
+        transform 0.3s;
     }
 
     .musica button:hover {
-      background: rgba(91, 33, 182, 0.6);
+      background:
+        rgba(91, 33, 182, 0.6);
 
       box-shadow:
-        0 0 20px rgba(139, 92, 246, 0.5);
+        0 0 20px
+        rgba(139, 92, 246, 0.5);
+
+      transform: translateY(-2px);
     }
+
+    /* =========================
+       RODAPÉ
+    ========================= */
 
     .rodape {
       margin-top: 35px;
 
       font-size: 12px;
+
       color: #8b8199;
+
+      opacity: 0;
+
+      animation:
+        aparecer 1s
+        ease forwards;
+
+      animation-delay: 3.4s;
     }
 
-    /* Player do YouTube */
+    /* =========================
+       ANIMAÇÃO GERAL
+    ========================= */
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       PLAYER YOUTUBE
+    ========================= */
+
     #youtube-player {
       position: fixed;
 
@@ -187,10 +404,41 @@
       height: 1px;
 
       opacity: 0;
+
       pointer-events: none;
 
       left: -10px;
       bottom: -10px;
+    }
+
+    /* =========================
+       CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .conteudo {
+        padding: 25px;
+      }
+
+      .titulo {
+        letter-spacing: 5px;
+      }
+
+      .subtitulo {
+        font-size: 14px;
+        letter-spacing: 4px;
+      }
+
+      .descricao {
+        font-size: 15px;
+      }
+
+      .botao {
+        width: 100%;
+        min-width: unset;
+      }
+
     }
   </style>
 </head>
@@ -199,17 +447,40 @@
 
   <main class="conteudo">
 
-    <h1 class="titulo">NEXUS</h1>
+    <!-- NEXUS aparece letra por letra -->
+
+    <h1 class="titulo">
+
+      <span>N</span>
+      <span>E</span>
+      <span>X</span>
+      <span>U</span>
+      <span>S</span>
+
+    </h1>
+
+
+    <!-- AWAKENING aparece depois -->
 
     <div class="subtitulo">
       AWAKENING
     </div>
 
+
     <div class="linha"></div>
 
+
+    <!-- FRASE -->
+
     <p class="descricao">
-      “Nem toda sombra esconde algo. Algumas apenas revelam o que a luz não mostra.”
+      <em>
+        “Nem toda sombra esconde algo.
+        Algumas apenas revelam o que a luz não mostra.”
+      </em>
     </p>
+
+
+    <!-- BOTÕES -->
 
     <div class="botoes">
 
@@ -218,6 +489,7 @@
         Livro do RPG
       </a>
 
+
       <a href="ficha.html" class="botao">
         📝<br>
         Ficha do Personagem
@@ -225,13 +497,20 @@
 
     </div>
 
+
+    <!-- MÚSICA -->
+
     <div class="musica">
 
-      <button id="botao-musica" onclick="alternarMusica()">
+      <button
+        id="botao-musica"
+        onclick="alternarMusica()"
+      >
         🎸 Tocar música
       </button>
 
     </div>
+
 
     <div class="rodape">
       NEXUS-AWAKENING • RPG
@@ -240,48 +519,58 @@
   </main>
 
 
-  <!-- Player invisível do YouTube -->
+  <!-- PLAYER INVISÍVEL DO YOUTUBE -->
+
   <div id="youtube-player"></div>
 
 
   <script>
 
     let player;
+
     let tocando = false;
+
 
     /*
       Carrega a API do YouTube
     */
 
-    const tag = document.createElement("script");
+    const tag =
+      document.createElement("script");
 
-    tag.src = "https://www.youtube.com/iframe_api";
+    tag.src =
+      "https://www.youtube.com/iframe_api";
 
     document.head.appendChild(tag);
 
 
     /*
-      Cria o player.
-      
-      ID da música:
-      NLaMyAbKNYo
+      Cria o player da música
     */
 
     function onYouTubeIframeAPIReady() {
 
-      player = new YT.Player("youtube-player", {
+      player = new YT.Player(
+        "youtube-player",
+        {
 
-        height: "1",
-        width: "1",
+          height: "1",
 
-        videoId: "NLaMyAbKNYo",
+          width: "1",
 
-        playerVars: {
-          playsinline: 1,
-          controls: 0
+          videoId:
+            "NLaMyAbKNYo",
+
+          playerVars: {
+
+            playsinline: 1,
+
+            controls: 0
+
+          }
+
         }
-
-      });
+      );
 
     }
 
@@ -299,11 +588,14 @@
         );
 
         return;
+
       }
 
 
       const botao =
-        document.getElementById("botao-musica");
+        document.getElementById(
+          "botao-musica"
+        );
 
 
       if (!tocando) {
@@ -314,15 +606,19 @@
 
         tocando = true;
 
-        botao.innerHTML = "🔊 Música ligada";
+        botao.innerHTML =
+          "🔊 Música ligada";
 
-      } else {
+      }
+
+      else {
 
         player.pauseVideo();
 
         tocando = false;
 
-        botao.innerHTML = "🎸 Tocar música";
+        botao.innerHTML =
+          "🎸 Tocar música";
 
       }
 
