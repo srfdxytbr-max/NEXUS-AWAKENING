@@ -38,7 +38,7 @@
       align-items: center;
     }
 
-    /* Sombra cinematográfica inferior */
+    /* SOMBRA INFERIOR */
     body::after {
       content: "";
       position: fixed;
@@ -55,6 +55,7 @@
       );
     }
 
+    /* CONTEÚDO */
     .conteudo {
       position: relative;
       z-index: 3;
@@ -120,11 +121,14 @@
     }
 
     @keyframes surgirLetra {
+
       0% {
         opacity: 0;
+
         transform:
           translateY(35px)
           scale(0.85);
+
         filter: blur(12px);
       }
 
@@ -135,9 +139,11 @@
 
       100% {
         opacity: 1;
+
         transform:
           translateY(0)
           scale(1);
+
         filter: blur(0);
       }
     }
@@ -159,8 +165,7 @@
       transform: translateY(20px);
 
       animation:
-        aparecer 1.4s
-        ease forwards;
+        aparecer 1.4s ease forwards;
 
       animation-delay: 1.25s;
     }
@@ -182,13 +187,13 @@
         0 0 25px #7e22ce;
 
       animation:
-        crescerLinha 1.2s
-        ease forwards;
+        crescerLinha 1.2s ease forwards;
 
       animation-delay: 1.65s;
     }
 
     @keyframes crescerLinha {
+
       from {
         width: 0;
         opacity: 0;
@@ -217,28 +222,33 @@
 
       opacity: 0;
 
-      transform:
-        translateY(20px);
+      transform: translateY(20px);
 
       filter: blur(5px);
 
       animation:
-        aparecerFrase 1.5s
-        ease forwards;
+        aparecerFrase 1.5s ease forwards;
 
       animation-delay: 1.9s;
     }
 
     @keyframes aparecerFrase {
+
       from {
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+          translateY(20px);
+
         filter: blur(5px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
+
         filter: blur(0);
       }
     }
@@ -249,6 +259,7 @@
 
     .botoes {
       display: flex;
+
       justify-content: center;
 
       gap: 20px;
@@ -262,8 +273,7 @@
       transform: translateY(25px);
 
       animation:
-        aparecer 1.3s
-        ease forwards;
+        aparecer 1.3s ease forwards;
 
       animation-delay: 2.7s;
     }
@@ -274,6 +284,7 @@
       padding: 18px 25px;
 
       border: 1px solid #a855f7;
+
       border-radius: 8px;
 
       background:
@@ -296,7 +307,9 @@
     }
 
     .botao:hover {
-      transform: translateY(-5px);
+
+      transform:
+        translateY(-5px);
 
       background:
         rgba(126, 34, 206, 0.5);
@@ -318,13 +331,13 @@
       transform: translateY(20px);
 
       animation:
-        aparecer 1.2s
-        ease forwards;
+        aparecer 1.2s ease forwards;
 
       animation-delay: 3.1s;
     }
 
     .musica button {
+
       border: 1px solid #8b5cf6;
 
       border-radius: 25px;
@@ -347,6 +360,7 @@
     }
 
     .musica button:hover {
+
       background:
         rgba(91, 33, 182, 0.6);
 
@@ -354,7 +368,8 @@
         0 0 20px
         rgba(139, 92, 246, 0.5);
 
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
     }
 
     /* =========================
@@ -362,6 +377,7 @@
     ========================= */
 
     .rodape {
+
       margin-top: 35px;
 
       font-size: 12px;
@@ -371,8 +387,7 @@
       opacity: 0;
 
       animation:
-        aparecer 1s
-        ease forwards;
+        aparecer 1s ease forwards;
 
       animation-delay: 3.4s;
     }
@@ -382,33 +397,39 @@
     ========================= */
 
     @keyframes aparecer {
+
       from {
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+          translateY(20px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
       }
     }
 
     /* =========================
-       PLAYER YOUTUBE
+       PLAYER DO YOUTUBE
     ========================= */
 
     #youtube-player {
+
       position: fixed;
 
-      width: 1px;
-      height: 1px;
+      width: 200px;
+      height: 200px;
+
+      left: -1000px;
+      top: -1000px;
 
       opacity: 0;
 
       pointer-events: none;
-
-      left: -10px;
-      bottom: -10px;
     }
 
     /* =========================
@@ -435,19 +456,22 @@
       }
 
       .botao {
+
         width: 100%;
+
         min-width: unset;
       }
-
     }
+
   </style>
 </head>
+
 
 <body>
 
   <main class="conteudo">
 
-    <!-- NEXUS aparece letra por letra -->
+    <!-- NEXUS -->
 
     <h1 class="titulo">
 
@@ -460,7 +484,7 @@
     </h1>
 
 
-    <!-- AWAKENING aparece depois -->
+    <!-- AWAKENING -->
 
     <div class="subtitulo">
       AWAKENING
@@ -473,10 +497,12 @@
     <!-- FRASE -->
 
     <p class="descricao">
+
       <em>
         “Nem toda sombra esconde algo.
         Algumas apenas revelam o que a luz não mostra.”
       </em>
+
     </p>
 
 
@@ -484,15 +510,27 @@
 
     <div class="botoes">
 
-      <a href="livro.html" class="botao">
+      <a
+        href="livro.html"
+        class="botao"
+      >
+
         📖<br>
+
         Livro do RPG
+
       </a>
 
 
-      <a href="ficha.html" class="botao">
+      <a
+        href="ficha.html"
+        class="botao"
+      >
+
         📝<br>
+
         Ficha do Personagem
+
       </a>
 
     </div>
@@ -506,33 +544,39 @@
         id="botao-musica"
         onclick="alternarMusica()"
       >
+
         🎸 Tocar música
+
       </button>
 
     </div>
 
 
+    <!-- RODAPÉ -->
+
     <div class="rodape">
+
       NEXUS-AWAKENING • RPG
+
     </div>
 
   </main>
 
 
-  <!-- PLAYER INVISÍVEL DO YOUTUBE -->
+  <!-- PLAYER DO YOUTUBE -->
 
   <div id="youtube-player"></div>
 
 
   <script>
 
-    let player;
+    let player = null;
 
     let tocando = false;
 
 
     /*
-      Carrega a API do YouTube
+      CARREGA A API DO YOUTUBE
     */
 
     const tag =
@@ -545,41 +589,157 @@
 
 
     /*
-      Cria o player da música
+      CRIA O PLAYER
     */
 
     function onYouTubeIframeAPIReady() {
 
-      player = new YT.Player(
-        "youtube-player",
-        {
+      player =
+        new YT.Player(
+          "youtube-player",
+          {
 
-          height: "1",
+            width: "200",
 
-          width: "1",
+            height: "200",
 
-          videoId:
-            "NLaMyAbKNYo",
+            videoId:
+              "NLaMyAbKNYo",
 
-          playerVars: {
+            playerVars: {
 
-            playsinline: 1,
+              playsinline: 1,
 
-            controls: 0
+              controls: 0,
+
+              rel: 0
+
+            },
+
+            events: {
+
+              onReady:
+                quandoPlayerPronto,
+
+              onStateChange:
+                quandoEstadoMudar,
+
+              onError:
+                quandoDerErro
+
+            }
 
           }
+        );
 
-        }
+    }
+
+
+    /*
+      PLAYER PRONTO
+    */
+
+    function quandoPlayerPronto(event) {
+
+      event.target.setVolume(45);
+
+      console.log(
+        "Player do YouTube carregado."
       );
 
     }
 
 
     /*
-      Botão de música
+      MUDANÇA DE ESTADO
+    */
+
+    function quandoEstadoMudar(event) {
+
+      const botao =
+        document.getElementById(
+          "botao-musica"
+        );
+
+
+      if (
+        event.data ===
+        YT.PlayerState.PLAYING
+      ) {
+
+        tocando = true;
+
+        botao.innerHTML =
+          "🔊 Música ligada";
+
+      }
+
+
+      if (
+        event.data ===
+        YT.PlayerState.PAUSED
+      ) {
+
+        tocando = false;
+
+        botao.innerHTML =
+          "🎸 Tocar música";
+
+      }
+
+
+      if (
+        event.data ===
+        YT.PlayerState.ENDED
+      ) {
+
+        tocando = false;
+
+        botao.innerHTML =
+          "🎸 Tocar música";
+
+      }
+
+    }
+
+
+    /*
+      CASO O YOUTUBE DÊ ERRO
+    */
+
+    function quandoDerErro(event) {
+
+      console.log(
+        "Erro do YouTube:",
+        event.data
+      );
+
+      const botao =
+        document.getElementById(
+          "botao-musica"
+        );
+
+      botao.innerHTML =
+        "🎸 Abrir música";
+
+    }
+
+
+    /*
+      BOTÃO DA MÚSICA
     */
 
     function alternarMusica() {
+
+      const botao =
+        document.getElementById(
+          "botao-musica"
+        );
+
+
+      /*
+        Se o player ainda não carregou
+      */
 
       if (!player) {
 
@@ -592,11 +752,9 @@
       }
 
 
-      const botao =
-        document.getElementById(
-          "botao-musica"
-        );
-
+      /*
+        TOCAR
+      */
 
       if (!tocando) {
 
@@ -604,21 +762,16 @@
 
         player.playVideo();
 
-        tocando = true;
-
-        botao.innerHTML =
-          "🔊 Música ligada";
-
       }
+
+
+      /*
+        PAUSAR
+      */
 
       else {
 
         player.pauseVideo();
-
-        tocando = false;
-
-        botao.innerHTML =
-          "🎸 Tocar música";
 
       }
 
@@ -627,4 +780,4 @@
   </script>
 
 </body>
-</html>
+        </html>
