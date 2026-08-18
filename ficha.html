@@ -5,7 +5,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Ficha — NEXUS-AWAKENING</title>
 
@@ -15,6 +18,10 @@
 >
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -30,20 +37,25 @@ body{
 
     min-height:100vh;
 
+    color:#eee;
+
+    font-family:Georgia,serif;
+
     background:
+
         linear-gradient(
             rgba(15,3,25,.88),
             rgba(0,0,0,.97)
         ),
+
         url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
 
     background-size:cover;
+
     background-position:center;
+
     background-attachment:fixed;
 
-    color:#eee;
-
-    font-family:Georgia,serif;
 }
 
 
@@ -54,24 +66,31 @@ body{
 .topo{
 
     position:sticky;
+
     top:0;
-    z-index:100;
+
+    z-index:1000;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     gap:10px;
 
     padding:12px 18px;
 
-    background:rgba(8,2,14,.92);
+    background:
+        rgba(8,2,14,.94);
 
-    border-bottom:1px solid
-        rgba(168,85,247,.35);
+    border-bottom:
+        1px solid rgba(168,85,247,.35);
 
     backdrop-filter:blur(12px);
+
 }
+
 
 .topo-esquerda,
 .topo-direita{
@@ -81,12 +100,15 @@ body{
     gap:8px;
 
     flex-wrap:wrap;
+
 }
+
 
 .topo button,
 .topo a{
 
-    border:1px solid #8b5cf6;
+    border:
+        1px solid #8b5cf6;
 
     background:
         rgba(35,8,55,.75);
@@ -104,7 +126,9 @@ body{
     font-family:Georgia,serif;
 
     transition:.25s;
+
 }
+
 
 .topo button:hover,
 .topo a:hover{
@@ -115,6 +139,7 @@ body{
     box-shadow:
         0 0 18px
         rgba(168,85,247,.45);
+
 }
 
 
@@ -126,9 +151,10 @@ body{
 
     width:94%;
 
-    max-width:1100px;
+    max-width:1150px;
 
     margin:35px auto 80px;
+
 }
 
 
@@ -144,16 +170,18 @@ body{
 
     animation:
         aparecer .8s ease forwards;
+
 }
+
 
 .cabecalho h1{
 
     margin:0;
 
-    font-family:"Cinzel",Georgia,serif;
+    font-family:"Cinzel",serif;
 
     font-size:
-        clamp(38px,8vw,70px);
+        clamp(40px,8vw,72px);
 
     font-weight:700;
 
@@ -166,13 +194,16 @@ body{
         0 0 25px #7e22ce,
 
         0 0 50px #581c87;
+
 }
+
 
 .cabecalho p{
 
     color:#c4b5fd;
 
     letter-spacing:4px;
+
 }
 
 
@@ -186,8 +217,8 @@ body{
 
     padding:25px;
 
-    border:1px solid
-        rgba(168,85,247,.35);
+    border:
+        1px solid rgba(168,85,247,.35);
 
     border-radius:14px;
 
@@ -200,7 +231,9 @@ body{
 
     animation:
         aparecer .7s ease both;
+
 }
+
 
 .secao h2{
 
@@ -208,25 +241,136 @@ body{
 
     padding-bottom:12px;
 
-    border-bottom:1px solid
-        rgba(168,85,247,.25);
+    border-bottom:
+        1px solid rgba(168,85,247,.25);
 
     color:#d8b4fe;
 
     letter-spacing:3px;
+
 }
+
 
 @keyframes aparecer{
 
     from{
+
         opacity:0;
+
         transform:translateY(25px);
+
     }
 
     to{
+
         opacity:1;
+
         transform:translateY(0);
+
     }
+
+}
+
+
+/* =====================================================
+   CAMPOS
+===================================================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+
+.campo label{
+
+    color:#bda8d0;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+}
+
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:11px 12px;
+
+    border-radius:7px;
+
+    border:
+        1px solid rgba(168,85,247,.4);
+
+    outline:none;
+
+    background:
+        rgba(5,2,10,.75);
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+}
+
+
+textarea{
+
+    min-height:150px;
+
+    resize:vertical;
+
+    line-height:1.5;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#a855f7;
+
+    box-shadow:
+        0 0 12px
+        rgba(168,85,247,.25);
+
+}
+
+
+input[type=number]{
+
+    appearance:textfield;
+
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+
+    appearance:none;
+
 }
 
 
@@ -243,7 +387,9 @@ body{
     align-items:center;
 
     gap:15px;
+
 }
+
 
 .foto{
 
@@ -251,7 +397,8 @@ body{
 
     height:240px;
 
-    border:2px solid #8b5cf6;
+    border:
+        2px solid #8b5cf6;
 
     border-radius:10px;
 
@@ -269,15 +416,20 @@ body{
     box-shadow:
         0 0 25px
         rgba(139,92,246,.3);
+
 }
+
 
 .foto img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
+
 }
+
 
 .foto-vazio{
 
@@ -286,82 +438,7 @@ body{
     text-align:center;
 
     padding:15px;
-}
 
-
-/* =====================================================
-   INPUTS
-===================================================== */
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    gap:15px;
-}
-
-.campo{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:6px;
-}
-
-.campo label{
-
-    color:#bda8d0;
-
-    font-size:13px;
-
-    letter-spacing:1px;
-}
-
-input,
-select{
-
-    width:100%;
-
-    padding:11px 12px;
-
-    border-radius:7px;
-
-    border:1px solid
-        rgba(168,85,247,.4);
-
-    outline:none;
-
-    background:
-        rgba(5,2,10,.75);
-
-    color:white;
-
-    font-family:Georgia,serif;
-}
-
-input:focus,
-select:focus{
-
-    border-color:#a855f7;
-
-    box-shadow:
-        0 0 12px
-        rgba(168,85,247,.25);
-}
-
-input[type=number]{
-
-    appearance:textfield;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button{
-
-    appearance:none;
 }
 
 
@@ -373,15 +450,17 @@ input[type=number]::-webkit-outer-spin-button{
 
     border-color:
         rgba(168,85,247,.65);
+
 }
+
 
 .nexo-titulo{
 
     text-align:center;
 
-    font-family:"Cinzel",Georgia,serif;
+    font-family:"Cinzel",serif;
 
-    font-size:30px;
+    font-size:32px;
 
     font-weight:700;
 
@@ -391,7 +470,9 @@ input[type=number]::-webkit-outer-spin-button{
 
     text-shadow:
         0 0 15px #7e22ce;
+
 }
+
 
 .nexo-grid{
 
@@ -401,12 +482,87 @@ input[type=number]::-webkit-outer-spin-button{
         repeat(2,minmax(0,1fr));
 
     gap:15px;
+
 }
 
 
 /* =====================================================
    STATUS
 ===================================================== */
+
+.status-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+.status-card{
+
+    padding:17px;
+
+    border-radius:10px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    border:
+        1px solid rgba(168,85,247,.25);
+
+}
+
+
+.status-card h3{
+
+    margin-top:0;
+
+    color:#d8b4fe;
+
+}
+
+
+.status-valores{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items:end;
+
+    gap:10px;
+
+}
+
+
+.status-separador{
+
+    padding-bottom:10px;
+
+    color:#a78bfa;
+
+    font-size:22px;
+
+}
+
+
+.status-valores label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#bda8d0;
+
+    font-size:12px;
+
+}
+
 
 .status-box{
 
@@ -421,18 +577,22 @@ input[type=number]::-webkit-outer-spin-button{
     background:
         rgba(0,0,0,.3);
 
-    border:1px solid
-        rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
     transition:.3s;
+
 }
+
 
 .status-numero{
 
     font-size:28px;
 
     font-weight:bold;
+
 }
+
 
 .status-mensagem{
 
@@ -441,11 +601,12 @@ input[type=number]::-webkit-outer-spin-button{
     color:#ddd;
 
     font-size:14px;
+
 }
 
 
 /* =====================================================
-   CORES
+   CORES STATUS
 ===================================================== */
 
 .status-verde{
@@ -455,11 +616,16 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 20px
         rgba(134,239,172,.18);
+
 }
 
+
 .status-verde .status-numero{
+
     color:#86efac;
+
 }
+
 
 .status-laranja{
 
@@ -468,11 +634,16 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 20px
         rgba(251,146,60,.18);
+
 }
 
+
 .status-laranja .status-numero{
+
     color:#fb923c;
+
 }
+
 
 .status-vermelho-claro{
 
@@ -481,11 +652,16 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 20px
         rgba(248,113,113,.18);
+
 }
 
+
 .status-vermelho-claro .status-numero{
+
     color:#f87171;
+
 }
+
 
 .status-vermelho-escuro{
 
@@ -494,54 +670,19 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 25px
         rgba(220,38,38,.3);
+
 }
+
 
 .status-vermelho-escuro .status-numero{
+
     color:#dc2626;
+
 }
 
 
 /* =====================================================
-   CONTROLE DE STATUS
-===================================================== */
-
-.status-valores{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr auto 1fr;
-
-    align-items:end;
-
-    gap:10px;
-
-    margin-top:15px;
-}
-
-.status-separador{
-
-    padding-bottom:10px;
-
-    color:#a78bfa;
-
-    font-size:22px;
-}
-
-.status-valores label{
-
-    display:block;
-
-    margin-bottom:6px;
-
-    color:#bda8d0;
-
-    font-size:12px;
-}
-
-
-/* =====================================================
-   ATRIBUTOS
+   PONTOS
 ===================================================== */
 
 .pontos-resumo{
@@ -557,9 +698,11 @@ input[type=number]::-webkit-outer-spin-button{
     background:
         rgba(126,34,206,.12);
 
-    border:1px solid
-        rgba(168,85,247,.3);
+    border:
+        1px solid rgba(168,85,247,.3);
+
 }
+
 
 .pontos-grandes{
 
@@ -568,7 +711,9 @@ input[type=number]::-webkit-outer-spin-button{
     font-weight:bold;
 
     color:#d8b4fe;
+
 }
+
 
 .aviso-pontos{
 
@@ -579,7 +724,13 @@ input[type=number]::-webkit-outer-spin-button{
     font-weight:bold;
 
     display:none;
+
 }
+
+
+/* =====================================================
+   ATRIBUTOS
+===================================================== */
 
 .atributos{
 
@@ -589,20 +740,24 @@ input[type=number]::-webkit-outer-spin-button{
         repeat(3,minmax(0,1fr));
 
     gap:12px;
+
 }
+
 
 .atributo{
 
     padding:14px;
 
-    border:1px solid
-        rgba(168,85,247,.25);
+    border:
+        1px solid rgba(168,85,247,.25);
 
     border-radius:8px;
 
     background:
         rgba(0,0,0,.2);
+
 }
+
 
 .atributo label{
 
@@ -611,14 +766,418 @@ input[type=number]::-webkit-outer-spin-button{
     margin-bottom:7px;
 
     color:#c4b5fd;
+
 }
 
 
 /* =====================================================
-   STATUS GRID
+   DEBUFFS / BUFFS
 ===================================================== */
 
-.status-grid{
+.efeitos-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:20px;
+
+}
+
+
+.efeitos-card{
+
+    padding:20px;
+
+    border-radius:12px;
+
+    background:
+        rgba(0,0,0,.25);
+
+}
+
+
+.efeitos-card h3{
+
+    margin-top:0;
+
+    padding-bottom:12px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+    letter-spacing:2px;
+
+}
+
+
+.debuffs{
+
+    border:
+        1px solid rgba(239,68,68,.35);
+
+}
+
+
+.debuffs h3{
+
+    color:#f87171;
+
+}
+
+
+.buffs{
+
+    border:
+        1px solid rgba(74,222,128,.35);
+
+}
+
+
+.buffs h3{
+
+    color:#86efac;
+
+}
+
+
+.efeito-numerico{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+    padding:10px;
+
+    margin-bottom:10px;
+
+    border-radius:8px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+}
+
+
+.efeito-numerico label{
+
+    flex:1;
+
+    color:#ddd;
+
+}
+
+
+.controle-efeito{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+}
+
+
+.controle-efeito button{
+
+    width:32px;
+
+    height:32px;
+
+    border:
+        1px solid rgba(239,68,68,.5);
+
+    border-radius:6px;
+
+    background:
+        rgba(80,10,20,.6);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+.controle-efeito button:hover{
+
+    background:
+        rgba(185,28,28,.7);
+
+}
+
+
+.efeito-valor{
+
+    min-width:34px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+
+
+.efeitos-marcadores{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:8px;
+
+}
+
+
+.efeito-check{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:10px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    background:
+        rgba(0,0,0,.2);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    transition:.2s;
+
+}
+
+
+.efeito-check input{
+
+    width:17px;
+
+    height:17px;
+
+    margin:0;
+
+}
+
+
+.debuffs .efeito-check:has(input:checked){
+
+    border-color:#ef4444;
+
+    background:
+        rgba(127,29,29,.25);
+
+    color:#fca5a5;
+
+}
+
+
+.buffs .efeito-check:has(input:checked){
+
+    border-color:#22c55e;
+
+    background:
+        rgba(20,83,45,.25);
+
+    color:#86efac;
+
+}
+
+
+/* =====================================================
+   ATAQUES
+===================================================== */
+
+.tabela-wrapper{
+
+    overflow-x:auto;
+
+}
+
+
+.tabela-armas{
+
+    width:100%;
+
+    min-width:750px;
+
+    border-collapse:collapse;
+
+}
+
+
+.tabela-armas th{
+
+    padding:12px;
+
+    text-align:left;
+
+    color:#d8b4fe;
+
+    background:
+        rgba(126,34,206,.18);
+
+    border-bottom:
+        1px solid rgba(168,85,247,.3);
+
+}
+
+
+.tabela-armas td{
+
+    padding:8px;
+
+    border-bottom:
+        1px solid rgba(168,85,247,.12);
+
+}
+
+
+.tabela-armas td input{
+
+    padding:9px;
+
+}
+
+
+.tabela-armas .exemplo{
+
+    opacity:.55;
+
+}
+
+
+.botao-nova{
+
+    float:right;
+
+    border:
+        1px solid #8b5cf6;
+
+    background:
+        rgba(126,34,206,.45);
+
+    color:white;
+
+    padding:9px 14px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+}
+
+
+.botao-nova:hover{
+
+    background:
+        rgba(126,34,206,.8);
+
+}
+
+
+.botao-remover{
+
+    border:
+        1px solid #ef4444;
+
+    background:
+        rgba(127,29,29,.5);
+
+    color:#fecaca;
+
+    padding:7px 9px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   DIÁRIO
+===================================================== */
+
+.diario textarea{
+
+    min-height:300px;
+
+}
+
+
+/* =====================================================
+   HABILIDADES
+===================================================== */
+
+.habilidades{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:10px;
+
+}
+
+
+.habilidade{
+
+    display:grid;
+
+    grid-template-columns:1fr 65px;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px;
+
+    border-radius:7px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    border:
+        1px solid rgba(168,85,247,.2);
+
+}
+
+
+.habilidade span{
+
+    color:#c4b5fd;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   INVENTÁRIO
+===================================================== */
+
+.inventario-textos{
 
     display:grid;
 
@@ -626,26 +1185,45 @@ input[type=number]::-webkit-outer-spin-button{
         repeat(2,minmax(0,1fr));
 
     gap:15px;
+
 }
 
-.status-card{
 
-    padding:17px;
+.inventario-textos .campo:last-child{
 
-    border-radius:10px;
+    grid-column:
+        1 / -1;
 
-    background:
-        rgba(0,0,0,.25);
-
-    border:1px solid
-        rgba(168,85,247,.25);
 }
 
-.status-card h3{
 
-    margin-top:0;
+.inventario-textos textarea{
 
-    color:#d8b4fe;
+    min-height:190px;
+
+}
+
+
+/* =====================================================
+   CARACTERÍSTICAS
+===================================================== */
+
+.caracteristicas{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+.caracteristicas textarea{
+
+    min-height:250px;
+
 }
 
 
@@ -660,6 +1238,7 @@ input[type=number]::-webkit-outer-spin-button{
     color:#75677f;
 
     margin-top:40px;
+
 }
 
 
@@ -667,19 +1246,36 @@ input[type=number]::-webkit-outer-spin-button{
    RESPONSIVO
 ===================================================== */
 
+@media(max-width:850px){
+
+    .atributos,
+    .habilidades{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+}
+
+
 @media(max-width:750px){
 
     .grid,
     .nexo-grid,
-    .status-grid{
+    .status-grid,
+    .efeitos-grid,
+    .inventario-textos,
+    .caracteristicas{
 
         grid-template-columns:1fr;
+
     }
 
-    .atributos{
+    .inventario-textos .campo:last-child{
 
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
+        grid-column:auto;
+
     }
 
     .topo{
@@ -687,36 +1283,53 @@ input[type=number]::-webkit-outer-spin-button{
         position:relative;
 
         flex-direction:column;
+
     }
 
     .topo-esquerda,
     .topo-direita{
 
         justify-content:center;
+
     }
+
 }
 
-@media(max-width:430px){
+
+@media(max-width:500px){
 
     .container{
+
         width:96%;
+
     }
 
     .secao{
+
         padding:17px;
+
     }
 
-    .atributos{
+    .atributos,
+    .habilidades,
+    .efeitos-marcadores{
+
         grid-template-columns:1fr;
+
     }
 
     .status-valores{
+
         grid-template-columns:1fr;
+
     }
 
     .status-separador{
+
         display:none;
+
     }
+
 }
 
 </style>
@@ -755,13 +1368,7 @@ input[type=number]::-webkit-outer-spin-button{
             💾 Baixar ficha
         </button>
 
-        <button
-            onclick="
-                document
-                .getElementById('arquivoFicha')
-                .click()
-            "
-        >
+        <button onclick="document.getElementById('arquivoFicha').click()">
             📂 Carregar ficha
         </button>
 
@@ -779,7 +1386,10 @@ input[type=number]::-webkit-outer-spin-button{
 
 
 <!-- =====================================================
-     ÁUDIO
+     MÚSICA
+     
+     IMPORTANTE:
+     O MP3 precisa estar na MESMA PASTA deste HTML.
 ===================================================== -->
 
 <audio
@@ -834,11 +1444,14 @@ input[type=number]::-webkit-outer-spin-button{
                 id="fotoVazia"
                 class="foto-vazio"
             >
+
                 🖼️<br>
                 Foto do personagem
+
             </div>
 
         </div>
+
 
         <input
             type="file"
@@ -848,7 +1461,9 @@ input[type=number]::-webkit-outer-spin-button{
 
     </div>
 
+
     <br>
+
 
     <div class="grid">
 
@@ -907,7 +1522,9 @@ input[type=number]::-webkit-outer-spin-button{
         NEXO ✨
     </div>
 
+
     <br>
+
 
     <div class="status-valores">
 
@@ -933,9 +1550,11 @@ input[type=number]::-webkit-outer-spin-button{
 
         </div>
 
+
         <div class="status-separador">
             /
         </div>
+
 
         <div class="campo">
 
@@ -1002,7 +1621,7 @@ input[type=number]::-webkit-outer-spin-button{
                     Desativado
                 </option>
 
-                <option value="Ativado">
+                     <option value="Ativado">
                     Ativado
                 </option>
 
@@ -1059,15 +1678,51 @@ input[type=number]::-webkit-outer-spin-button{
 
             <label>Nível atual</label>
 
+            <select id="nivelAtual" onchange="atualizarPontosNivel()">
+
+                <option value="1">Nível 1</option>
+                <option value="2">Nível 2</option>
+                <option value="3">Nível 3</option>
+                <option value="4">Nível 4</option>
+                <option value="5">Nível 5</option>
+                <option value="6">Nível 6</option>
+                <option value="7">Nível 7</option>
+                <option value="8">Nível 8</option>
+                <option value="9">Nível 9</option>
+                <option value="10">Nível 10</option>
+                <option value="11">Nível 11</option>
+                <option value="12">Nível 12</option>
+                <option value="13">Nível 13</option>
+                <option value="14">Nível 14</option>
+                <option value="15">Nível 15</option>
+                <option value="16">Nível 16</option>
+                <option value="17">Nível 17</option>
+                <option value="18">Nível 18</option>
+                <option value="19">Nível 19</option>
+                <option value="20">Nível 20</option>
+                <option value="21">Nível 21</option>
+                <option value="22">Nível 22</option>
+                <option value="23">Nível 23</option>
+                <option value="24">Nível 24</option>
+                <option value="25">Nível 25</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Pontos por nível</label>
+
             <input
-                id="nivelAtual"
+                id="pontosNivel"
                 type="number"
-                min="1"
-                value="1"
-                oninput="atualizarPontosNivel()"
+                readonly
             >
 
         </div>
+
 
         <div class="campo">
 
@@ -1080,6 +1735,7 @@ input[type=number]::-webkit-outer-spin-button{
             >
 
         </div>
+
 
         <div class="campo">
 
@@ -1112,32 +1768,25 @@ input[type=number]::-webkit-outer-spin-button{
 
             <label>Glória</label>
 
-            <input
-                id="gloria"
-                type="number"
-            >
+            <input id="gloria" type="number">
 
         </div>
+
 
         <div class="campo">
 
             <label>Honra</label>
 
-            <input
-                id="honra"
-                type="number"
-            >
+            <input id="honra" type="number">
 
         </div>
+
 
         <div class="campo">
 
             <label>Sabedoria</label>
 
-            <input
-                id="sabedoria"
-                type="number"
-            >
+            <input id="sabedoria" type="number">
 
         </div>
 
@@ -1286,7 +1935,6 @@ input[type=number]::-webkit-outer-spin-button{
             <div class="status-valores">
 
                 <div class="campo">
-
                     <label>Atual</label>
 
                     <input
@@ -1294,25 +1942,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="0"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'vidaAtual',
-                                'limiteVida',
-                                'statusVida',
-                                false,
-                                'vida'
-                            )
-                        "
+                        oninput="atualizarStatus('vidaAtual','limiteVida','statusVida',false,'vida')"
                     >
-
                 </div>
 
-                <div class="status-separador">
-                    /
-                </div>
+                <div class="status-separador">/</div>
 
                 <div class="campo">
-
                     <label>Limite</label>
 
                     <input
@@ -1320,25 +1956,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="1"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'vidaAtual',
-                                'limiteVida',
-                                'statusVida',
-                                false,
-                                'vida'
-                            )
-                        "
+                        readonly
                     >
-
                 </div>
 
             </div>
 
-            <div
-                id="statusVida"
-                class="status-box status-verde"
-            >
+            <div id="statusVida" class="status-box status-verde">
 
                 <div class="status-numero">
                     40 / 40
@@ -1362,7 +1986,6 @@ input[type=number]::-webkit-outer-spin-button{
             <div class="status-valores">
 
                 <div class="campo">
-
                     <label>Atual</label>
 
                     <input
@@ -1370,25 +1993,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="0"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'sanidadeAtual',
-                                'limiteSanidade',
-                                'statusSanidade',
-                                false,
-                                'sanidade'
-                            )
-                        "
+                        oninput="atualizarStatus('sanidadeAtual','limiteSanidade','statusSanidade',false,'sanidade')"
                     >
-
                 </div>
 
-                <div class="status-separador">
-                    /
-                </div>
+                <div class="status-separador">/</div>
 
                 <div class="campo">
-
                     <label>Limite</label>
 
                     <input
@@ -1396,25 +2007,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="1"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'sanidadeAtual',
-                                'limiteSanidade',
-                                'statusSanidade',
-                                false,
-                                'sanidade'
-                            )
-                        "
+                        oninput="atualizarStatus('sanidadeAtual','limiteSanidade','statusSanidade',false,'sanidade')"
                     >
-
                 </div>
 
             </div>
 
-            <div
-                id="statusSanidade"
-                class="status-box status-verde"
-            >
+            <div id="statusSanidade" class="status-box status-verde">
 
                 <div class="status-numero">
                     40 / 40
@@ -1438,7 +2037,6 @@ input[type=number]::-webkit-outer-spin-button{
             <div class="status-valores">
 
                 <div class="campo">
-
                     <label>Atual</label>
 
                     <input
@@ -1446,25 +2044,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="0"
                         value="0"
-                        oninput="
-                            atualizarStatus(
-                                'contaminacaoAtual',
-                                'limiteContaminacao',
-                                'statusContaminacao',
-                                true,
-                                'contaminacao'
-                            )
-                        "
+                        oninput="atualizarStatus('contaminacaoAtual','limiteContaminacao','statusContaminacao',true,'contaminacao')"
                     >
-
                 </div>
 
-                <div class="status-separador">
-                    /
-                </div>
+                <div class="status-separador">/</div>
 
                 <div class="campo">
-
                     <label>Limite</label>
 
                     <input
@@ -1472,25 +2058,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="1"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'contaminacaoAtual',
-                                'limiteContaminacao',
-                                'statusContaminacao',
-                                true,
-                                'contaminacao'
-                            )
-                        "
+                        oninput="atualizarStatus('contaminacaoAtual','limiteContaminacao','statusContaminacao',true,'contaminacao')"
                     >
-
                 </div>
 
             </div>
 
-            <div
-                id="statusContaminacao"
-                class="status-box status-verde"
-            >
+            <div id="statusContaminacao" class="status-box status-verde">
 
                 <div class="status-numero">
                     0 / 40
@@ -1514,7 +2088,6 @@ input[type=number]::-webkit-outer-spin-button{
             <div class="status-valores">
 
                 <div class="campo">
-
                     <label>Atual</label>
 
                     <input
@@ -1522,25 +2095,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="0"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'esforcoMentalAtual',
-                                'limiteEsforcoMental',
-                                'statusEsforcoMental',
-                                false,
-                                'mental'
-                            )
-                        "
+                        oninput="atualizarStatus('esforcoMentalAtual','limiteEsforcoMental','statusEsforcoMental',false,'mental')"
                     >
-
                 </div>
 
-                <div class="status-separador">
-                    /
-                </div>
+                <div class="status-separador">/</div>
 
                 <div class="campo">
-
                     <label>Limite</label>
 
                     <input
@@ -1548,25 +2109,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="1"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'esforcoMentalAtual',
-                                'limiteEsforcoMental',
-                                'statusEsforcoMental',
-                                false,
-                                'mental'
-                            )
-                        "
+                        oninput="atualizarStatus('esforcoMentalAtual','limiteEsforcoMental','statusEsforcoMental',false,'mental')"
                     >
-
                 </div>
 
             </div>
 
-            <div
-                id="statusEsforcoMental"
-                class="status-box status-verde"
-            >
+            <div id="statusEsforcoMental" class="status-box status-verde">
 
                 <div class="status-numero">
                     40 / 40
@@ -1590,7 +2139,6 @@ input[type=number]::-webkit-outer-spin-button{
             <div class="status-valores">
 
                 <div class="campo">
-
                     <label>Atual</label>
 
                     <input
@@ -1598,25 +2146,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="0"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'esforcoFisicoAtual',
-                                'limiteEsforcoFisico',
-                                'statusEsforcoFisico',
-                                false,
-                                'fisico'
-                            )
-                        "
+                        oninput="atualizarStatus('esforcoFisicoAtual','limiteEsforcoFisico','statusEsforcoFisico',false,'fisico')"
                     >
-
                 </div>
 
-                <div class="status-separador">
-                    /
-                </div>
+                <div class="status-separador">/</div>
 
                 <div class="campo">
-
                     <label>Limite</label>
 
                     <input
@@ -1624,25 +2160,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="1"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'esforcoFisicoAtual',
-                                'limiteEsforcoFisico',
-                                'statusEsforcoFisico',
-                                false,
-                                'fisico'
-                            )
-                        "
+                        oninput="atualizarStatus('esforcoFisicoAtual','limiteEsforcoFisico','statusEsforcoFisico',false,'fisico')"
                     >
-
                 </div>
 
             </div>
 
-            <div
-                id="statusEsforcoFisico"
-                class="status-box status-verde"
-            >
+            <div id="statusEsforcoFisico" class="status-box status-verde">
 
                 <div class="status-numero">
                     40 / 40
@@ -1666,7 +2190,6 @@ input[type=number]::-webkit-outer-spin-button{
             <div class="status-valores">
 
                 <div class="campo">
-
                     <label>Atual</label>
 
                     <input
@@ -1674,25 +2197,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="0"
                         value="0"
-                        oninput="
-                            atualizarStatus(
-                                'sobrecargaAtual',
-                                'limiteSobrecarga',
-                                'statusSobrecarga',
-                                true,
-                                'sobrecarga'
-                            )
-                        "
+                        oninput="atualizarStatus('sobrecargaAtual','limiteSobrecarga','statusSobrecarga',true,'sobrecarga')"
                     >
-
                 </div>
 
-                <div class="status-separador">
-                    /
-                </div>
+                <div class="status-separador">/</div>
 
                 <div class="campo">
-
                     <label>Limite</label>
 
                     <input
@@ -1700,25 +2211,13 @@ input[type=number]::-webkit-outer-spin-button{
                         type="number"
                         min="1"
                         value="40"
-                        oninput="
-                            atualizarStatus(
-                                'sobrecargaAtual',
-                                'limiteSobrecarga',
-                                'statusSobrecarga',
-                                true,
-                                'sobrecarga'
-                            )
-                        "
+                        oninput="atualizarStatus('sobrecargaAtual','limiteSobrecarga','statusSobrecarga',true,'sobrecarga')"
                     >
-
                 </div>
 
             </div>
 
-            <div
-                id="statusSobrecarga"
-                class="status-box status-verde"
-            >
+            <div id="statusSobrecarga" class="status-box status-verde">
 
                 <div class="status-numero">
                     0 / 40
@@ -1737,8 +2236,659 @@ input[type=number]::-webkit-outer-spin-button{
 </section>
 
 
+<!-- =====================================================
+     STATUS NEGATIVOS / POSITIVOS
+===================================================== -->
+
+<section class="secao">
+
+    <h2>STATUS POSITIVOS E NEGATIVOS</h2>
+
+    <div class="efeitos-grid">
+
+
+        <!-- DEBUFFS -->
+
+        <div class="efeitos-card debuffs">
+
+            <h3>🔻 STATUS NEGATIVO — DEBUFFS</h3>
+
+
+            <div class="efeito-numerico">
+
+                <label>Sangramento</label>
+
+                <div class="controle-efeito">
+
+                    <button onclick="alterarEfeito('sangramento',-1,3)">−</button>
+
+                    <span
+                        class="efeito-valor"
+                        id="sangramento"
+                    >0</span>
+
+                    <button onclick="alterarEfeito('sangramento',1,3)">+</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="efeito-numerico">
+
+                <label>Exaustão</label>
+
+                <div class="controle-efeito">
+
+                    <button onclick="alterarEfeito('exaustao',-1,4)">−</button>
+
+                    <span
+                        class="efeito-valor"
+                        id="exaustao"
+                    >0</span>
+
+                    <button onclick="alterarEfeito('exaustao',1,4)">+</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="efeito-numerico">
+
+                <label>Queimaduras</label>
+
+                <div class="controle-efeito">
+
+                    <button onclick="alterarEfeito('queimaduras',-1,3)">−</button>
+
+                    <span
+                        class="efeito-valor"
+                        id="queimaduras"
+                    >0</span>
+
+                    <button onclick="alterarEfeito('queimaduras',1,3)">+</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="efeito-numerico">
+
+                <label>Congelamento</label>
+
+                <div class="controle-efeito">
+
+                    <button onclick="alterarEfeito('congelamento',-1,3)">−</button>
+
+                    <span
+                        class="efeito-valor"
+                        id="congelamento"
+                    >0</span>
+
+                    <button onclick="alterarEfeito('congelamento',1,3)">+</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="efeitos-marcadores">
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Fratura
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Atordoado
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Cegueira
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Surdez
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Paralisia
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Contaminado
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Envenenado
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Silenciado
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Medo
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Insanidade
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUFFS -->
+
+        <div class="efeitos-card buffs">
+
+            <h3>🔺 STATUS POSITIVO — BUFFS</h3>
+
+            <div class="efeitos-marcadores">
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Adrenalina
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Concentração
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Proteção
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Regeneração
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Determinação
+                </label>
+
+                                <label class="efeito-check">
+                    <input type="checkbox">
+                    Camuflagem
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Inspiração
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Reflexos Aguçados
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Fortificado
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Purificação
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Visão Aguçada
+                </label>
+
+                <label class="efeito-check">
+                    <input type="checkbox">
+                    Fluxo de Combate
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ATAQUES E ARMAS
+===================================================== -->
+
+<section class="secao">
+
+    <h2>
+        ATAQUES E ARMAS
+
+        <button
+            class="botao-nova"
+            onclick="novaArma()"
+        >
+            + Nova arma
+        </button>
+    </h2>
+
+    <div class="tabela-wrapper">
+
+        <table class="tabela-armas">
+
+            <thead>
+
+                <tr>
+
+                    <th>Arma / Ataque</th>
+
+                    <th>Teste / Perícia</th>
+
+                    <th>Dano</th>
+
+                    <th>Crítico</th>
+
+                    <th>Alcance / Tipo</th>
+
+                    <th>Ação</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="listaArmas">
+
+                <!-- EXEMPLO NÃO EDITÁVEL -->
+
+                <tr class="exemplo">
+
+                    <td>
+                        Exemplo: Espada
+                    </td>
+
+                    <td>
+                        Luta
+                    </td>
+
+                    <td>
+                        1d8
+                    </td>
+
+                    <td>
+                        19–20
+                    </td>
+
+                    <td>
+                        Corpo a corpo
+                    </td>
+
+                    <td>
+                        —
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DIÁRIO
+===================================================== -->
+
+<section class="secao diario">
+
+    <h2>DIÁRIO DE ANOTAÇÕES</h2>
+
+    <div class="campo">
+
+        <label>
+            Registre acontecimentos, informações,
+            pensamentos e anotações do personagem.
+        </label>
+
+        <textarea
+            id="diario"
+            placeholder="Escreva suas anotações aqui..."
+        ></textarea>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HABILIDADES
+===================================================== -->
+
+<section class="secao">
+
+    <h2>HABILIDADES</h2>
+
+    <div class="habilidades">
+
+
+        <div class="habilidade">
+            <span>Armas</span>
+            <input type="number" min="0" value="0" id="habArmas">
+        </div>
+
+        <div class="habilidade">
+            <span>Armas Brancas</span>
+            <input type="number" min="0" value="0" id="habArmasBrancas">
+        </div>
+
+        <div class="habilidade">
+            <span>Armas de Fogo</span>
+            <input type="number" min="0" value="0" id="habArmasFogo">
+        </div>
+
+        <div class="habilidade">
+            <span>Artes Marciais</span>
+            <input type="number" min="0" value="0" id="habArtesMarciais">
+        </div>
+
+        <div class="habilidade">
+            <span>Atletismo</span>
+            <input type="number" min="0" value="0" id="habAtletismo">
+        </div>
+
+        <div class="habilidade">
+            <span>Briga</span>
+            <input type="number" min="0" value="0" id="habBriga">
+        </div>
+
+        <div class="habilidade">
+            <span>Ciência</span>
+            <input type="number" min="0" value="0" id="habCiencia">
+        </div>
+
+        <div class="habilidade">
+            <span>Criptografia</span>
+            <input type="number" min="0" value="0" id="habCriptografia">
+        </div>
+
+        <div class="habilidade">
+            <span>Empatia. Animais</span>
+            <input type="number" min="0" value="0" id="habEmpatiaAnimais">
+        </div>
+
+        <div class="habilidade">
+            <span>Enganação</span>
+            <input type="number" min="0" value="0" id="habEnganacao">
+        </div>
+
+        <div class="habilidade">
+            <span>Explosivos</span>
+            <input type="number" min="0" value="0" id="habExplosivos">
+        </div>
+
+        <div class="habilidade">
+            <span>Furtividade</span>
+            <input type="number" min="0" value="0" id="habFurtividade">
+        </div>
+
+        <div class="habilidade">
+            <span>Intimidação</span>
+            <input type="number" min="0" value="0" id="habIntimidacao">
+        </div>
+
+        <div class="habilidade">
+            <span>Investigação</span>
+            <input type="number" min="0" value="0" id="habInvestigacao">
+        </div>
+
+        <div class="habilidade">
+            <span>Liderança</span>
+            <input type="number" min="0" value="0" id="habLideranca">
+        </div>
+
+        <div class="habilidade">
+            <span>Manha</span>
+            <input type="number" min="0" value="0" id="habManha">
+        </div>
+
+        <div class="habilidade">
+            <span>Medicina</span>
+            <input type="number" min="0" value="0" id="habMedicina">
+        </div>
+
+        <div class="habilidade">
+            <span>Negociação</span>
+            <input type="number" min="0" value="0" id="habNegociacao">
+        </div>
+
+        <div class="habilidade">
+            <span>Ocultismo</span>
+            <input type="number" min="0" value="0" id="habOcultismo">
+        </div>
+
+        <div class="habilidade">
+            <span>Percepção</span>
+            <input type="number" min="0" value="0" id="habPercepcao">
+        </div>
+
+        <div class="habilidade">
+            <span>Performance</span>
+            <input type="number" min="0" value="0" id="habPerformance">
+        </div>
+
+        <div class="habilidade">
+            <span>Persuasão</span>
+            <input type="number" min="0" value="0" id="habPersuasao">
+        </div>
+
+        <div class="habilidade">
+            <span>Pilotagem</span>
+            <input type="number" min="0" value="0" id="habPilotagem">
+        </div>
+
+        <div class="habilidade">
+            <span>Política</span>
+            <input type="number" min="0" value="0" id="habPolitica">
+        </div>
+
+        <div class="habilidade">
+            <span>Religião</span>
+            <input type="number" min="0" value="0" id="habReligiao">
+        </div>
+
+        <div class="habilidade">
+            <span>Resistência</span>
+            <input type="number" min="0" value="0" id="habResistencia">
+        </div>
+
+        <div class="habilidade">
+            <span>Runologia</span>
+            <input type="number" min="0" value="0" id="habRunologia">
+        </div>
+
+        <div class="habilidade">
+            <span>Sagacidade</span>
+            <input type="number" min="0" value="0" id="habSagacidade">
+        </div>
+
+        <div class="habilidade">
+            <span>Sanidade</span>
+            <input type="number" min="0" value="0" id="habSanidade">
+        </div>
+
+        <div class="habilidade">
+            <span>Sobrevivência</span>
+            <input type="number" min="0" value="0" id="habSobrevivencia">
+        </div>
+
+        <div class="habilidade">
+            <span>Tecnologia</span>
+            <input type="number" min="0" value="0" id="habTecnologia">
+        </div>
+
+        <div class="habilidade">
+            <span>Toxicologia</span>
+            <input type="number" min="0" value="0" id="habToxicologia">
+        </div>
+
+        <div class="habilidade">
+            <span>Táticas de Combate</span>
+            <input type="number" min="0" value="0" id="habTaticasCombate">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INVENTÁRIO
+===================================================== -->
+
+<section class="secao">
+
+    <h2>INVENTÁRIO</h2>
+
+    <!-- CARGA -->
+
+    <div class="grid">
+
+        <div class="campo">
+
+            <label>Peso atual carregado (kg)</label>
+
+            <input
+                id="pesoAtual"
+                type="number"
+                min="0"
+                step="0.1"
+                value="0"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Capacidade de carga (Max)</label>
+
+            <input
+                id="capacidadeCarga"
+                type="number"
+                min="0"
+                step="0.1"
+                value="14"
+            >
+
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <!-- CAMPOS GRANDES -->
+
+    <div class="inventario-textos">
+
+        <div class="campo">
+
+            <label>Equipamentos</label>
+
+            <textarea
+                id="equipamentos"
+                placeholder="Digite seus equipamentos..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Consumíveis</label>
+
+            <textarea
+                id="consumiveis"
+                placeholder="Digite seus consumíveis..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Materiais</label>
+
+            <textarea
+                id="materiais"
+                placeholder="Digite seus materiais..."
+            ></textarea>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CARACTERÍSTICAS
+===================================================== -->
+
+<section class="secao">
+
+    <h2>CARACTERÍSTICAS</h2>
+
+    <div class="caracteristicas">
+
+        <div class="campo">
+
+            <label>Vantagens</label>
+
+            <textarea
+                id="vantagens"
+                placeholder="Digite as vantagens do personagem..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Desvantagens</label>
+
+            <textarea
+                id="desvantagens"
+                placeholder="Digite as desvantagens do personagem..."
+            ></textarea>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <div class="final">
+
     NEXUS-AWAKENING • FICHA DO PERSONAGEM
+
 </div>
 
 
@@ -1806,7 +2956,7 @@ function alternarMusica(){
 
 
 /* =====================================================
-   FOTO DO PERSONAGEM
+   FOTO
 ===================================================== */
 
 document
@@ -1890,8 +3040,6 @@ function atualizarStatus(
     }
 
 
-    /* Impede valor atual maior que o limite */
-
     if(atual > limite){
 
         atual = limite;
@@ -1924,17 +3072,6 @@ function atualizarStatus(
     let mensagem;
 
 
-    /*
-       STATUS NORMAL
-
-       Para vida, sanidade e esforços:
-       quanto maior, melhor.
-
-       Para contaminação e sobrecarga:
-       quanto menor, melhor.
-    */
-
-
     if(!invertido){
 
         if(porcentagem >= 70){
@@ -1964,101 +3101,68 @@ function atualizarStatus(
             classe =
                 "status-laranja";
 
-            if(tipo === "nucleo"){
-                mensagem =
-                    "Atenção! Seu núcleo começou a perder estabilidade.";
-            }else{
-                mensagem =
-                    "Atenção! O estado está começando a ficar preocupante.";
-            }
+            mensagem =
+                "Atenção! O estado está começando a ficar preocupante.";
 
         }else if(porcentagem >= 30){
 
             classe =
                 "status-vermelho-claro";
 
-            if(tipo === "nucleo"){
-                mensagem =
-                    "Cuidado! Seu núcleo está em estado crítico.";
-            }else{
-                mensagem =
-                    "Cuidado! Seu estado está bastante comprometido.";
-            }
+            mensagem =
+                "Cuidado! Seu estado está bastante comprometido.";
 
         }else{
 
             classe =
                 "status-vermelho-escuro";
 
-            if(tipo === "nucleo"){
-                mensagem =
-                    "PERIGO! Seu núcleo está à beira da falha!";
-            }else{
-                mensagem =
-                    "PERIGO! Você está em estado extremamente crítico!";
-            }
+            mensagem =
+                "PERIGO! Você está em estado extremamente crítico!";
 
         }
 
     }else{
-
-        /*
-          CONTAMINAÇÃO / SOBRECARGA
-
-          Aqui 0 é o melhor estado.
-        */
 
         if(porcentagem <= 30){
 
             classe =
                 "status-verde";
 
-            if(tipo === "contaminacao"){
-                mensagem =
-                    "Nenhuma contaminação significativa detectada.";
-            }else{
-                mensagem =
-                    "Nenhuma sobrecarga significativa detectada.";
-            }
+            mensagem =
+                tipo === "contaminacao"
+                    ? "Nenhuma contaminação significativa detectada."
+                    : "Nenhuma sobrecarga significativa detectada.";
 
         }else if(porcentagem <= 50){
 
             classe =
                 "status-laranja";
 
-            if(tipo === "contaminacao"){
-                mensagem =
-                    "Atenção! A contaminação está aumentando.";
-            }else{
-                mensagem =
-                    "Atenção! A sobrecarga está aumentando.";
-            }
+            mensagem =
+                tipo === "contaminacao"
+                    ? "Atenção! A contaminação está aumentando."
+                    : "Atenção! A sobrecarga está aumentando.";
 
         }else if(porcentagem <= 70){
 
             classe =
                 "status-vermelho-claro";
 
-            if(tipo === "contaminacao"){
-                mensagem =
-                    "Cuidado! A contaminação está em nível preocupante.";
-            }else{
-                mensagem =
-                    "Cuidado! A sobrecarga está em nível preocupante.";
-            }
+            mensagem =
+                tipo === "contaminacao"
+                    ? "Cuidado! A contaminação está em nível preocupante."
+                    : "Cuidado! A sobrecarga está em nível preocupante.";
 
         }else{
 
             classe =
                 "status-vermelho-escuro";
 
-            if(tipo === "contaminacao"){
-                mensagem =
-                    "PERIGO! Nível extremo de contaminação!";
-            }else{
-                mensagem =
-                    "PERIGO! Sobrecarga crítica!";
-            }
+            mensagem =
+                tipo === "contaminacao"
+                    ? "PERIGO! Nível extremo de contaminação!"
+                    : "PERIGO! Sobrecarga crítica!";
 
         }
 
@@ -2078,6 +3182,90 @@ function atualizarStatus(
         ".status-mensagem"
     ).textContent =
         mensagem;
+
+}
+
+
+/* =====================================================
+   NÍVEIS E PONTOS
+===================================================== */
+
+/*
+   Pontos por nível.
+
+   O sistema usa o nível inteiro corretamente.
+   Portanto:
+
+   Nível 1  → 18 pontos
+   Nível 2  → 20 pontos
+   Nível 3  → 22 pontos
+   ...
+   Nível 25 → 66 pontos
+
+   Você pode alterar os valores abaixo
+   quando quiser balancear o sistema.
+*/
+
+const pontosPorNivel = {
+
+    1:18,
+    2:20,
+    3:22,
+    4:24,
+    5:26,
+
+    6:28,
+    7:30,
+    8:32,
+    9:34,
+    10:36,
+
+    11:38,
+    12:40,
+    13:42,
+    14:44,
+    15:46,
+
+    16:48,
+    17:50,
+    18:52,
+    19:54,
+    20:56,
+
+    21:58,
+    22:60,
+    23:62,
+    24:64,
+    25:66
+
+};
+
+
+function atualizarPontosNivel(){
+
+    const nivel =
+        Number(
+            document.getElementById(
+                "nivelAtual"
+            ).value
+        ) || 1;
+
+
+    const pontos =
+        pontosPorNivel[nivel] || 18;
+
+
+    document.getElementById(
+        "pontosNivel"
+    ).value = pontos;
+
+
+    document.getElementById(
+        "pontosDisponiveis"
+    ).value = pontos;
+
+
+    atualizarPontos();
 
 }
 
@@ -2135,31 +3323,185 @@ function atualizarPontos(){
         limiteTotal - usados;
 
 
-    const texto =
-        document.getElementById(
-            "pontosTexto"
-        );
+    document.getElementById(
+        "pontosTexto"
+    ).textContent =
+        Math.max(restantes,0)
+        + " / "
+        + limiteTotal;
+
 
     const aviso =
         document.getElementById(
-           "avisoPontos"
-    );
+            "avisoPontos"
+        );
 
 
     if(restantes < 0){
-
-        texto.textContent =
-            restantes + " / " + limiteTotal;
 
         aviso.style.display =
             "block";
 
     }else{
 
-        texto.textContent =
-            restantes + " / " + limiteTotal;
-
         aviso.style.display =
+            "none";
+
+    }
+
+
+    atualizarVidaPorVigor();
+
+}
+
+
+/* =====================================================
+   VIGOR → VIDA
+===================================================== */
+
+/*
+   Vida inicial = 40.
+
+   Cada ponto de Vigor aumenta
+   o limite máximo de vida.
+
+   Regra escolhida:
+   +5 de Vida por ponto de Vigor.
+
+   Exemplos:
+
+   Vigor 0 → 40 Vida
+   Vigor 1 → 45 Vida
+   Vigor 2 → 50 Vida
+   Vigor 5 → 65 Vida
+   Vigor 10 → 90 Vida
+*/
+
+function atualizarVidaPorVigor(){
+
+    const vigor =
+        Number(
+            document.getElementById(
+                "vigor"
+            ).value
+        ) || 0;
+
+
+    const vidaBase =
+        40;
+
+
+    const vidaPorVigor =
+        5;
+
+
+    const novoLimite =
+        vidaBase +
+        (vigor * vidaPorVigor);
+
+
+    const limite =
+        document.getElementById(
+            "limiteVida"
+        );
+
+
+    const vidaAtual =
+        document.getElementById(
+            "vidaAtual"
+        );
+
+
+    limite.value =
+        novoLimite;
+
+
+    if(Number(vidaAtual.value) > novoLimite){
+
+        vidaAtual.value =
+            novoLimite;
+
+    }
+
+
+    atualizarStatus(
+        "vidaAtual",
+        "limiteVida",
+        "statusVida",
+        false,
+        "vida"
+    );
+
+}
+
+
+    
+/* =====================================================
+   EFEITOS — DEBUFFS / BUFFS
+===================================================== */
+
+function alterarEfeito(id, quantidade, limite){
+
+    const elemento =
+        document.getElementById(id);
+
+    if(!elemento){
+        return;
+    }
+
+    let valor =
+        Number(elemento.textContent) || 0;
+
+    valor += quantidade;
+
+    if(valor < 0){
+        valor = 0;
+    }
+
+    if(valor > limite){
+        valor = limite;
+    }
+
+    elemento.textContent = valor;
+
+    atualizarCorEfeito(
+        elemento,
+        valor,
+        limite
+    );
+
+}
+
+
+function atualizarCorEfeito(
+    elemento,
+    valor,
+    limite
+){
+
+    const porcentagem =
+        valor / limite;
+
+    elemento.style.color =
+        `rgb(
+            ${Math.round(255 * porcentagem)},
+            ${Math.round(220 * (1 - porcentagem))},
+            ${Math.round(220 * (1 - porcentagem))}
+        )`;
+
+    if(porcentagem >= .66){
+
+        elemento.style.textShadow =
+            "0 0 10px rgba(239,68,68,.8)";
+
+    }else if(porcentagem >= .33){
+
+        elemento.style.textShadow =
+            "0 0 7px rgba(248,113,113,.5)";
+
+    }else{
+
+        elemento.style.textShadow =
             "none";
 
     }
@@ -2168,56 +3510,286 @@ function atualizarPontos(){
 
 
 /* =====================================================
-   PONTOS POR NÍVEL
+   NOVA ARMA
 ===================================================== */
 
-function atualizarPontosNivel(){
+function novaArma(){
 
-    const nivel =
-        Number(
-            document.getElementById(
-                "nivelAtual"
-            ).value
-        ) || 1;
+    const lista =
+        document.getElementById(
+            "listaArmas"
+        );
+
+
+    const linha =
+        document.createElement("tr");
+
+
+    linha.innerHTML = `
+
+        <td>
+            <input
+                type="text"
+                placeholder="Arma ou ataque"
+            >
+        </td>
+
+        <td>
+            <input
+                type="text"
+                placeholder="Teste / Perícia"
+            >
+        </td>
+
+        <td>
+            <input
+                type="text"
+                placeholder="Dano"
+            >
+        </td>
+
+        <td>
+            <input
+                type="text"
+                placeholder="Crítico"
+            >
+        </td>
+
+        <td>
+            <input
+                type="text"
+                placeholder="Alcance / Tipo"
+            >
+        </td>
+
+        <td>
+            <button
+                class="botao-remover"
+                onclick="this.closest('tr').remove()"
+            >
+                ✕
+            </button>
+        </td>
+
+    `;
+
+
+    lista.appendChild(linha);
+
+}
+
+
+/* =====================================================
+   CHECKBOXES
+===================================================== */
+
+function obterCheckboxes(){
+
+    const dados = {};
+
+    document
+    .querySelectorAll(
+        ".efeito-check input"
+    )
+    .forEach((checkbox, index) => {
+
+        dados[
+            "checkbox_" + index
+        ] = checkbox.checked;
+
+    });
+
+    return dados;
+
+}
+
+
+function restaurarCheckboxes(dados){
+
+    const checkboxes =
+        document.querySelectorAll(
+            ".efeito-check input"
+        );
+
+
+    checkboxes.forEach(
+        (checkbox, index) => {
+
+            const chave =
+                "checkbox_" + index;
+
+            if(
+                dados &&
+                Object.prototype.hasOwnProperty.call(
+                    dados,
+                    chave
+                )
+            ){
+
+                checkbox.checked =
+                    dados[chave];
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   COLETA DE DADOS DA FICHA
+===================================================== */
+
+function obterDadosFicha(){
+
+    const dados = {};
 
 
     /*
-       Quantidade base de pontos
-       por nível.
-
-       Você pode alterar esses valores
-       depois conforme o sistema do RPG.
+       Todos os campos input,
+       select e textarea.
     */
 
-    const pontosPorNivel = {
+    document
+    .querySelectorAll(
+        "input[id], select[id], textarea[id]"
+    )
+    .forEach(elemento => {
 
-        1: 18,
-        2: 21,
-        3: 24,
-        4: 27,
-        5: 30,
-        6: 33,
-        7: 36,
-        8: 39,
-        9: 42,
-        10: 45
+        /*
+           Não salvamos o input de arquivo
+           porque ele não pode ser restaurado
+           diretamente pelo navegador.
+        */
 
-    };
-
-
-    const pontos =
-        pontosPorNivel[nivel];
+        if(
+            elemento.type === "file"
+        ){
+            return;
+        }
 
 
-    if(pontos !== undefined){
+        dados[elemento.id] =
+            elemento.type === "checkbox"
+                ? elemento.checked
+                : elemento.value;
 
+    });
+
+
+    /*
+       Efeitos numéricos
+    */
+
+    dados.sangramento =
+        Number(
+            document.getElementById(
+                "sangramento"
+            ).textContent
+        ) || 0;
+
+
+    dados.exaustao =
+        Number(
+            document.getElementById(
+                "exaustao"
+            ).textContent
+        ) || 0;
+
+
+    dados.queimaduras =
+        Number(
+            document.getElementById(
+                "queimaduras"
+            ).textContent
+        ) || 0;
+
+
+    dados.congelamento =
+        Number(
+            document.getElementById(
+                "congelamento"
+            ).textContent
+        ) || 0;
+
+
+    /*
+       Checkboxes
+    */
+
+    dados.checkboxes =
+        obterCheckboxes();
+
+
+    /*
+       Armas criadas
+    */
+
+    dados.armas = [];
+
+
+    document
+    .querySelectorAll(
+        "#listaArmas tr:not(.exemplo)"
+    )
+    .forEach(linha => {
+
+        const inputs =
+            linha.querySelectorAll(
+                "input"
+            );
+
+
+        if(inputs.length >= 5){
+
+            dados.armas.push({
+
+                arma:
+                    inputs[0].value,
+
+                teste:
+                    inputs[1].value,
+
+                dano:
+                    inputs[2].value,
+
+                critico:
+                    inputs[3].value,
+
+                alcance:
+                    inputs[4].value
+
+            });
+
+        }
+
+    });
+
+
+    /*
+       Foto
+    */
+
+    const foto =
         document.getElementById(
-            "pontosDisponiveis"
-        ).value = pontos;
+            "fotoPersonagem"
+        );
 
-        atualizarPontos();
+
+    if(
+        foto &&
+        foto.style.display !== "none" &&
+        foto.src
+    ){
+
+        dados.foto =
+            foto.src;
 
     }
+
+
+    return dados;
 
 }
 
@@ -2228,56 +3800,9 @@ function atualizarPontosNivel(){
 
 function baixarFicha(){
 
-    const dados = {};
+    const dados =
+        obterDadosFicha();
 
-
-    /*
-       Todos os campos de texto,
-       números e seleções.
-    */
-
-    document
-    .querySelectorAll(
-        "input:not([type='file']), select"
-    )
-    .forEach(elemento => {
-
-        if(elemento.id){
-
-            dados[elemento.id] =
-                elemento.value;
-
-        }
-
-    });
-
-
-    /*
-       Salva também a imagem
-       do personagem.
-    */
-
-    const imagem =
-        document.getElementById(
-            "fotoPersonagem"
-        );
-
-
-    if(
-        imagem &&
-        imagem.src &&
-        imagem.style.display !== "none"
-    ){
-
-        dados.fotoPersonagem =
-            imagem.src;
-
-    }
-
-
-    /*
-       Cria o arquivo JSON.
-    */
 
     const conteudo =
         JSON.stringify(
@@ -2287,7 +3812,7 @@ function baixarFicha(){
         );
 
 
-    const arquivo =
+    const blob =
         new Blob(
             [conteudo],
             {
@@ -2298,24 +3823,24 @@ function baixarFicha(){
 
 
     const url =
-        URL.createObjectURL(
-            arquivo
-        );
+        URL.createObjectURL(blob);
 
 
     const link =
         document.createElement("a");
 
 
-    link.href = url;
+    link.href =
+        url;
+
 
     link.download =
-        "ficha-nexus.json";
+        "ficha-nexus-awakening.json";
 
 
-    document
-    .body
-    .appendChild(link);
+    document.body.appendChild(
+        link
+    );
 
 
     link.click();
@@ -2324,7 +3849,9 @@ function baixarFicha(){
     link.remove();
 
 
-    URL.revokeObjectURL(url);
+    URL.revokeObjectURL(
+        url
+    );
 
 }
 
@@ -2359,151 +3886,25 @@ function carregarFicha(event){
                     );
 
 
-                /*
-                   Preenche todos os
-                   campos existentes.
-                */
-
-                Object.keys(dados)
-                .forEach(id => {
-
-                    if(
-                        id ===
-                        "fotoPersonagem"
-                    ){
-                        return;
-                    }
-
-
-                    const elemento =
-                        document.getElementById(
-                            id
-                        );
-
-
-                    if(elemento){
-
-                        elemento.value =
-                            dados[id];
-
-                    }
-
-                });
-
-
-                /*
-                   Restaura a imagem.
-                */
-
-                if(
-                    dados.fotoPersonagem
-                ){
-
-                    const imagem =
-                        document.getElementById(
-                            "fotoPersonagem"
-                        );
-
-                    const vazio =
-                        document.getElementById(
-                            "fotoVazia"
-                        );
-
-
-                    imagem.src =
-                        dados.fotoPersonagem;
-
-
-                    imagem.style.display =
-                        "block";
-
-
-                    vazio.style.display =
-                        "none";
-
-                }
-
-
-                /*
-                   Atualiza todos os
-                   sistemas visuais.
-                */
-
-                atualizarStatus(
-                    "vidaNucleo",
-                    "limiteNucleo",
-                    "statusNucleo",
-                    false,
-                    "nucleo"
+                restaurarFicha(
+                    dados
                 );
-
-
-                atualizarStatus(
-                    "vidaAtual",
-                    "limiteVida",
-                    "statusVida",
-                    false,
-                    "vida"
-                );
-
-
-                atualizarStatus(
-                    "sanidadeAtual",
-                    "limiteSanidade",
-                    "statusSanidade",
-                    false,
-                    "sanidade"
-                );
-
-
-                atualizarStatus(
-                    "contaminacaoAtual",
-                    "limiteContaminacao",
-                    "statusContaminacao",
-                    true,
-                    "contaminacao"
-                );
-
-
-                atualizarStatus(
-                    "esforcoMentalAtual",
-                    "limiteEsforcoMental",
-                    "statusEsforcoMental",
-                    false,
-                    "mental"
-                );
-
-
-                atualizarStatus(
-                    "esforcoFisicoAtual",
-                    "limiteEsforcoFisico",
-                    "statusEsforcoFisico",
-                    false,
-                    "fisico"
-                );
-
-
-                atualizarStatus(
-                    "sobrecargaAtual",
-                    "limiteSobrecarga",
-                    "statusSobrecarga",
-                    true,
-                    "sobrecarga"
-                );
-
-
-                atualizarPontos();
 
 
                 alert(
-                    "✅ Ficha carregada com sucesso!"
+                    "Ficha carregada com sucesso!"
                 );
 
 
             }catch(erro){
 
+                console.error(
+                    erro
+                );
+
+
                 alert(
-                    "❌ Não foi possível carregar esta ficha. O arquivo pode estar corrompido ou não ser uma ficha NEXUS."
+                    "Não foi possível carregar esta ficha. O arquivo pode estar inválido."
                 );
 
             }
@@ -2511,7 +3912,377 @@ function carregarFicha(event){
         };
 
 
-    leitor.readAsText(arquivo);
+    leitor.onerror =
+        function(){
+
+            alert(
+                "Não foi possível ler o arquivo."
+            );
+
+        };
+
+
+    leitor.readAsText(
+        arquivo
+    );
+
+}
+
+
+/* =====================================================
+   RESTAURAR FICHA
+===================================================== */
+
+function restaurarFicha(dados){
+
+    /*
+       Campos normais
+    */
+
+    Object.keys(dados)
+    .forEach(chave => {
+
+        const elemento =
+            document.getElementById(
+                chave
+            );
+
+
+        if(!elemento){
+            return;
+        }
+
+
+        /*
+           Ignorar dados especiais.
+        */
+
+        if(
+            [
+                "sangramento",
+                "exaustao",
+                "queimaduras",
+                "congelamento"
+            ].includes(chave)
+        ){
+
+            return;
+
+        }
+
+
+        if(
+            chave === "checkboxes" ||
+            chave === "armas" ||
+            chave === "foto"
+        ){
+
+            return;
+
+        }
+
+
+        if(
+            elemento.type === "checkbox"
+        ){
+
+            elemento.checked =
+                Boolean(
+                    dados[chave]
+                );
+
+        }else{
+
+            elemento.value =
+                dados[chave];
+
+        }
+
+    });
+
+
+    /*
+       Restaurar efeitos numéricos
+    */
+
+    const efeitos = [
+        [
+            "sangramento",
+            3
+        ],
+        [
+            "exaustao",
+            4
+        ],
+        [
+            "queimaduras",
+            3
+        ],
+        [
+            "congelamento",
+            3
+        ]
+    ];
+
+
+    efeitos.forEach(
+        ([id, limite]) => {
+
+            const elemento =
+                document.getElementById(
+                    id
+                );
+
+
+            if(
+                elemento &&
+                dados[id] !== undefined
+            ){
+
+                const valor =
+                    Math.max(
+                        0,
+                        Math.min(
+                            limite,
+                            Number(
+                                dados[id]
+                            ) || 0
+                        )
+                    );
+
+
+                elemento.textContent =
+                    valor;
+
+
+                atualizarCorEfeito(
+                    elemento,
+                    valor,
+                    limite
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+       Restaurar checkboxes
+    */
+
+    restaurarCheckboxes(
+        dados.checkboxes
+    );
+
+
+    /*
+       Restaurar armas
+    */
+
+    const lista =
+        document.getElementById(
+            "listaArmas"
+        );
+
+
+    lista
+    .querySelectorAll(
+        "tr:not(.exemplo)"
+    )
+    .forEach(linha => {
+
+        linha.remove();
+
+    });
+
+
+    if(
+        Array.isArray(
+            dados.armas
+        )
+    ){
+
+        dados.armas.forEach(
+            arma => {
+
+                const linha =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                linha.innerHTML = `
+
+                    <td>
+                        <input
+                            type="text"
+                            value="${escaparHTML(arma.arma || "")}"
+                        >
+                    </td>
+
+                    <td>
+                        <input
+                            type="text"
+                            value="${escaparHTML(arma.teste || "")}"
+                        >
+                    </td>
+
+                    <td>
+                        <input
+                            type="text"
+                            value="${escaparHTML(arma.dano || "")}"
+                        >
+                    </td>
+
+                    <td>
+                        <input
+                            type="text"
+                            value="${escaparHTML(arma.critico || "")}"
+                        >
+                    </td>
+
+                    <td>
+                        <input
+                            type="text"
+                            value="${escaparHTML(arma.alcance || "")}"
+                        >
+                    </td>
+
+                    <td>
+                        <button
+                            class="botao-remover"
+                            onclick="this.closest('tr').remove()"
+                        >
+                            ✕
+                        </button>
+                    </td>
+
+                `;
+
+
+                lista.appendChild(
+                    linha
+                );
+
+            }
+        );
+
+    }
+
+
+    /*
+       Restaurar foto
+    */
+
+    if(
+        dados.foto
+    ){
+
+        const imagem =
+            document.getElementById(
+                "fotoPersonagem"
+            );
+
+
+        const vazio =
+            document.getElementById(
+                "fotoVazia"
+            );
+
+
+        imagem.src =
+            dados.foto;
+
+
+        imagem.style.display =
+            "block";
+
+
+        vazio.style.display =
+            "none";
+
+    }
+
+
+    /*
+       Atualizar sistemas
+    */
+
+    atualizarPontos();
+
+
+    atualizarVidaPorVigor();
+
+
+    atualizarStatus(
+        "sanidadeAtual",
+        "limiteSanidade",
+        "statusSanidade",
+        false,
+        "sanidade"
+    );
+
+
+    atualizarStatus(
+        "contaminacaoAtual",
+        "limiteContaminacao",
+        "statusContaminacao",
+        true,
+        "contaminacao"
+    );
+
+
+    atualizarStatus(
+        "esforcoMentalAtual",
+        "limiteEsforcoMental",
+        "statusEsforcoMental",
+        false,
+        "mental"
+    );
+
+
+    atualizarStatus(
+        "esforcoFisicoAtual",
+        "limiteEsforcoFisico",
+        "statusEsforcoFisico",
+        false,
+        "fisico"
+    );
+
+
+    atualizarStatus(
+        "sobrecargaAtual",
+        "limiteSobrecarga",
+        "statusSobrecarga",
+        true,
+        "sobrecarga"
+    );
+
+
+    atualizarStatus(
+        "vidaNucleo",
+        "limiteNucleo",
+        "statusNucleo",
+        false,
+        "nucleo"
+    );
+
+}
+
+
+/* =====================================================
+   SEGURANÇA PARA VALORES DA TABELA
+===================================================== */
+
+function escaparHTML(valor){
+
+    return String(valor)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
@@ -2524,21 +4295,19 @@ document.addEventListener(
     "DOMContentLoaded",
     function(){
 
+        atualizarPontosNivel();
+
+        atualizarPontos();
+
+        atualizarVidaPorVigor();
+
+
         atualizarStatus(
             "vidaNucleo",
             "limiteNucleo",
             "statusNucleo",
             false,
             "nucleo"
-        );
-
-
-        atualizarStatus(
-            "vidaAtual",
-            "limiteVida",
-            "statusVida",
-            false,
-            "vida"
         );
 
 
@@ -2587,10 +4356,42 @@ document.addEventListener(
         );
 
 
-        atualizarPontos();
+        atualizarCorEfeito(
+            document.getElementById(
+                "sangramento"
+            ),
+            0,
+            3
+        );
+
+
+        atualizarCorEfeito(
+            document.getElementById(
+                "exaustao"
+            ),
+            0,
+            4
+        );
+
+
+        atualizarCorEfeito(
+            document.getElementById(
+                "queimaduras"
+            ),
+            0,
+            3
+        );
+
+
+        atualizarCorEfeito(
+            document.getElementById(
+                "congelamento"
+            ),
+            0,
+            3
+        );
 
     }
-
 );
 
 </script>
