@@ -13,228 +13,269 @@
 <title>NEXUS-AWAKENING</title>
 
 
-<!-- =========================
-     FONTE
-========================= -->
+<!-- =====================================================
+     FONTE DO TÍTULO
+===================================================== -->
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
 >
 
 
 <style>
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
+
 
 html,
-body {
+body{
 
-    margin: 0;
+    margin:0;
 
-    width: 100%;
+    width:100%;
 
-    height: 100%;
-
-    overflow: hidden;
+    min-height:100%;
 
 }
 
 
-/* =========================
-   CORPO / FUNDO
-========================= */
+/* =====================================================
+   BODY
+===================================================== */
 
-body {
+body{
 
-    font-family: Georgia, serif;
+    min-height:100vh;
 
-    color: white;
+    overflow:hidden;
+
+    color:white;
+
+    font-family:Georgia, serif;
 
     background:
 
         linear-gradient(
-            rgba(20, 5, 35, 0.45),
-            rgba(0, 0, 0, 0.92)
+            rgba(20,5,35,.45),
+            rgba(0,0,0,.92)
         ),
 
         url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
 
-    background-size: cover;
+    background-size:cover;
 
-    background-position: center;
+    background-position:center;
 
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
 
-    display: flex;
+    display:flex;
 
-    justify-content: center;
+    justify-content:center;
 
-    align-items: center;
+    align-items:center;
 
 }
 
 
-/* =========================
+/* =====================================================
    SOMBRA CINEMATOGRÁFICA
-========================= */
+===================================================== */
 
-body::after {
+body::after{
 
-    content: "";
+    content:"";
 
-    position: fixed;
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    pointer-events: none;
+    pointer-events:none;
 
-    z-index: 2;
+    z-index:2;
 
     background:
 
         linear-gradient(
             to bottom,
             transparent 40%,
-            rgba(0, 0, 0, 0.15) 55%,
-            rgba(0, 0, 0, 0.95) 100%
+            rgba(0,0,0,.15) 55%,
+            rgba(0,0,0,.95) 100%
         );
 
 }
 
 
-/* =========================
+/* =====================================================
    CONTEÚDO
-========================= */
+===================================================== */
 
-.conteudo {
+.conteudo{
 
-    position: relative;
+    position:relative;
 
-    z-index: 3;
+    z-index:3;
 
-    width: 90%;
+    width:90%;
 
-    max-width: 900px;
+    max-width:900px;
 
-    text-align: center;
+    text-align:center;
 
-    padding: 40px;
+    padding:40px;
 
 }
 
 
-/* =========================
+/* =====================================================
    ANIMAÇÕES
-========================= */
+===================================================== */
 
-@keyframes aparecerTitulo {
+@keyframes aparecerTitulo{
 
-    from {
+    0%{
 
-        opacity: 0;
+        opacity:0;
 
         transform:
             translateY(35px)
-            scale(0.92);
+            scale(.94);
 
-        filter: blur(8px);
+        filter:blur(8px);
 
     }
 
-    to {
+    100%{
 
-        opacity: 1;
+        opacity:1;
 
         transform:
             translateY(0)
             scale(1);
 
-        filter: blur(0);
+        filter:blur(0);
 
     }
 
 }
 
 
-@keyframes aparecer {
+@keyframes aparecerSubtitulo{
 
-    from {
+    0%{
 
-        opacity: 0;
+        opacity:0;
 
-        transform: translateY(20px);
-
-        filter: blur(4px);
+        transform:translateY(20px);
 
     }
 
-    to {
+    100%{
 
-        opacity: 1;
+        opacity:1;
 
-        transform: translateY(0);
-
-        filter: blur(0);
+        transform:translateY(0);
 
     }
 
 }
 
 
-@keyframes linha {
+@keyframes aparecerLinha{
 
-    from {
+    0%{
 
-        width: 0;
+        opacity:0;
 
-        opacity: 0;
+        width:0;
 
     }
 
-    to {
+    100%{
 
-        width: 130px;
+        opacity:1;
 
-        opacity: 1;
+        width:130px;
 
     }
 
 }
 
 
-/* =========================
+@keyframes aparecerDescricao{
+
+    0%{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+@keyframes aparecerBotoes{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
    NEXUS
-========================= */
+===================================================== */
 
-.titulo {
+.titulo{
 
-    margin: 0;
+    margin:0;
 
-    font-family:
-        "Cinzel Decorative",
-        serif;
-
-    font-weight: 700;
+    font-family:"Cinzel", Georgia, serif;
 
     font-size:
-        clamp(45px, 10vw, 95px);
+        clamp(45px,10vw,95px);
 
-    letter-spacing: 10px;
+    font-weight:700;
 
-    opacity: 0;
+    letter-spacing:10px;
+
+    opacity:0;
 
     animation:
-
         aparecerTitulo
-        1.3s
-        cubic-bezier(.2, .8, .2, 1)
+        1.2s
+        cubic-bezier(.22,1,.36,1)
+        .2s
         forwards;
 
     text-shadow:
@@ -248,48 +289,43 @@ body::after {
 }
 
 
-/* =========================
+/* =====================================================
    AWAKENING
-========================= */
+===================================================== */
 
-.subtitulo {
+.subtitulo{
 
-    margin-top: 10px;
+    margin-top:10px;
 
-    font-family:
-        "Cinzel Decorative",
-        serif;
+    font-size:18px;
 
-    font-size: 18px;
+    letter-spacing:6px;
 
-    letter-spacing: 6px;
+    color:#d8b4fe;
 
-    color: #d8b4fe;
-
-    opacity: 0;
+    opacity:0;
 
     animation:
-
-        aparecer
-        1s
+        aparecerSubtitulo
+        .9s
         ease
-        0.7s
+        1s
         forwards;
 
 }
 
 
-/* =========================
+/* =====================================================
    LINHA
-========================= */
+===================================================== */
 
-.linha {
+.linha{
 
-    height: 2px;
+    height:2px;
 
-    margin: 30px auto;
+    margin:30px auto;
 
-    background: #a855f7;
+    background:#a855f7;
 
     box-shadow:
 
@@ -297,37 +333,11 @@ body::after {
 
         0 0 25px #7e22ce;
 
-    opacity: 0;
+    opacity:0;
 
     animation:
-
-        linha
-        1s
-        ease
-        1.1s
-        forwards;
-
-}
-
-
-/* =========================
-   FRASE
-========================= */
-
-.descricao {
-
-    color: #ddd6fe;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    opacity: 0;
-
-    animation:
-
-        aparecer
-        1s
+        aparecerLinha
+        .8s
         ease
         1.5s
         forwards;
@@ -335,27 +345,28 @@ body::after {
 }
 
 
-/* =========================
-   BOTÕES
-========================= */
+/* =====================================================
+   FRASE
+===================================================== */
 
-.botoes {
+.descricao{
 
-    display: flex;
+    max-width:700px;
 
-    justify-content: center;
+    margin:0 auto;
 
-    gap: 20px;
+    color:#ddd6fe;
 
-    flex-wrap: wrap;
+    font-size:17px;
 
-    margin-top: 45px;
+    line-height:1.7;
 
-    opacity: 0;
+    font-style:italic;
+
+    opacity:0;
 
     animation:
-
-        aparecer
+        aparecerDescricao
         1s
         ease
         1.8s
@@ -364,64 +375,28 @@ body::after {
 }
 
 
-.botao {
+/* =====================================================
+   BOTÕES
+===================================================== */
 
-    min-width: 230px;
+.botoes{
 
-    padding: 18px 25px;
+    display:flex;
 
-    border: 1px solid #a855f7;
+    justify-content:center;
 
-    border-radius: 8px;
+    align-items:center;
 
-    background:
-        rgba(25, 5, 40, 0.65);
+    gap:20px;
 
-    color: white;
+    flex-wrap:wrap;
 
-    text-decoration: none;
+    margin-top:45px;
 
-    font-size: 16px;
-
-    box-shadow:
-
-        0 0 15px
-        rgba(168, 85, 247, 0.25);
-
-    transition: 0.3s;
-
-}
-
-
-.botao:hover {
-
-    transform:
-        translateY(-5px);
-
-    background:
-        rgba(126, 34, 206, 0.5);
-
-    box-shadow:
-
-        0 0 30px
-        rgba(168, 85, 247, 0.7);
-
-}
-
-
-/* =========================
-   MÚSICA
-========================= */
-
-.musica {
-
-    margin-top: 35px;
-
-    opacity: 0;
+    opacity:0;
 
     animation:
-
-        aparecer
+        aparecerBotoes
         1s
         ease
         2.1s
@@ -430,121 +405,190 @@ body::after {
 }
 
 
-.musica button {
+.botao{
 
-    border: 1px solid #8b5cf6;
+    min-width:230px;
 
-    border-radius: 25px;
+    padding:18px 25px;
 
-    padding: 12px 24px;
+    border:1px solid #a855f7;
 
-    color: #ede9fe;
+    border-radius:8px;
 
     background:
-        rgba(10, 3, 18, 0.75);
+        rgba(25,5,40,.65);
 
-    cursor: pointer;
+    color:white;
 
-    font-size: 15px;
+    text-decoration:none;
 
-    font-family: Georgia, serif;
+    font-size:16px;
 
-    transition: 0.3s;
+    line-height:1.5;
+
+    box-shadow:
+        0 0 15px
+        rgba(168,85,247,.25);
+
+    transition:
+
+        transform .3s ease,
+
+        background .3s ease,
+
+        box-shadow .3s ease;
 
 }
 
 
-.musica button:hover {
+.botao:hover{
+
+    transform:translateY(-5px);
 
     background:
-        rgba(91, 33, 182, 0.6);
+        rgba(126,34,206,.5);
 
     box-shadow:
 
-        0 0 20px
-        rgba(139, 92, 246, 0.5);
+        0 0 30px
+        rgba(168,85,247,.7);
 
 }
 
 
-/* =========================
-   RODAPÉ
-========================= */
+.botao:active{
 
-.rodape {
+    transform:
+        translateY(-2px)
+        scale(.98);
 
-    margin-top: 35px;
+}
 
-    font-size: 12px;
 
-    color: #8b8199;
+/* =====================================================
+   MÚSICA
+===================================================== */
 
-    opacity: 0;
+.musica{
+
+    margin-top:35px;
+
+    opacity:0;
 
     animation:
-
-        aparecer
+        aparecerDescricao
         1s
         ease
-        2.3s
+        2.4s
         forwards;
 
 }
 
 
-/* =========================
-   PLAYER INVISÍVEL
-========================= */
+.musica button{
 
-#audio {
+    border:1px solid #8b5cf6;
 
-    display: none;
+    border-radius:25px;
+
+    padding:12px 24px;
+
+    color:#ede9fe;
+
+    background:
+        rgba(10,3,18,.75);
+
+    cursor:pointer;
+
+    font-family:Georgia, serif;
+
+    font-size:15px;
+
+    transition:.3s;
 
 }
 
 
-/* =========================
-   CELULAR
-========================= */
+.musica button:hover{
 
-@media (max-width: 600px) {
+    background:
+        rgba(91,33,182,.6);
 
-    .conteudo {
+    box-shadow:
 
-        padding: 25px;
+        0 0 20px
+        rgba(139,92,246,.5);
+
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.rodape{
+
+    margin-top:35px;
+
+    font-size:12px;
+
+    color:#8b8199;
+
+    opacity:0;
+
+    animation:
+        aparecerDescricao
+        1s
+        ease
+        2.7s
+        forwards;
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:600px){
+
+    .conteudo{
+
+        width:95%;
+
+        padding:25px 15px;
 
     }
 
 
-    .titulo {
+    .titulo{
 
-        letter-spacing: 5px;
-
-        font-size:
-            clamp(45px, 15vw, 75px);
+        letter-spacing:6px;
 
     }
 
 
-    .subtitulo {
+    .subtitulo{
 
-        font-size: 13px;
+        font-size:14px;
 
-        letter-spacing: 4px;
-
-    }
-
-
-    .descricao {
-
-        font-size: 15px;
+        letter-spacing:4px;
 
     }
 
 
-    .botao {
+    .descricao{
 
-        width: 100%;
+        font-size:15px;
+
+    }
+
+
+    .botao{
+
+        width:100%;
+
+        max-width:300px;
 
     }
 
@@ -561,30 +605,26 @@ body::after {
 <main class="conteudo">
 
 
-    <!-- =========================
+    <!-- =================================================
          TÍTULO
-    ========================== -->
+    ================================================== -->
 
     <h1 class="titulo">
-
         NEXUS
-
     </h1>
 
 
     <div class="subtitulo">
-
         AWAKENING
-
     </div>
 
 
     <div class="linha"></div>
 
 
-    <!-- =========================
+    <!-- =================================================
          FRASE
-    ========================== -->
+    ================================================== -->
 
     <p class="descricao">
 
@@ -594,37 +634,31 @@ body::after {
     </p>
 
 
-    <!-- =========================
+    <!-- =================================================
          BOTÕES
-    ========================== -->
+    ================================================== -->
 
     <div class="botoes">
 
-
-        <!-- LIVRO -->
 
         <a
             href="livro.html"
             class="botao"
         >
 
-            📖
-            <br>
+            📖<br>
 
             Livro do RPG
 
         </a>
 
 
-        <!-- FICHA -->
-
         <a
             href="ficha.html"
             class="botao"
         >
 
-            📝
-            <br>
+            📝<br>
 
             Ficha do Personagem
 
@@ -634,9 +668,9 @@ body::after {
     </div>
 
 
-    <!-- =========================
-         BOTÃO DE MÚSICA
-    ========================== -->
+    <!-- =================================================
+         MÚSICA
+    ================================================== -->
 
     <div class="musica">
 
@@ -652,9 +686,9 @@ body::after {
     </div>
 
 
-    <!-- =========================
+    <!-- =================================================
          RODAPÉ
-    ========================== -->
+    ================================================== -->
 
     <div class="rodape">
 
@@ -666,94 +700,88 @@ body::after {
 </main>
 
 
-<!-- =========================
-     MÚSICA
+<!-- =====================================================
+     ÁUDIO
      
-     O ARQUIVO PRECISA ESTAR
-     NA MESMA PASTA DO INDEX.HTML
-========================== -->
+     COLOQUE O MP3 NA MESMA PASTA DO index.html.
+     
+     Nome:
+     Dark Acoustic Guitar Instrumental Beat 2018
+     Betrayed - Ryini Beats (youtube).mp3
+===================================================== -->
 
 <audio
-    id="audio"
-    src="Dark Acoustic Guitar Instrumental Beat 2018 Betrayed - Ryini Beats (youtube).mp3"
-    loop
+    id="musica"
     preload="auto"
-></audio>
+    loop
+>
+
+    <source
+        src="Dark Acoustic Guitar Instrumental Beat 2018 Betrayed - Ryini Beats (youtube).mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
 
 
 <script>
 
+/* =====================================================
+   MÚSICA
+===================================================== */
 
-/* =========================
-   CONTROLE DA MÚSICA
-========================= */
-
-const audio =
-    document.getElementById("audio");
+const musica =
+    document.getElementById("musica");
 
 
-const botao =
+const botaoMusica =
     document.getElementById("botao-musica");
 
 
 let tocando = false;
 
 
-function alternarMusica() {
+function alternarMusica(){
+
+    if(!tocando){
+
+        musica.volume = 0.45;
 
 
-    if (!tocando) {
+        const tentativa =
+            musica.play();
 
 
-        audio.volume = 0.45;
+        if(tentativa !== undefined){
 
+            tentativa
+                .then(function(){
 
-        audio.play()
+                    tocando = true;
 
-        .then(function () {
+                    botaoMusica.innerHTML =
+                        "🔊 Música ligada";
 
+                })
 
-            tocando = true;
+                .catch(function(){
 
+                    alert(
+                        "Não foi possível iniciar a música. Verifique se o arquivo MP3 está na mesma pasta do index.html."
+                    );
 
-            botao.innerHTML =
-                "🔊 Música ligada";
+                });
 
+        }
 
-        })
+    }else{
 
-
-        .catch(function () {
-
-
-            alert(
-
-                "Não foi possível iniciar a música. " +
-
-                "Verifique se o arquivo MP3 está " +
-
-                "na mesma pasta do index.html."
-
-            );
-
-        });
-
-
-    }
-
-
-    else {
-
-
-        audio.pause();
-
+        musica.pause();
 
         tocando = false;
 
-
-        botao.innerHTML =
+        botaoMusica.innerHTML =
             "🎸 Tocar música";
-
 
     }
 
