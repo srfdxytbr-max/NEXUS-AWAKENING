@@ -1,599 +1,767 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NEXUS-AWAKENING</title>
+<meta charset="UTF-8">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+<title>NEXUS-AWAKENING</title>
 
-    body {
-      font-family: Georgia, serif;
-      color: white;
 
-      background:
+<!-- =========================
+     FONTE
+========================= -->
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    margin: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================
+   CORPO / FUNDO
+========================= */
+
+body {
+
+    font-family: Georgia, serif;
+
+    color: white;
+
+    background:
+
         linear-gradient(
-          rgba(20, 5, 35, 0.45),
-          rgba(0, 0, 0, 0.92)
+            rgba(20, 5, 35, 0.45),
+            rgba(0, 0, 0, 0.92)
         ),
+
         url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    background-size: cover;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    background-position: center;
 
-    /* SOMBRA INFERIOR */
+    background-repeat: no-repeat;
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
+    display: flex;
 
-      pointer-events: none;
-      z-index: 2;
+    justify-content: center;
 
-      background: linear-gradient(
-        to bottom,
-        transparent 40%,
-        rgba(0, 0, 0, 0.15) 55%,
-        rgba(0, 0, 0, 0.95) 100%
-      );
-    }
+    align-items: center;
 
-    /* CONTEÚDO */
+}
 
-    .conteudo {
-      position: relative;
-      z-index: 3;
 
-      width: 90%;
-      max-width: 900px;
+/* =========================
+   SOMBRA CINEMATOGRÁFICA
+========================= */
 
-      text-align: center;
-      padding: 40px;
-    }
+body::after {
 
-    /* NEXUS */
+    content: "";
 
-    .titulo {
-      margin: 0;
+    position: fixed;
 
-      font-family: Georgia, serif;
+    inset: 0;
 
-      font-size: clamp(45px, 10vw, 95px);
+    pointer-events: none;
 
-      letter-spacing: 10px;
+    z-index: 2;
 
-      text-shadow:
-        0 0 10px #a855f7,
-        0 0 25px #7e22ce,
-        0 0 55px #581c87;
-    }
+    background:
 
-    /* ANIMAÇÃO DAS LETRAS */
+        linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba(0, 0, 0, 0.15) 55%,
+            rgba(0, 0, 0, 0.95) 100%
+        );
 
-    .titulo span {
-      display: inline-block;
+}
 
-      opacity: 0;
 
-      transform:
-        translateY(35px)
-        scale(0.85);
+/* =========================
+   CONTEÚDO
+========================= */
 
-      filter: blur(12px);
+.conteudo {
 
-      animation:
-        surgirLetra 1.1s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
-    }
+    position: relative;
 
-    .titulo span:nth-child(1) {
-      animation-delay: 0.25s;
-    }
+    z-index: 3;
 
-    .titulo span:nth-child(2) {
-      animation-delay: 0.40s;
-    }
+    width: 90%;
 
-    .titulo span:nth-child(3) {
-      animation-delay: 0.55s;
-    }
+    max-width: 900px;
 
-    .titulo span:nth-child(4) {
-      animation-delay: 0.70s;
-    }
+    text-align: center;
 
-    .titulo span:nth-child(5) {
-      animation-delay: 0.85s;
-    }
+    padding: 40px;
 
-    @keyframes surgirLetra {
-      0% {
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecerTitulo {
+
+    from {
+
         opacity: 0;
 
         transform:
-          translateY(35px)
-          scale(0.85);
+            translateY(35px)
+            scale(0.92);
 
-        filter: blur(12px);
-      }
+        filter: blur(8px);
 
-      60% {
-        opacity: 1;
-        filter: blur(2px);
-      }
+    }
 
-      100% {
+    to {
+
         opacity: 1;
 
         transform:
-          translateY(0)
-          scale(1);
+            translateY(0)
+            scale(1);
 
         filter: blur(0);
-      }
+
     }
 
-    /* AWAKENING */
+}
 
-    .subtitulo {
-      margin-top: 10px;
 
-      font-family: Georgia, serif;
+@keyframes aparecer {
 
-      font-size: 18px;
-      letter-spacing: 6px;
+    from {
 
-      color: #d8b4fe;
+        opacity: 0;
 
-      opacity: 0;
+        transform: translateY(20px);
 
-      transform: translateY(20px);
+        filter: blur(4px);
 
-      animation:
-        aparecer 1.4s ease forwards;
-
-      animation-delay: 1.25s;
     }
 
-    /* LINHA */
+    to {
 
-    .linha {
-      width: 0;
-      height: 2px;
+        opacity: 1;
 
-      margin: 30px auto;
+        transform: translateY(0);
 
-      background: #a855f7;
+        filter: blur(0);
 
-      box-shadow:
+    }
+
+}
+
+
+@keyframes linha {
+
+    from {
+
+        width: 0;
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        width: 130px;
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================
+   NEXUS
+========================= */
+
+.titulo {
+
+    margin: 0;
+
+    font-family:
+        "Cinzel Decorative",
+        serif;
+
+    font-weight: 700;
+
+    font-size:
+        clamp(45px, 10vw, 95px);
+
+    letter-spacing: 10px;
+
+    opacity: 0;
+
+    animation:
+
+        aparecerTitulo
+        1.3s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+
+    text-shadow:
+
         0 0 10px #a855f7,
+
+        0 0 25px #7e22ce,
+
+        0 0 55px #581c87;
+
+}
+
+
+/* =========================
+   AWAKENING
+========================= */
+
+.subtitulo {
+
+    margin-top: 10px;
+
+    font-family:
+        "Cinzel Decorative",
+        serif;
+
+    font-size: 18px;
+
+    letter-spacing: 6px;
+
+    color: #d8b4fe;
+
+    opacity: 0;
+
+    animation:
+
+        aparecer
+        1s
+        ease
+        0.7s
+        forwards;
+
+}
+
+
+/* =========================
+   LINHA
+========================= */
+
+.linha {
+
+    height: 2px;
+
+    margin: 30px auto;
+
+    background: #a855f7;
+
+    box-shadow:
+
+        0 0 10px #a855f7,
+
         0 0 25px #7e22ce;
 
-      animation:
-        crescerLinha 1.2s ease forwards;
+    opacity: 0;
 
-      animation-delay: 1.65s;
-    }
+    animation:
 
-    @keyframes crescerLinha {
-      from {
-        width: 0;
-        opacity: 0;
-      }
+        linha
+        1s
+        ease
+        1.1s
+        forwards;
 
-      to {
-        width: 130px;
-        opacity: 1;
-      }
-    }
+}
 
-    /* FRASE */
 
-    .descricao {
-      color: #ddd6fe;
+/* =========================
+   FRASE
+========================= */
 
-      font-family: Georgia, serif;
+.descricao {
 
-      font-size: 17px;
+    color: #ddd6fe;
 
-      line-height: 1.7;
+    font-size: 17px;
 
-      max-width: 650px;
+    line-height: 1.7;
 
-      margin: 0 auto;
+    opacity: 0;
 
-      opacity: 0;
+    animation:
 
-      transform: translateY(20px);
+        aparecer
+        1s
+        ease
+        1.5s
+        forwards;
 
-      filter: blur(5px);
+}
 
-      animation:
-        aparecerFrase 1.5s ease forwards;
 
-      animation-delay: 1.9s;
-    }
+/* =========================
+   BOTÕES
+========================= */
 
-    @keyframes aparecerFrase {
-      from {
-        opacity: 0;
+.botoes {
 
-        transform:
-          translateY(20px);
+    display: flex;
 
-        filter: blur(5px);
-      }
+    justify-content: center;
 
-      to {
-        opacity: 1;
+    gap: 20px;
 
-        transform:
-          translateY(0);
+    flex-wrap: wrap;
 
-        filter: blur(0);
-      }
-    }
+    margin-top: 45px;
 
-    /* BOTÕES */
+    opacity: 0;
 
-    .botoes {
-      display: flex;
+    animation:
 
-      justify-content: center;
+        aparecer
+        1s
+        ease
+        1.8s
+        forwards;
 
-      gap: 20px;
+}
 
-      flex-wrap: wrap;
 
-      margin-top: 45px;
+.botao {
 
-      opacity: 0;
+    min-width: 230px;
 
-      transform: translateY(25px);
+    padding: 18px 25px;
 
-      animation:
-        aparecer 1.3s ease forwards;
+    border: 1px solid #a855f7;
 
-      animation-delay: 2.7s;
-    }
+    border-radius: 8px;
 
-    .botao {
-      min-width: 230px;
-
-      padding: 18px 25px;
-
-      border: 1px solid #a855f7;
-
-      border-radius: 8px;
-
-      background:
+    background:
         rgba(25, 5, 40, 0.65);
 
-      color: white;
+    color: white;
 
-      text-decoration: none;
+    text-decoration: none;
 
-      font-family: Georgia, serif;
+    font-size: 16px;
 
-      font-size: 16px;
+    box-shadow:
 
-      box-shadow:
         0 0 15px
         rgba(168, 85, 247, 0.25);
 
-      transition: 0.3s;
-    }
+    transition: 0.3s;
 
-    .botao:hover {
-      transform: translateY(-5px);
+}
 
-      background:
+
+.botao:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
         rgba(126, 34, 206, 0.5);
 
-      box-shadow:
+    box-shadow:
+
         0 0 30px
         rgba(168, 85, 247, 0.7);
-    }
 
-    /* MÚSICA */
+}
 
-    .musica {
-      margin-top: 35px;
 
-      opacity: 0;
+/* =========================
+   MÚSICA
+========================= */
 
-      transform: translateY(20px);
+.musica {
 
-      animation:
-        aparecer 1.2s ease forwards;
+    margin-top: 35px;
 
-      animation-delay: 3.1s;
-    }
+    opacity: 0;
 
-    .musica button {
-      border: 1px solid #8b5cf6;
+    animation:
 
-      border-radius: 25px;
+        aparecer
+        1s
+        ease
+        2.1s
+        forwards;
 
-      padding: 12px 24px;
+}
 
-      color: #ede9fe;
 
-      background:
+.musica button {
+
+    border: 1px solid #8b5cf6;
+
+    border-radius: 25px;
+
+    padding: 12px 24px;
+
+    color: #ede9fe;
+
+    background:
         rgba(10, 3, 18, 0.75);
 
-      cursor: pointer;
+    cursor: pointer;
 
-      font-family: Georgia, serif;
+    font-size: 15px;
 
-      font-size: 15px;
+    font-family: Georgia, serif;
 
-      transition: 0.3s;
-    }
+    transition: 0.3s;
 
-    .musica button:hover {
-      background:
+}
+
+
+.musica button:hover {
+
+    background:
         rgba(91, 33, 182, 0.6);
 
-      box-shadow:
+    box-shadow:
+
         0 0 20px
         rgba(139, 92, 246, 0.5);
-    }
 
-    /* RODAPÉ */
+}
 
-    .rodape {
-      margin-top: 35px;
 
-      font-family: Georgia, serif;
+/* =========================
+   RODAPÉ
+========================= */
 
-      font-size: 12px;
+.rodape {
 
-      color: #8b8199;
+    margin-top: 35px;
 
-      opacity: 0;
+    font-size: 12px;
 
-      animation:
-        aparecer 1s ease forwards;
+    color: #8b8199;
 
-      animation-delay: 3.4s;
-    }
+    opacity: 0;
 
-    @keyframes aparecer {
-      from {
-        opacity: 0;
+    animation:
 
-        transform:
-          translateY(20px);
-      }
+        aparecer
+        1s
+        ease
+        2.3s
+        forwards;
 
-      to {
-        opacity: 1;
+}
 
-        transform:
-          translateY(0);
-      }
-    }
 
-    /* CELULAR */
+/* =========================
+   PLAYER INVISÍVEL
+========================= */
 
-    @media (max-width: 600px) {
+#audio {
 
-      .conteudo {
+    display: none;
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .conteudo {
+
         padding: 25px;
-      }
 
-      .titulo {
-        letter-spacing: 5px;
-      }
-
-      .subtitulo {
-        font-size: 14px;
-        letter-spacing: 4px;
-      }
-
-      .descricao {
-        font-size: 15px;
-      }
-
-      .botao {
-        width: 100%;
-        min-width: unset;
-      }
     }
 
-  </style>
+
+    .titulo {
+
+        letter-spacing: 5px;
+
+        font-size:
+            clamp(45px, 15vw, 75px);
+
+    }
+
+
+    .subtitulo {
+
+        font-size: 13px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .descricao {
+
+        font-size: 15px;
+
+    }
+
+
+    .botao {
+
+        width: 100%;
+
+    }
+
+}
+
+</style>
 
 </head>
 
+
 <body>
 
-  <main class="conteudo">
+
+<main class="conteudo">
+
+
+    <!-- =========================
+         TÍTULO
+    ========================== -->
 
     <h1 class="titulo">
-      <span>N</span>
-      <span>E</span>
-      <span>X</span>
-      <span>U</span>
-      <span>S</span>
+
+        NEXUS
+
     </h1>
 
+
     <div class="subtitulo">
-      AWAKENING
+
+        AWAKENING
+
     </div>
+
 
     <div class="linha"></div>
 
+
+    <!-- =========================
+         FRASE
+    ========================== -->
+
     <p class="descricao">
-      <em>
+
         “Nem toda sombra esconde algo.
-        Algumas apenas revelam o que
-        a luz não mostra.”
-      </em>
+        Algumas apenas revelam o que a luz não mostra.”
+
     </p>
+
+
+    <!-- =========================
+         BOTÕES
+    ========================== -->
 
     <div class="botoes">
 
-      <a href="livro.html" class="botao">
-        📖<br>
-        Livro do RPG
-      </a>
 
-      <a href="ficha.html" class="botao">
-        📝<br>
-        Ficha do Personagem
-      </a>
+        <!-- LIVRO -->
+
+        <a
+            href="livro.html"
+            class="botao"
+        >
+
+            📖
+            <br>
+
+            Livro do RPG
+
+        </a>
+
+
+        <!-- FICHA -->
+
+        <a
+            href="ficha.html"
+            class="botao"
+        >
+
+            📝
+            <br>
+
+            Ficha do Personagem
+
+        </a>
+
 
     </div>
 
-    <!-- BOTÃO DA MÚSICA -->
+
+    <!-- =========================
+         BOTÃO DE MÚSICA
+    ========================== -->
 
     <div class="musica">
 
-      <button
-        id="botao-musica"
-        onclick="alternarMusica()"
-      >
-        🎸 Tocar música
-      </button>
+        <button
+            id="botao-musica"
+            onclick="alternarMusica()"
+        >
+
+            🎸 Tocar música
+
+        </button>
 
     </div>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
 
     <div class="rodape">
-      NEXUS-AWAKENING • RPG
+
+        NEXUS-AWAKENING • RPG
+
     </div>
 
-  </main>
+
+</main>
 
 
-  <!-- ==================================================
-       🎵 MÚSICA DO SITE
-       
-       O ARQUIVO MP3 DEVE ESTAR NO MESMO LUGAR
-       QUE O index.html.
+<!-- =========================
+     MÚSICA
+     
+     O ARQUIVO PRECISA ESTAR
+     NA MESMA PASTA DO INDEX.HTML
+========================== -->
 
-       NOME DO ARQUIVO:
-       musica.mp3
-
-       EXEMPLO:
-
-       📁 repositório
-       ├── index.html
-       ├── musica.mp3
-       ├── livro.html
-       └── ficha.html
-
-       Se o seu MP3 tiver outro nome, altere
-       "musica.mp3" abaixo.
-       ================================================== -->
-
-  <audio
-    id="musica"
+<audio
+    id="audio"
+    src="Dark Acoustic Guitar Instrumental Beat 2018 Betrayed - Ryini Beats (youtube).mp3"
+    loop
     preload="auto"
-  >
-
-    <source
-      src="Dark Acoustic Guitar Instrumental Beat 2018 Betrayed - Ryini Beats (youtube).mp3"
-      type="audio/mpeg"
-    >
-
-  </audio>
+></audio>
 
 
-  <script>
-
-    const musica =
-      document.getElementById("musica");
-
-    const botaoMusica =
-      document.getElementById("botao-musica");
-
-    let tocando = false;
+<script>
 
 
-    /* Volume da música: 45% */
+/* =========================
+   CONTROLE DA MÚSICA
+========================= */
 
-    musica.volume = 0.45;
+const audio =
+    document.getElementById("audio");
 
 
-    /* Botão de tocar/pausar */
+const botao =
+    document.getElementById("botao-musica");
 
-    function alternarMusica() {
 
-      if (!tocando) {
+let tocando = false;
 
-        musica.play()
-          .then(() => {
+
+function alternarMusica() {
+
+
+    if (!tocando) {
+
+
+        audio.volume = 0.45;
+
+
+        audio.play()
+
+        .then(function () {
+
 
             tocando = true;
 
-            botaoMusica.innerHTML =
-              "🔊 Música ligada";
 
-          })
+            botao.innerHTML =
+                "🔊 Música ligada";
 
-          .catch((erro) => {
 
-            console.error(
-              "Erro ao tocar o MP3:",
-              erro
+        })
+
+
+        .catch(function () {
+
+
+            alert(
+
+                "Não foi possível iniciar a música. " +
+
+                "Verifique se o arquivo MP3 está " +
+
+                "na mesma pasta do index.html."
+
             );
 
-            botaoMusica.innerHTML =
-              "❌ Erro ao carregar";
+        });
 
-          });
-
-      }
-
-      else {
-
-        musica.pause();
-
-        tocando = false;
-
-        botaoMusica.innerHTML =
-          "🎸 Tocar música";
-
-      }
 
     }
 
 
-    /* Quando a música terminar */
+    else {
 
-    musica.addEventListener(
-      "ended",
-      () => {
+
+        audio.pause();
+
 
         tocando = false;
 
-        botaoMusica.innerHTML =
-          "🎸 Tocar música";
 
-      }
-    );
+        botao.innerHTML =
+            "🎸 Tocar música";
 
-  </script>
+
+    }
+
+}
+
+</script>
+
 
 </body>
+
 </html>
