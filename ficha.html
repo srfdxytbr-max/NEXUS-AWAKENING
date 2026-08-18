@@ -1,1 +1,2407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Ficha — NEXUS-AWAKENING</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    background:
+
+        linear-gradient(
+            rgba(15,3,25,.88),
+            rgba(0,0,0,.97)
+        ),
+
+        url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    color:#eee;
+
+    font-family:Georgia,serif;
+
+}
+
+
+/* =====================================================
+   TOPO
+===================================================== */
+
+.topo{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 18px;
+
+    background:rgba(8,2,14,.92);
+
+    border-bottom:1px solid
+        rgba(168,85,247,.35);
+
+    backdrop-filter:blur(12px);
+
+}
+
+
+.topo-esquerda,
+.topo-direita{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.topo button,
+.topo a{
+
+    border:1px solid #8b5cf6;
+
+    background:
+        rgba(35,8,55,.75);
+
+    color:#eee;
+
+    padding:9px 13px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    font-family:Georgia,serif;
+
+    transition:.25s;
+
+}
+
+
+.topo button:hover,
+.topo a:hover{
+
+    background:
+        rgba(126,34,206,.65);
+
+    box-shadow:
+        0 0 18px
+        rgba(168,85,247,.45);
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:94%;
+
+    max-width:1100px;
+
+    margin:35px auto 80px;
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    animation:
+        aparecer .8s ease forwards;
+
+}
+
+
+.cabecalho h1{
+
+    margin:0;
+
+    font-size:
+        clamp(38px,8vw,70px);
+
+    letter-spacing:8px;
+
+    text-shadow:
+
+        0 0 10px #a855f7,
+
+        0 0 25px #7e22ce,
+
+        0 0 50px #581c87;
+
+}
+
+
+.cabecalho p{
+
+    color:#c4b5fd;
+
+    letter-spacing:4px;
+
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.secao{
+
+    margin-bottom:25px;
+
+    padding:25px;
+
+    border:1px solid
+        rgba(168,85,247,.35);
+
+    border-radius:14px;
+
+    background:
+        rgba(15,4,25,.78);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(91,33,182,.12);
+
+    animation:
+        aparecer .7s ease both;
+
+}
+
+
+.secao h2{
+
+    margin-top:0;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid
+        rgba(168,85,247,.25);
+
+    color:#d8b4fe;
+
+    letter-spacing:3px;
+
+}
+
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.foto-area{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.foto{
+
+    width:190px;
+
+    height:240px;
+
+    border:2px solid #8b5cf6;
+
+    border-radius:10px;
+
+    background:
+        rgba(0,0,0,.5);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 0 25px
+        rgba(139,92,246,.3);
+
+}
+
+
+.foto img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.foto-vazio{
+
+    color:#81758f;
+
+    text-align:center;
+
+    padding:15px;
+
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+
+.campo label{
+
+    color:#bda8d0;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+}
+
+
+input,
+select{
+
+    width:100%;
+
+    padding:11px 12px;
+
+    border-radius:7px;
+
+    border:1px solid
+        rgba(168,85,247,.4);
+
+    outline:none;
+
+    background:
+        rgba(5,2,10,.75);
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+}
+
+
+input:focus,
+select:focus{
+
+    border-color:#a855f7;
+
+    box-shadow:
+        0 0 12px
+        rgba(168,85,247,.25);
+
+}
+
+
+input[type=number]{
+
+    appearance:textfield;
+
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+
+    appearance:none;
+
+}
+
+
+/* =====================================================
+   NEXO
+===================================================== */
+
+.nexo{
+
+    border-color:
+        rgba(168,85,247,.65);
+
+}
+
+
+.nexo-titulo{
+
+    text-align:center;
+
+    font-size:30px;
+
+    letter-spacing:5px;
+
+    color:#d8b4fe;
+
+    text-shadow:
+        0 0 15px #7e22ce;
+
+}
+
+
+.nexo-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+/* =====================================================
+   STATUS ESPECIAL
+===================================================== */
+
+.status-box{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    background:
+        rgba(0,0,0,.3);
+
+    border:1px solid
+        rgba(255,255,255,.12);
+
+    transition:.3s;
+
+}
+
+
+.status-numero{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+
+.status-mensagem{
+
+    margin-top:8px;
+
+    color:#ddd;
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   CORES DE STATUS
+===================================================== */
+
+.status-verde{
+
+    border-color:#86efac;
+
+    box-shadow:
+        0 0 20px
+        rgba(134,239,172,.18);
+
+}
+
+
+.status-verde .status-numero{
+
+    color:#86efac;
+
+}
+
+
+.status-laranja{
+
+    border-color:#fb923c;
+
+    box-shadow:
+        0 0 20px
+        rgba(251,146,60,.18);
+
+}
+
+
+.status-laranja .status-numero{
+
+    color:#fb923c;
+
+}
+
+
+.status-vermelho-claro{
+
+    border-color:#f87171;
+
+    box-shadow:
+        0 0 20px
+        rgba(248,113,113,.18);
+
+}
+
+
+.status-vermelho-claro .status-numero{
+
+    color:#f87171;
+
+}
+
+
+.status-vermelho-escuro{
+
+    border-color:#dc2626;
+
+    box-shadow:
+        0 0 25px
+        rgba(220,38,38,.3);
+
+}
+
+
+.status-vermelho-escuro .status-numero{
+
+    color:#dc2626;
+
+}
+
+
+/* =====================================================
+   ATRIBUTOS
+===================================================== */
+
+.pontos-resumo{
+
+    text-align:center;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border-radius:10px;
+
+    background:
+        rgba(126,34,206,.12);
+
+    border:1px solid
+        rgba(168,85,247,.3);
+
+}
+
+
+.pontos-grandes{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#d8b4fe;
+
+}
+
+
+.aviso-pontos{
+
+    margin-top:8px;
+
+    color:#ff5555;
+
+    font-weight:bold;
+
+    display:none;
+
+}
+
+
+.atributos{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:12px;
+
+}
+
+
+.atributo{
+
+    padding:14px;
+
+    border:1px solid
+        rgba(168,85,247,.25);
+
+    border-radius:8px;
+
+    background:
+        rgba(0,0,0,.2);
+
+}
+
+
+.atributo label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#c4b5fd;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+.status-card{
+
+    padding:17px;
+
+    border-radius:10px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    border:1px solid
+        rgba(168,85,247,.25);
+
+}
+
+
+.status-card h3{
+
+    margin-top:0;
+
+    color:#d8b4fe;
+
+}
+
+
+.status-card .status-box{
+
+    margin-top:12px;
+
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.final{
+
+    text-align:center;
+
+    color:#75677f;
+
+    margin-top:40px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:750px){
+
+    .grid,
+    .nexo-grid,
+    .status-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .atributos{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+
+    .topo{
+
+        position:relative;
+
+        flex-direction:column;
+
+    }
+
+
+    .topo-esquerda,
+    .topo-direita{
+
+        justify-content:center;
+
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    .container{
+
+        width:96%;
+
+    }
+
+
+    .secao{
+
+        padding:17px;
+
+    }
+
+
+    .atributos{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOPO
+===================================================== -->
+
+<header class="topo">
+
+    <div class="topo-esquerda">
+
+        <a href="index.html">
+            🏠 Início
+        </a>
+
+    </div>
+
+
+    <div class="topo-direita">
+
+        <button onclick="baixarFicha()">
+            💾 Baixar ficha
+        </button>
+
+        <button onclick="document.getElementById('arquivoFicha').click()">
+            📂 Carregar ficha
+        </button>
+
+        <input
+            type="file"
+            id="arquivoFicha"
+            accept=".json,application/json"
+            style="display:none"
+            onchange="carregarFicha(event)"
+        >
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     CABEÇALHO
+===================================================== -->
+
+<div class="cabecalho">
+
+    <h1>NEXUS</h1>
+
+    <p>FICHA DO PERSONAGEM</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOTO
+===================================================== -->
+
+<section class="secao">
+
+    <h2>IDENTIDADE</h2>
+
+    <div class="foto-area">
+
+        <div class="foto">
+
+            <img
+                id="fotoPersonagem"
+                style="display:none"
+                alt="Foto do personagem"
+            >
+
+            <div
+                id="fotoVazia"
+                class="foto-vazio"
+            >
+
+                🖼️<br>
+                Foto do personagem
+
+            </div>
+
+        </div>
+
+
+        <input
+            type="file"
+            id="fotoInput"
+            accept="image/*"
+        >
+
+    </div>
+
+
+    <br>
+
+
+    <div class="grid">
+
+        <div class="campo">
+            <label>Nome</label>
+            <input id="nome">
+        </div>
+
+
+        <div class="campo">
+            <label>Idade</label>
+            <input id="idade" type="number">
+        </div>
+
+
+        <div class="campo">
+            <label>Gênero</label>
+            <input id="genero">
+        </div>
+
+
+        <div class="campo">
+            <label>Peso</label>
+            <input id="peso" type="number">
+        </div>
+
+
+        <div class="campo">
+            <label>Altura</label>
+            <input id="altura">
+        </div>
+
+
+        <div class="campo">
+            <label>Cargo</label>
+            <input id="cargo">
+        </div>
+
+
+        <div class="campo">
+            <label>Origem</label>
+            <input id="origem">
+        </div>
+
+
+        <div class="campo">
+            <label>Organização</label>
+            <input id="organizacao">
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEXO
+===================================================== -->
+
+<section class="secao nexo">
+
+    <div class="nexo-titulo">
+        NEXO ✨
+    </div>
+
+
+    <br>
+
+
+    <div class="campo">
+
+        <label>
+            Vida do Núcleo
+        </label>
+
+        <input
+            id="vidaNucleo"
+            type="number"
+            min="0"
+            max="100"
+            value="100"
+            oninput="atualizarStatus('vidaNucleo',100,'statusNucleo')"
+        >
+
+    </div>
+
+
+    <div
+        id="statusNucleo"
+        class="status-box status-verde"
+    >
+
+        <div class="status-numero">
+            100 / 100
+        </div>
+
+        <div class="status-mensagem">
+            Ótimas condições, seu núcleo está perfeito!
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="nexo-grid">
+
+        <div class="campo">
+
+            <label>
+                Nome do NEXO
+            </label>
+
+            <input id="nomeNexo">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Estado atual do NEXO
+            </label>
+
+            <select id="estadoNexo">
+
+                <option value="Desativado">
+                    Desativado
+                </option>
+
+                <option value="Ativado">
+                    Ativado
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Nível do NEXO
+            </label>
+
+            <input
+                id="nivelNexo"
+                type="number"
+                min="1"
+                max="5"
+                value="1"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Controle do NEXO
+            </label>
+
+            <input
+                id="controleNexo"
+                type="number"
+                min="0"
+                max="5"
+                value="0"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROGRESSÃO
+===================================================== -->
+
+<section class="secao">
+
+    <h2>PROGRESSÃO</h2>
+
+
+    <div class="grid">
+
+        <div class="campo">
+
+            <label>
+                Nível atual
+            </label>
+
+            <input
+                id="nivelAtual"
+                type="number"
+                min="1"
+                value="1"
+                oninput="atualizarPontosNivel()"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                XP
+            </label>
+
+            <input
+                id="xp"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Missões concluídas
+            </label>
+
+            <input
+                id="missoes"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RENOMES
+===================================================== -->
+
+<section class="secao">
+
+    <h2>RENOMES</h2>
+
+
+    <div class="grid">
+
+        <div class="campo">
+
+            <label>
+                Glória
+            </label>
+
+            <input
+                id="gloria"
+                type="number"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Honra
+            </label>
+
+            <input
+                id="honra"
+                type="number"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Sabedoria
+            </label>
+
+            <input
+                id="sabedoria"
+                type="number"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ATRIBUTOS
+===================================================== -->
+
+<section class="secao">
+
+    <h2>ATRIBUTOS</h2>
+
+
+    <div class="grid">
+
+        <div class="campo">
+
+            <label>
+                Pontos extras
+            </label>
+
+            <input
+                id="pontosExtras"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Pontos disponíveis
+            </label>
+
+            <input
+                id="pontosDisponiveis"
+                type="number"
+                min="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="pontos-resumo">
+
+        <div
+            id="pontosTexto"
+            class="pontos-grandes"
+        >
+            18 / 18
+        </div>
+
+
+        <div>
+            Pontos restantes
+        </div>
+
+
+        <div
+            id="avisoPontos"
+            class="aviso-pontos"
+        >
+            ⚠️ Você ultrapassou a quantidade de pontos disponível!
+        </div>
+
+    </div>
+
+
+    <div class="atributos">
+
+
+        <div class="atributo">
+
+            <label>Força</label>
+
+            <input
+                class="atributo-input"
+                id="forca"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Destreza</label>
+
+            <input
+                class="atributo-input"
+                id="destreza"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Vigor</label>
+
+            <input
+                class="atributo-input"
+                id="vigor"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Intel</label>
+
+            <input
+                class="atributo-input"
+                id="intel"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Auto Controle</label>
+
+            <input
+                class="atributo-input"
+                id="autocontrole"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Determinação</label>
+
+            <input
+                class="atributo-input"
+                id="determinacao"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Raciocínio</label>
+
+            <input
+                class="atributo-input"
+                id="raciocinio"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Carisma</label>
+
+            <input
+                class="atributo-input"
+                id="carisma"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+
+        <div class="atributo">
+
+            <label>Manipulação</label>
+
+            <input
+                class="atributo-input"
+                id="manipulacao"
+                type="number"
+                min="0"
+                value="0"
+                oninput="atualizarPontos()"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATUS
+===================================================== -->
+
+<section class="secao">
+
+    <h2>STATUS</h2>
+
+
+    <div class="status-grid">
+
+
+        <!-- VIDA -->
+
+        <div class="status-card">
+
+            <h3>❤️ Pontos de Vida</h3>
+
+            <input
+                id="vidaAtual"
+                type="number"
+                min="0"
+                value="40"
+                oninput="atualizarStatus('vidaAtual',40,'statusVida')"
+        >
+
+        <div
+            id="statusVida"
+            class="status-box status-verde"
+        >
+
+            <div class="status-numero">
+                40 / 40
+            </div>
+
+            <div class="status-mensagem">
+                Ótimas condições, sua vida está excelente!
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SANIDADE -->
+
+    <div class="status-card">
+
+        <h3>🧠 Sanidade</h3>
+
+        <input
+            id="sanidadeAtual"
+            type="number"
+            min="0"
+            value="40"
+            oninput="atualizarStatus('sanidadeAtual',40,'statusSanidade')"
+        >
+
+        <div
+            id="statusSanidade"
+            class="status-box status-verde"
+        >
+
+            <div class="status-numero">
+                40 / 40
+            </div>
+
+            <div class="status-mensagem">
+                Sua mente está em ótimas condições!
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTAMINAÇÃO -->
+
+    <div class="status-card">
+
+        <h3>☣️ Contaminação</h3>
+
+        <input
+            id="contaminacaoAtual"
+            type="number"
+            min="0"
+            value="0"
+            oninput="atualizarStatus('contaminacaoAtual',100,'statusContaminacao')"
+        >
+
+        <div
+            id="statusContaminacao"
+            class="status-box status-verde"
+        >
+
+            <div class="status-numero">
+                0 / 100
+            </div>
+
+            <div class="status-mensagem">
+                Nenhuma contaminação detectada.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ESFORÇO MENTAL -->
+
+    <div class="status-card">
+
+        <h3>🧠 Esforço Mental</h3>
+
+        <input
+            id="esforcoMentalAtual"
+            type="number"
+            min="0"
+            value="0"
+            oninput="atualizarStatus('esforcoMentalAtual',100,'statusEsforcoMental')"
+        >
+
+        <div
+            id="statusEsforcoMental"
+            class="status-box status-verde"
+        >
+
+            <div class="status-numero">
+                0 / 100
+            </div>
+
+            <div class="status-mensagem">
+                Nenhum esforço mental acumulado.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ESFORÇO FÍSICO -->
+
+    <div class="status-card">
+
+        <h3>💪 Esforço Físico</h3>
+
+        <input
+            id="esforcoFisicoAtual"
+            type="number"
+            min="0"
+            value="0"
+            oninput="atualizarStatus('esforcoFisicoAtual',100,'statusEsforcoFisico')"
+        >
+
+        <div
+            id="statusEsforcoFisico"
+            class="status-box status-verde"
+        >
+
+            <div class="status-numero">
+                0 / 100
+            </div>
+
+            <div class="status-mensagem">
+                Nenhum esforço físico acumulado.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SOBRECARGA -->
+
+    <div class="status-card">
+
+        <h3>⚡ Sobrecarga</h3>
+
+        <input
+            id="sobrecargaAtual"
+            type="number"
+            min="0"
+            value="0"
+            oninput="atualizarStatus('sobrecargaAtual',100,'statusSobrecarga')"
+        >
+
+        <div
+            id="statusSobrecarga"
+            class="status-box status-verde"
+        >
+
+            <div class="status-numero">
+                0 / 100
+            </div>
+
+            <div class="status-mensagem">
+                Nenhuma sobrecarga detectada.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+</section>
+
+
+<div class="final">
+    NEXUS-AWAKENING • FICHA DO PERSONAGEM
+</div>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   FOTO DO PERSONAGEM
+===================================================== */
+
+document
+    .getElementById("fotoInput")
+    .addEventListener("change", function(event){
+
+        const arquivo = event.target.files[0];
+
+        if(!arquivo) return;
+
+        const leitor = new FileReader();
+
+        leitor.onload = function(e){
+
+            const imagem =
+                document.getElementById("fotoPersonagem");
+
+            const vazio =
+                document.getElementById("fotoVazia");
+
+            imagem.src = e.target.result;
+
+            imagem.style.display = "block";
+
+            vazio.style.display = "none";
+
+        };
+
+        leitor.readAsDataURL(arquivo);
+
+    });
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function atualizarStatus(inputId, maximo, statusId){
+
+    const input =
+        document.getElementById(inputId);
+
+    const box =
+        document.getElementById(statusId);
+
+    let valor =
+        Number(input.value);
+
+    if(isNaN(valor)){
+        valor = 0;
+    }
+
+    valor = Math.max(0, Math.min(valor, maximo));
+
+    input.value = valor;
+
+    const numero =
+        box.querySelector(".status-numero");
+
+    const mensagem =
+        box.querySelector(".status-mensagem");
+
+
+    numero.textContent =
+        valor + " / " + maximo;
+
+
+    box.classList.remove(
+        "status-verde",
+        "status-laranja",
+        "status-vermelho-claro",
+        "status-vermelho-escuro"
+    );
+
+
+    /*
+       CONTAMINAÇÃO, ESFORÇO E SOBRECARGA
+
+       Quanto MAIOR o valor,
+       pior fica o estado.
+
+       Vida e Sanidade:
+       quanto MENOR, pior.
+    */
+
+    const campoPioraComMaiorValor =
+        inputId === "contaminacaoAtual" ||
+        inputId === "esforcoMentalAtual" ||
+        inputId === "esforcoFisicoAtual" ||
+        inputId === "sobrecargaAtual";
+
+
+    let porcentagem;
+
+
+    if(campoPioraComMaiorValor){
+
+        porcentagem =
+            maximo === 0
+            ? 0
+            : (valor / maximo) * 100;
+
+    }else{
+
+        porcentagem =
+            maximo === 0
+            ? 0
+            : (valor / maximo) * 100;
+
+    }
+
+
+    /*
+       STATUS NORMAL
+    */
+
+    if(campoPioraComMaiorValor){
+
+        if(valor === 0){
+
+            box.classList.add("status-verde");
+
+            if(inputId === "contaminacaoAtual")
+                mensagem.textContent =
+                    "Nenhuma contaminação detectada.";
+
+            else if(inputId === "esforcoMentalAtual")
+                mensagem.textContent =
+                    "Nenhum esforço mental acumulado.";
+
+            else if(inputId === "esforcoFisicoAtual")
+                mensagem.textContent =
+                    "Nenhum esforço físico acumulado.";
+
+            else
+                mensagem.textContent =
+                    "Nenhuma sobrecarga detectada.";
+
+        }
+
+        else if(porcentagem <= 30){
+
+            box.classList.add("status-verde");
+
+            mensagem.textContent =
+                "Condições estáveis. Ainda há pouco acúmulo.";
+
+        }
+
+        else if(porcentagem <= 50){
+
+            box.classList.add("status-laranja");
+
+            mensagem.textContent =
+                "Atenção! O nível está começando a ficar preocupante.";
+
+        }
+
+        else if(porcentagem <= 70){
+
+            box.classList.add("status-vermelho-claro");
+
+            mensagem.textContent =
+                "Cuidado! O nível está elevado.";
+
+        }
+
+        else{
+
+            box.classList.add("status-vermelho-escuro");
+
+            mensagem.textContent =
+                "PERIGO! O nível está extremamente elevado.";
+
+        }
+
+    }
+
+    else{
+
+        if(porcentagem >= 70){
+
+            box.classList.add("status-verde");
+
+            if(inputId === "vidaNucleo")
+                mensagem.textContent =
+                    "Ótimas condições, seu núcleo está perfeito!";
+
+            else if(inputId === "vidaAtual")
+                mensagem.textContent =
+                    "Ótimas condições, sua vida está excelente!";
+
+            else
+                mensagem.textContent =
+                    "Sua mente está em ótimas condições!";
+
+        }
+
+        else if(porcentagem >= 50){
+
+            box.classList.add("status-laranja");
+
+            mensagem.textContent =
+                "Atenção! O estado começa a ficar preocupante.";
+
+        }
+
+        else if(porcentagem >= 30){
+
+            box.classList.add("status-vermelho-claro");
+
+            mensagem.textContent =
+                "Cuidado! O estado está crítico.";
+
+        }
+
+        else if(porcentagem > 0){
+
+            box.classList.add("status-vermelho-escuro");
+
+            mensagem.textContent =
+                "PERIGO! O estado está extremamente crítico.";
+
+        }
+
+        else{
+
+            box.classList.add("status-vermelho-escuro");
+
+            mensagem.textContent =
+                "Estado zerado! É necessário atenção imediata.";
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   PONTOS POR NÍVEL
+===================================================== */
+
+const pontosPorNivel = {
+
+    1:18,
+    2:21,
+    3:24,
+    4:27,
+    5:30,
+    6:33,
+    7:36,
+    8:39,
+    9:42,
+    10:45
+
+};
+
+
+function atualizarPontosNivel(){
+
+    const nivel =
+        Number(
+            document.getElementById("nivelAtual").value
+        );
+
+
+    const pontos =
+        pontosPorNivel[nivel];
+
+
+    if(pontos !== undefined){
+
+        document
+            .getElementById("pontosDisponiveis")
+            .value = pontos;
+
+    }
+
+    atualizarPontos();
+
+}
+
+
+/* =====================================================
+   DISTRIBUIÇÃO DE PONTOS
+===================================================== */
+
+function atualizarPontos(){
+
+    const disponiveis =
+        Number(
+            document
+                .getElementById("pontosDisponiveis")
+                .value
+        ) || 0;
+
+
+    const extras =
+        Number(
+            document
+                .getElementById("pontosExtras")
+                .value
+        ) || 0;
+
+
+    const limite =
+        disponiveis + extras;
+
+
+    const campos =
+        document.querySelectorAll(
+            ".atributo-input"
+        );
+
+
+    let usados = 0;
+
+
+    campos.forEach(campo => {
+
+        let valor =
+            Number(campo.value) || 0;
+
+        if(valor < 0){
+
+            valor = 0;
+
+            campo.value = 0;
+
+        }
+
+        usados += valor;
+
+    });
+
+
+    const restantes =
+        limite - usados;
+
+
+    const texto =
+        document.getElementById("pontosTexto");
+
+
+    const aviso =
+        document.getElementById("avisoPontos");
+
+
+    texto.textContent =
+        Math.max(restantes, 0) +
+        " / " +
+        limite;
+
+
+    if(restantes < 0){
+
+        texto.style.color = "#ff5555";
+
+        aviso.style.display = "block";
+
+    }else{
+
+        texto.style.color = "#d8b4fe";
+
+        aviso.style.display = "none";
+
+    }
+
+}
+
+
+/* =====================================================
+   COLETAR DADOS
+===================================================== */
+
+function coletarDados(){
+
+    const dados = {};
+
+
+    document
+        .querySelectorAll(
+            "input, select"
+        )
+        .forEach(elemento => {
+
+            if(
+                elemento.type !== "file"
+            ){
+
+                dados[elemento.id] =
+                    elemento.value;
+
+            }
+
+        });
+
+
+    const imagem =
+        document.getElementById(
+            "fotoPersonagem"
+        );
+
+
+    if(
+        imagem.style.display !== "none" &&
+        imagem.src
+    ){
+
+        dados.foto =
+            imagem.src;
+
+    }
+
+
+    return dados;
+
+}
+
+
+/* =====================================================
+   BAIXAR FICHA
+===================================================== */
+
+function baixarFicha(){
+
+    const dados =
+        coletarDados();
+
+
+    const json =
+        JSON.stringify(
+            dados,
+            null,
+            2
+        );
+
+
+    const blob =
+        new Blob(
+            [json],
+            {
+                type:
+                    "application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = url;
+
+    link.download =
+        "ficha-nexus.json";
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =====================================================
+   CARREGAR FICHA
+===================================================== */
+
+function carregarFicha(event){
+
+    const arquivo =
+        event.target.files[0];
+
+
+    if(!arquivo) return;
+
+
+    const leitor =
+        new FileReader();
+
+
+    leitor.onload =
+        function(e){
+
+            try{
+
+                const dados =
+                    JSON.parse(
+                        e.target.result
+                    );
+
+
+                Object.keys(dados)
+                    .forEach(id => {
+
+                        if(id === "foto")
+                            return;
+
+
+                        const elemento =
+                            document.getElementById(id);
+
+
+                        if(elemento){
+
+                            elemento.value =
+                                dados[id];
+
+                        }
+
+                    });
+
+
+                if(dados.foto){
+
+                    const imagem =
+                        document.getElementById(
+                            "fotoPersonagem"
+                        );
+
+
+                    const vazio =
+                        document.getElementById(
+                            "fotoVazia"
+                        );
+
+
+                    imagem.src =
+                        dados.foto;
+
+
+                    imagem.style.display =
+                        "block";
+
+
+                    vazio.style.display =
+                        "none";
+
+                }
+
+
+                /*
+                   Atualiza todos os status
+                */
+
+                atualizarStatus(
+                    "vidaNucleo",
+                    100,
+                    "statusNucleo"
+                );
+
+
+                atualizarStatus(
+                    "vidaAtual",
+                    40,
+                    "statusVida"
+                );
+
+
+                atualizarStatus(
+                    "sanidadeAtual",
+                    40,
+                    "statusSanidade"
+                );
+
+
+                atualizarStatus(
+                    "contaminacaoAtual",
+                    100,
+                    "statusContaminacao"
+                );
+
+
+                atualizarStatus(
+                    "esforcoMentalAtual",
+                    100,
+                    "statusEsforcoMental"
+                );
+
+
+                atualizarStatus(
+                    "esforcoFisicoAtual",
+                    100,
+                    "statusEsforcoFisico"
+                );
+
+
+                atualizarStatus(
+                    "sobrecargaAtual",
+                    100,
+                    "statusSobrecarga"
+                );
+
+
+                atualizarPontosNivel();
+
+                atualizarPontos();
+
+
+                alert(
+                    "Ficha carregada com sucesso!"
+                );
+
+
+            }catch(erro){
+
+                alert(
+                    "Não foi possível carregar essa ficha."
+                );
+
+            }
+
+        };
+
+
+    leitor.readAsText(arquivo);
+
+}
+
+
+/* =====================================================
+   LIMITES DOS CAMPOS
+===================================================== */
+
+function limitarCampo(id,min,max){
+
+    const elemento =
+        document.getElementById(id);
+
+
+    if(!elemento) return;
+
+
+    elemento.addEventListener(
+        "input",
+        function(){
+
+            let valor =
+                Number(this.value);
+
+
+            if(isNaN(valor))
+                valor = min;
+
+
+            if(valor < min)
+                valor = min;
+
+
+            if(valor > max)
+                valor = max;
+
+
+            this.value = valor;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LIMITES DO NEXO
+===================================================== */
+
+limitarCampo(
+    "nivelNexo",
+    1,
+    5
+);
+
+
+limitarCampo(
+    "controleNexo",
+    0,
+    5
+);
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        atualizarStatus(
+            "vidaNucleo",
+            100,
+            "statusNucleo"
+        );
+
+
+        atualizarStatus(
+            "vidaAtual",
+            40,
+            "statusVida"
+        );
+
+
+        atualizarStatus(
+            "sanidadeAtual",
+            40,
+            "statusSanidade"
+        );
+
+
+        atualizarStatus(
+            "contaminacaoAtual",
+            100,
+            "statusContaminacao"
+        );
+
+
+        atualizarStatus(
+            "esforcoMentalAtual",
+            100,
+            "statusEsforcoMental"
+        );
+
+
+        atualizarStatus(
+            "esforcoFisicoAtual",
+            100,
+            "statusEsforcoFisico"
+        );
+
+
+        atualizarStatus(
+            "sobrecargaAtual",
+            100,
+            "statusSobrecarga"
+        );
+
+
+        atualizarPontosNivel();
+
+        atualizarPontos();
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
