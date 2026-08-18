@@ -1,1 +1,3347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>NEXUS: AWAKENING — Livro</title>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:#08050d;
+    color:#e8e1ef;
+    font-family:"Libre Baskerville", Georgia, serif;
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(7,3,12,.55),
+            rgba(7,3,12,.78)
+        ),
+        url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    z-index:-3;
+
+    animation:
+        backgroundZoom 18s ease-in-out infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:38vh;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.5),
+            transparent
+        );
+
+    pointer-events:none;
+    z-index:-2;
+}
+
+@keyframes backgroundZoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.06);
+    }
+
+}
+
+
+/* =========================================================
+   BARRA DE PROGRESSO
+========================================================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:rgba(255,255,255,.05);
+
+    z-index:9999;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5c1d85,
+            #a75bd0,
+            #d5a9ed
+        );
+
+    box-shadow:
+        0 0 12px rgba(167,91,208,.8);
+
+    transition:width .1s linear;
+}
+
+
+/* =========================================================
+   CAPA
+========================================================= */
+
+.cover{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    position:relative;
+}
+
+.cover::before{
+    content:"";
+
+    position:absolute;
+
+    width:min(650px,90vw);
+    height:650px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(122,38,177,.22),
+            transparent 68%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+.cover-content{
+    position:relative;
+
+    animation:
+        coverAppear 1.8s ease forwards;
+}
+
+@keyframes coverAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.cover-small{
+    font-family:"Cinzel", serif;
+
+    font-size:.8rem;
+    letter-spacing:7px;
+
+    color:#b995c9;
+
+    margin-bottom:25px;
+
+    text-transform:uppercase;
+}
+
+.cover h1{
+    font-family:"Cinzel", serif;
+
+    font-size:
+        clamp(
+            2.8rem,
+            9vw,
+            7rem
+        );
+
+    letter-spacing:
+        clamp(
+            5px,
+            2vw,
+            16px
+        );
+
+    font-weight:700;
+
+    color:#eee4f5;
+
+    text-shadow:
+        0 0 15px rgba(172,95,214,.45),
+        0 0 40px rgba(95,24,130,.4);
+}
+
+.cover h2{
+    margin-top:12px;
+
+    font-family:"Cinzel", serif;
+
+    font-size:
+        clamp(
+            .8rem,
+            2vw,
+            1.2rem
+        );
+
+    letter-spacing:8px;
+
+    color:#a96bc6;
+
+    font-weight:400;
+}
+
+.cover-line{
+    width:160px;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #a65ccc,
+            transparent
+        );
+
+    margin:40px auto;
+}
+
+.cover-description{
+    max-width:650px;
+
+    line-height:2;
+
+    color:#bdb3c4;
+
+    font-size:.95rem;
+}
+
+
+/* =========================================================
+   INDICADOR DE ROLAGEM
+========================================================= */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:30px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:8px;
+
+    opacity:.8;
+
+    z-index:10;
+
+    cursor:pointer;
+
+    animation:
+        indicatorFloat 2s ease-in-out infinite;
+}
+
+.scroll-indicator img{
+
+    width:60px;
+    height:60px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(190,120,220,.6)
+        );
+}
+
+.scroll-indicator span{
+
+    font-family:"Cinzel", serif;
+
+    font-size:.65rem;
+
+    letter-spacing:3px;
+
+    color:#bfa7c8;
+
+}
+
+@keyframes indicatorFloat{
+
+    0%,100%{
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            translateX(-50%)
+            translateY(8px);
+    }
+
+}
+
+
+/* =========================================================
+   SUMÁRIO
+========================================================= */
+
+#sumario{
+    min-height:100vh;
+
+    padding:
+        110px
+        25px
+        100px;
+
+    display:flex;
+    justify-content:center;
+}
+
+.summary{
+    width:min(1100px,100%);
+}
+
+.section-label{
+
+    text-align:center;
+
+    font-family:"Cinzel", serif;
+
+    font-size:.75rem;
+
+    letter-spacing:5px;
+
+    color:#9e65b8;
+
+    margin-bottom:15px;
+
+    text-transform:uppercase;
+}
+
+.summary h2{
+
+    text-align:center;
+
+    font-family:"Cinzel", serif;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            3.8rem
+        );
+
+    color:#eee5f2;
+
+    margin-bottom:15px;
+}
+
+.summary-subtitle{
+
+    text-align:center;
+
+    max-width:650px;
+
+    margin:
+        0 auto
+        55px;
+
+    line-height:1.9;
+
+    color:#a99eaf;
+
+}
+
+
+/* =========================================================
+   BOTÕES DOS CAPÍTULOS
+========================================================= */
+
+.chapter-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                250px,
+                1fr
+            )
+        );
+
+    gap:18px;
+}
+
+.chapter-button{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    min-height:115px;
+
+    padding:24px;
+
+    text-decoration:none;
+
+    color:#eee;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,22,50,.88),
+            rgba(17,11,23,.92)
+        );
+
+    border:
+        1px solid
+        rgba(172,100,205,.18);
+
+    border-radius:5px;
+
+    overflow:hidden;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.chapter-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #7a299d,
+            #c184d9
+        );
+
+    transform:
+        scaleY(0);
+
+    transform-origin:center;
+
+    transition:
+        transform .35s ease;
+}
+
+.chapter-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-100px;
+    bottom:-100px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(134,52,171,.18),
+            transparent 70%
+        );
+
+    transition:
+        transform .5s ease;
+}
+
+.chapter-button:hover{
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(193,132,217,.55);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.35),
+        0 0 25px
+        rgba(112,43,145,.15);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(52,28,65,.95),
+            rgba(19,12,25,.95)
+        );
+}
+
+.chapter-button:hover::before{
+    transform:scaleY(1);
+}
+
+.chapter-button:hover::after{
+    transform:scale(1.4);
+}
+
+.chapter-number{
+
+    position:relative;
+    z-index:2;
+
+    font-family:"Cinzel", serif;
+
+    font-size:1.5rem;
+
+    color:#a967c5;
+
+    min-width:45px;
+}
+
+.chapter-info{
+    position:relative;
+    z-index:2;
+}
+
+.chapter-info strong{
+
+    display:block;
+
+    font-family:"Cinzel", serif;
+
+    font-size:1rem;
+
+    margin-bottom:7px;
+
+    color:#eee6f2;
+}
+
+.chapter-info span{
+
+    font-size:.78rem;
+
+    color:#988d9e;
+
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   CAPÍTULOS
+========================================================= */
+
+.chapter{
+
+    width:min(1050px,100%);
+
+    margin:
+        0 auto
+        120px;
+
+    padding:
+        100px
+        clamp(
+            22px,
+            6vw,
+            80px
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,13,25,.94),
+            rgba(11,8,15,.95)
+        );
+
+    border:
+        1px solid
+        rgba(192,129,218,.16);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.5);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.chapter::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8d42aa,
+            transparent
+        );
+}
+
+.chapter::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    top:-200px;
+    right:-180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(118,43,151,.13),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+.chapter-header{
+
+    text-align:center;
+
+    margin-bottom:65px;
+}
+
+.chapter-label{
+
+    font-family:"Cinzel", serif;
+
+    font-size:.7rem;
+
+    letter-spacing:5px;
+
+    color:#9d61b7;
+
+    text-transform:uppercase;
+
+    margin-bottom:16px;
+}
+
+.chapter h2{
+
+    font-family:"Cinzel", serif;
+
+    font-size:
+        clamp(
+            1.9rem,
+            5vw,
+            3.5rem
+        );
+
+    color:#f0e8f3;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+}
+
+.chapter-opening{
+
+    max-width:750px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:#a99eac;
+
+    font-style:italic;
+
+    line-height:2;
+}
+
+
+/* =========================================================
+   TIPOGRAFIA DO LIVRO
+========================================================= */
+
+.chapter h3{
+
+    font-family:"Cinzel", serif;
+
+    color:#c084d9;
+
+    font-size:
+        clamp(
+            1.1rem,
+            3vw,
+            1.5rem
+        );
+
+    margin:
+        55px
+        0
+        18px;
+
+    padding-bottom:10px;
+
+    border-bottom:
+        1px solid
+        rgba(177,103,202,.15);
+}
+
+.chapter h4{
+
+    font-family:"Cinzel", serif;
+
+    color:#d5b4df;
+
+    margin:
+        30px
+        0
+        12px;
+}
+
+.chapter p{
+
+    font-size:
+        clamp(
+            .85rem,
+            1.5vw,
+            .96rem
+        );
+
+    line-height:2.05;
+
+    color:#c2b8c7;
+
+    margin-bottom:18px;
+}
+
+.chapter strong{
+    color:#e8d7ee;
+}
+
+.chapter em{
+    color:#bb9bc5;
+}
+
+
+/* =========================================================
+   FRASES DE DESTAQUE
+========================================================= */
+
+.quote{
+
+    margin:
+        35px
+        0;
+
+    padding:
+        25px
+        30px;
+
+    border-left:
+        2px solid
+        #8d3eaa;
+
+    background:
+        rgba(103,39,130,.08);
+
+    color:#cbb2d3;
+
+    font-family:"Cinzel", serif;
+
+    font-style:italic;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.chapter ul{
+
+    margin:
+        15px
+        0
+        25px
+        25px;
+
+    padding-left:15px;
+}
+
+.chapter li{
+
+    margin-bottom:10px;
+
+    color:#bcb1c2;
+
+    line-height:1.8;
+
+    font-size:.9rem;
+}
+
+.chapter li::marker{
+    color:#9b4db8;
+}
+
+
+/* =========================================================
+   TABELAS
+========================================================= */
+
+.table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    margin:
+        25px
+        0
+        35px;
+
+    border:
+        1px solid
+        rgba(182,111,207,.12);
+}
+
+.chapter table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:550px;
+}
+
+.chapter th{
+
+    background:
+        rgba(114,46,141,.18);
+
+    color:#d6b3df;
+
+    font-family:"Cinzel", serif;
+
+    font-size:.75rem;
+
+    letter-spacing:1px;
+
+    text-align:left;
+
+    padding:15px;
+}
+
+.chapter td{
+
+    padding:14px 15px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    color:#bdb2c2;
+
+    font-size:.82rem;
+
+    line-height:1.6;
+}
+
+.chapter tr:hover td{
+
+    background:
+        rgba(128,55,153,.07);
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.info-card{
+
+    padding:25px;
+
+    margin:
+        25px
+        0;
+
+    border:
+        1px solid
+        rgba(176,97,204,.15);
+
+    background:
+        rgba(104,42,126,.07);
+
+    border-radius:4px;
+}
+
+.info-card h4{
+    margin-top:0;
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.back-button{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    width:max-content;
+
+    margin:
+        70px
+        auto
+        0;
+
+    padding:
+        13px
+        24px;
+
+    color:#c9afd2;
+
+    border:
+        1px solid
+        rgba(181,104,207,.3);
+
+    background:
+        rgba(75,31,91,.16);
+
+    text-decoration:none;
+
+    font-family:"Cinzel", serif;
+
+    font-size:.7rem;
+
+    letter-spacing:2px;
+
+    transition:
+        all .3s ease;
+}
+
+.back-button:hover{
+
+    color:#fff;
+
+    background:
+        rgba(112,45,138,.3);
+
+    border-color:
+        rgba(202,137,222,.7);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(88,31,111,.25);
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+footer{
+
+    text-align:center;
+
+    padding:
+        70px
+        20px
+        100px;
+
+    color:#776c7d;
+
+    font-size:.7rem;
+
+    letter-spacing:2px;
+
+    font-family:"Cinzel", serif;
+}
+
+footer span{
+    color:#9c5cb4;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DOS CAPÍTULOS
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+    animation:
+        reveal .9s ease forwards;
+}
+
+@keyframes reveal{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:700px){
+
+    .cover{
+        padding:30px 18px;
+    }
+
+    .cover h1{
+        letter-spacing:5px;
+    }
+
+    .cover h2{
+        letter-spacing:4px;
+    }
+
+    .chapter{
+
+        padding:
+            65px
+            20px;
+
+        margin-bottom:70px;
+    }
+
+    .chapter h3{
+        margin-top:42px;
+    }
+
+    .chapter ul{
+        margin-left:15px;
+    }
+
+    .chapter-button{
+        min-height:95px;
+        padding:18px;
+    }
+
+    .chapter-number{
+        min-width:35px;
+        font-size:1.2rem;
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- =======================================================
+     PROGRESSO
+======================================================= -->
+
+<div class="progress">
+    <div
+        class="progress-bar"
+        id="progressBar"
+    ></div>
+</div>
+
+
+<!-- =======================================================
+     CAPA
+======================================================= -->
+
+<section class="cover" id="inicio">
+
+    <div class="cover-content">
+
+        <div class="cover-small">
+            Livro Oficial
+        </div>
+
+        <h1>
+            NEXUS
+        </h1>
+
+        <h2>
+            AWAKENING
+        </h2>
+
+        <div class="cover-line"></div>
+
+        <p class="cover-description">
+            Um mundo onde portais conectam realidades,
+            criaturas desconhecidas atravessam para a Terra
+            e alguns seres humanos despertam algo que jamais
+            deveria existir.
+        </p>
+
+    </div>
+
+
+    <a
+        href="#sumario"
+        class="scroll-indicator"
+        aria-label="Ir para o sumário"
+    >
+
+        <img
+            src="https://cdn.dribbble.com/userupload/21912385/file/original-3b2730a6850b7c4e28680b46c054f886.gif"
+            alt="Descer"
+        >
+
+        <span>
+            DESLIZE PARA BAIXO
+        </span>
+
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     SUMÁRIO
+======================================================= -->
+
+<section id="sumario">
+
+    <div class="summary">
+
+        <div class="section-label">
+            NEXUS: AWAKENING
+        </div>
+
+        <h2>
+            Sumário
+        </h2>
+
+        <p class="summary-subtitle">
+            Escolha um capítulo para começar sua leitura.
+            Cada seção contém as regras e informações que
+            compõem o universo de NEXUS: AWAKENING.
+        </p>
+
+
+        <div class="chapter-grid">
+
+            <a
+                href="#capitulo-1"
+                class="chapter-button"
+            >
+
+                <div class="chapter-number">
+                    01
+                </div>
+
+                <div class="chapter-info">
+
+                    <strong>
+                        NEXUS: AWAKENING
+                    </strong>
+
+                    <span>
+                        Lore e história do mundo
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#capitulo-2"
+                class="chapter-button"
+            >
+
+                <div class="chapter-number">
+                    02
+                </div>
+
+                <div class="chapter-info">
+
+                    <strong>
+                        Origens
+                    </strong>
+
+                    <span>
+                        Quem seu personagem era antes da história
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#capitulo-3"
+                class="chapter-button"
+            >
+
+                <div class="chapter-number">
+                    03
+                </div>
+
+                <div class="chapter-info">
+
+                    <strong>
+                        Sistema Base
+                    </strong>
+
+                    <span>
+                        Regras fundamentais de resolução
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#capitulo-4"
+                class="chapter-button"
+            >
+
+                <div class="chapter-number">
+                    04
+                </div>
+
+                <div class="chapter-info">
+
+                    <strong>
+                        Sistema de Raiva
+                    </strong>
+
+                    <span>
+                        Limites físicos, adrenalina e fúria
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#capitulo-5"
+                clas
+            <a
+                href="#capitulo-5"
+                class="chapter-button"
+            >
+
+                <div class="chapter-number">
+                    05
+                </div>
+
+                <div class="chapter-info">
+
+                    <strong>
+                        Sistema de Renome
+                    </strong>
+
+                    <span>
+                        Reputação, caminhos e consequências
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CAPÍTULO 1
+======================================================= -->
+
+<section
+    class="chapter reveal"
+    id="capitulo-1"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-label">
+            Capítulo 01
+        </div>
+
+        <h2>
+            NEXUS: AWAKENING
+        </h2>
+
+        <p class="chapter-opening">
+            A história de um mundo que descobriu que a realidade
+            era muito maior do que imaginava.
+        </p>
+
+    </div>
+
+    <h3>1.0 — Antes do Despertar</h3>
+
+    <p>
+        Durante muito tempo, a humanidade acreditou conhecer
+        completamente o mundo em que vivia.
+    </p>
+
+    <p>
+        As pessoas nasceram, cresceram, construíram cidades,
+        desenvolveram tecnologias e aprenderam a observar o céu,
+        os oceanos e até os lugares mais extremos do planeta.
+        Ainda assim, existiam coisas que permaneciam além da
+        compreensão humana.
+    </p>
+
+    <p>
+        Fenômenos sem explicação.
+    </p>
+
+    <p>
+        Desaparecimentos.
+    </p>
+
+    <p>
+        Relatos considerados impossíveis.
+    </p>
+
+    <p>
+        Animais encontrados em lugares onde jamais poderiam ter
+        chegado.
+    </p>
+
+    <p>
+        Pessoas que simplesmente deixavam de existir.
+    </p>
+
+    <p>
+        A maioria desses acontecimentos era ignorada, esquecida
+        ou explicada como acidentes, crimes ou coincidências.
+    </p>
+
+    <p>
+        Até que, em setembro de 1993, algo aconteceu que não
+        poderia mais ser ignorado.
+    </p>
+
+    <p>
+        Pela primeira vez na história recente, foram detectados
+        fenômenos que posteriormente seriam conhecidos simplesmente
+        como portais.
+    </p>
+
+
+    <h3>1.1 — Setembro de 1993</h3>
+
+    <p>
+        Os primeiros portais da atualidade foram detectados em
+        diferentes locais.
+    </p>
+
+    <p>
+        Eles não se comportavam como qualquer fenômeno conhecido
+        pela ciência.
+    </p>
+
+    <p>
+        Não eram buracos físicos.
+    </p>
+
+    <p>
+        Não eram simplesmente passagens visíveis no espaço.
+    </p>
+
+    <p>
+        Eram conexões com algo que existia além da realidade
+        conhecida.
+    </p>
+
+    <p>
+        Em alguns casos, pessoas próximas sequer perceberam que
+        estavam diante de um portal.
+    </p>
+
+    <p>
+        Isso acontecia porque os portais podiam ser extremamente
+        difíceis de perceber. Para uma pessoa comum, determinado
+        local poderia parecer completamente normal.
+    </p>
+
+    <p>
+        Uma rua.
+    </p>
+
+    <p>
+        Um terreno vazio.
+    </p>
+
+    <p>
+        Uma floresta.
+    </p>
+
+    <p>
+        Um prédio abandonado.
+    </p>
+
+    <p>
+        E, ainda assim, poderia existir uma passagem para outra
+        realidade bem diante dela.
+    </p>
+
+    <p>
+        Foi assim que alguns dos primeiros desaparecimentos
+        aconteceram.
+    </p>
+
+    <p>
+        Moradores de rua, animais e outras pessoas que estavam
+        próximas dessas manifestações acabaram atravessando os
+        portais, muitas vezes sem sequer compreender o que estava
+        acontecendo.
+    </p>
+
+    <p>
+        Para essas pessoas, não houve aviso.
+    </p>
+
+    <p>
+        Não houve preparação.
+    </p>
+
+    <p>
+        Não houve caminho de volta.
+    </p>
+
+    <p>
+        Elas simplesmente desapareceram do mundo que conheciam.
+    </p>
+
+    <p>
+        E acordaram em outro.
+    </p>
+
+
+    <h3>1.2 — O Outro Lado</h3>
+
+    <p>
+        A realidade para a qual os portais levavam não era um
+        lugar preparado para a vida humana.
+    </p>
+
+    <p>
+        Era hostil.
+    </p>
+
+    <p>
+        Tudo naquele ambiente exigia adaptação.
+    </p>
+
+    <p>
+        Os sobreviventes precisaram encontrar maneiras de conseguir
+        alimento, abrigo e proteção. Não existiam as estruturas da
+        sociedade que conheciam.
+    </p>
+
+    <p>
+        Não havia hospitais.
+    </p>
+
+    <p>
+        Não havia mercados.
+    </p>
+
+    <p>
+        Não havia polícia.
+    </p>
+
+    <p>
+        Não havia ajuda.
+    </p>
+
+    <p>
+        Havia apenas a necessidade de sobreviver.
+    </p>
+
+    <p>
+        Mas havia algo ainda mais assustador naquele lugar.
+    </p>
+
+    <p>
+        O tempo não funcionava da mesma maneira.
+    </p>
+
+    <p>
+        Enquanto o mundo original continuava seguindo seu ritmo
+        normal, o tempo naquela realidade passava muito mais rápido.
+    </p>
+
+    <p>
+        Para quem estava do outro lado, dias podiam se transformar
+        em períodos muito maiores.
+    </p>
+
+    <p>
+        Meses podiam parecer anos.
+    </p>
+
+    <p>
+        E anos poderiam representar uma quantidade de tempo
+        impossível de imaginar para alguém que estivesse vivendo
+        na Terra.
+    </p>
+
+    <p>
+        Isso significava que aqueles que haviam atravessado não
+        estavam apenas presos em outra realidade.
+    </p>
+
+    <p>
+        Eles estavam presos em uma realidade onde o próprio tempo
+        trabalhava contra eles.
+    </p>
+
+
+    <h3>1.3 — A Evolução</h3>
+
+    <p>
+        Sobreviver naquele ambiente significava mudar.
+    </p>
+
+    <p>
+        Os seres humanos que permaneceram naquela realidade tiveram
+        que aprender a viver em condições completamente diferentes
+        das que conheciam.
+    </p>
+
+    <p>
+        Seus corpos foram submetidos a um ambiente para o qual não
+        estavam preparados.
+    </p>
+
+    <p>
+        Seus hábitos mudaram.
+    </p>
+
+    <p>
+        Suas formas de sobreviver mudaram.
+    </p>
+
+    <p>
+        E, com o passar do tempo, seus próprios corpos começaram
+        a mudar.
+    </p>
+
+    <p>
+        Os animais também passaram pelo mesmo processo.
+    </p>
+
+    <p>
+        Aqueles que conseguiram sobreviver naquele ambiente hostil
+        foram se adaptando às condições da realidade.
+    </p>
+
+    <p>
+        Com o passar de um período de tempo que ninguém no mundo
+        original poderia sequer imaginar, aquilo que um dia havia
+        sido humano ou animal começou a se tornar algo diferente.
+    </p>
+
+    <p>
+        Algo que já não pertencia completamente à forma original.
+    </p>
+
+    <p>
+        As mudanças foram profundas.
+    </p>
+
+    <p>
+        Corpos deformados.
+    </p>
+
+    <p>
+        Características adquiridas através da sobrevivência.
+    </p>
+
+    <p>
+        Novas capacidades.
+    </p>
+
+    <p>
+        Novas formas de caça.
+    </p>
+
+    <p>
+        Novas formas de resistência.
+    </p>
+
+    <p>
+        A evolução naquele lugar não aconteceu como um processo
+        natural conhecido pela humanidade.
+    </p>
+
+    <p>
+        Ela foi moldada pela necessidade de sobreviver.
+    </p>
+
+    <p>
+        E os seres que surgiram desse processo acabariam recebendo
+        um nome no futuro.
+    </p>
+
+    <p>
+        <strong>Devorantes.</strong>
+    </p>
+
+
+    <h3>1.4 — Os Devorantes</h3>
+
+    <p>
+        Os Devorantes são criaturas originadas da adaptação extrema
+        de seres vivos naquela outra realidade.
+    </p>
+
+    <p>
+        Alguns tiveram origem em animais.
+    </p>
+
+    <p>
+        Outros tiveram origem em seres humanos que haviam sido
+        levados para aquele lugar décadas antes.
+    </p>
+
+    <p>
+        Eles não são simplesmente monstros surgidos do nada.
+    </p>
+
+    <p>
+        Existe uma história por trás deles.
+    </p>
+
+    <p>
+        Uma história que começou em 1993.
+    </p>
+
+    <p>
+        Durante anos, o mundo não sabia que essas criaturas
+        existiam.
+    </p>
+
+    <p>
+        Enquanto a humanidade continuava sua vida normalmente,
+        os Devorantes permaneciam do outro lado.
+    </p>
+
+    <p>
+        E, durante todo esse tempo, eles continuaram existindo.
+    </p>
+
+    <p>
+        Continuaram evoluindo.
+    </p>
+
+    <p>
+        Continuaram sobrevivendo.
+    </p>
+
+    <p>
+        Até que os portais voltaram.
+    </p>
+
+
+    <h3>1.5 — 2026</h3>
+
+    <p>
+        Em 2026, algo mudou.
+    </p>
+
+    <p>
+        Sem uma explicação conhecida, os portais começaram a se
+        abrir novamente.
+    </p>
+
+    <p>
+        O motivo ainda é desconhecido.
+    </p>
+
+    <p>
+        Ninguém sabe por que eles retornaram naquele momento.
+    </p>
+
+    <p>
+        Ninguém sabe o que provocou sua reabertura.
+    </p>
+
+    <p>
+        E ninguém sabe quantos portais existem.
+    </p>
+
+    <p>
+        O que se sabe é que as passagens voltaram a conectar as
+        duas realidades.
+    </p>
+
+    <p>
+        E dessa vez, aquilo que estava do outro lado começou
+        a atravessar.
+    </p>
+
+    <p>
+        Os Devorantes chegaram ao nosso mundo.
+    </p>
+
+    <p>
+        Eles não apareceram diante de multidões.
+    </p>
+
+    <p>
+        Não surgiram em grandes eventos.
+    </p>
+
+    <p>
+        Não houve uma invasão televisionada.
+    </p>
+
+    <p>
+        Os ataques começaram de maneira silenciosa.
+    </p>
+
+    <p>
+        Pessoas começaram a desaparecer.
+    </p>
+
+    <p>
+        Algumas foram encontradas mortas.
+    </p>
+
+    <p>
+        Outras simplesmente nunca mais foram encontradas.
+    </p>
+
+    <p>
+        E, para a maior parte da população, esses acontecimentos
+        pareciam ser apenas crimes, desaparecimentos ou acidentes.
+    </p>
+
+    <p>
+        Mas havia algo por trás de tudo.
+    </p>
+
+    <p>
+        Algo que o público não conhecia.
+    </p>
+
+
+    <h3>1.6 — O Segredo</h3>
+
+    <p>
+        O governo descobriu.
+    </p>
+
+    <p>
+        As autoridades responsáveis tiveram contato com evidências
+        suficientes para compreender que aquilo não se tratava de
+        um fenômeno comum.
+    </p>
+
+    <p>
+        Existiam criaturas.
+    </p>
+
+    <p>
+        Criaturas que não deveriam existir.
+    </p>
+
+    <p>
+        Criaturas vindas de uma realidade diferente.
+    </p>
+
+    <p>
+        <strong>Os Devorantes.</strong>
+    </p>
+
+    <p>
+        Mas essa informação não chegou ao público.
+    </p>
+
+    <p>
+        A existência deles foi mantida em segredo.
+    </p>
+
+    <p>
+        Relatórios foram escondidos.
+    </p>
+
+    <p>
+        Informações foram controladas.
+    </p>
+
+    <p>
+        Os acontecimentos receberam explicações alternativas.
+    </p>
+
+    <p>
+        Para a população, o mundo continuava funcionando normalmente.
+    </p>
+
+    <p>
+        Enquanto isso, aqueles que realmente conheciam a situação
+        começaram a lidar com uma ameaça que não poderia ser revelada.
+    </p>
+
+    <p>
+        E os Devorantes não eram a única consequência do retorno
+        dos portais.
+    </p>
+
+    <p>
+        Porque os portais não apenas permitiam a passagem entre
+        realidades.
+    </p>
+
+    <p>
+        Eles também afetavam o mundo ao seu redor.
+    </p>
+
+
+    <h3>1.7 — A Radiação</h3>
+
+    <p>
+        Os portais liberavam uma forma de radiação.
+    </p>
+
+    <p>
+        Ela não era facilmente percebida pelas pessoas.
+    </p>
+
+    <p>
+        Não possuía uma aparência evidente.
+    </p>
+
+    <p>
+        Uma pessoa poderia passar perto de um portal sem sequer
+        saber que havia alguma coisa ali.
+    </p>
+
+    <p>
+        Mesmo assim, permanecer próxima de um portal por tempo
+        suficiente poderia causar efeitos no organismo.
+    </p>
+
+    <p>
+        A maioria das pessoas não sabia disso.
+    </p>
+
+    <p>
+        Algumas sequer perceberam que haviam sido expostas.
+    </p>
+
+    <p>
+        Mas determinados indivíduos sofreram uma consequência
+        muito mais rara.
+    </p>
+
+    <p>
+        Dentro de seus corpos começou a surgir algo que não
+        deveria existir.
+    </p>
+
+    <p>
+        Um núcleo.
+    </p>
+
+    <p>
+        Uma fonte.
+    </p>
+
+    <p>
+        Uma anomalia capaz de transformar completamente a vida
+        de uma pessoa.
+    </p>
+
+    <p>
+        <strong>O NEXO.</strong>
+    </p>
+
+
+    <h3>1.8 — O Núcleo NEXO</h3>
+
+    <p>
+        O NEXO é uma fonte de energia sobrenatural que pode existir
+        dentro de determinados indivíduos expostos à influência
+        dos portais.
+    </p>
+
+    <p>
+        Mas ser exposto não significa automaticamente possuir
+        um NEXO.
+    </p>
+
+    <p>
+        Existe uma espécie de compatibilidade.
+    </p>
+
+    <p>
+        O organismo precisa ser capaz de aceitar o núcleo.
+    </p>
+
+    <p>
+        Algumas pessoas podem permanecer próximas dos portais e
+        sofrer sua influência sem nunca desenvolver essa capacidade.
+    </p>
+
+    <p>
+        Outras podem ser afetadas de maneira suficiente para que
+        o núcleo se forme.
+    </p>
+
+    <p>
+        E mesmo quando o núcleo existe, ainda existe outra possibilidade.
+    </p>
+
+    <p>
+        Ele pode nunca despertar.
+    </p>
+
+    <p>
+        Uma pessoa pode carregar um NEXO durante toda a vida sem
+        jamais manifestar qualquer poder sobrenatural.
+    </p>
+
+    <p>
+        Portanto, existem pessoas que foram expostas e nunca
+        desenvolverão um núcleo.
+    </p>
+
+    <p>
+        Existem pessoas que possuem um núcleo, mas nunca conseguirão
+        despertá-lo.
+    </p>
+
+    <p>
+        E existem aquelas que conseguem ultrapassar essas duas barreiras.
+    </p>
+
+    <p>
+        Essas pessoas são capazes de despertar algo que a humanidade
+        jamais havia conhecido.
+    </p>
+
+
+    <h3>1.9 — O Despertar</h3>
+
+    <p>
+        Quando o NEXO desperta, ele manifesta uma capacidade
+        sobrenatural.
+    </p>
+
+    <p>
+        Porém, não existe uma única forma de manifestação.
+    </p>
+
+    <p>
+        Cada indivíduo pode apresentar capacidades completamente
+        diferentes.
+    </p>
+
+    <p>
+        Alguns podem adquirir uma força muito acima dos limites
+        humanos.
+    </p>
+
+    <p>
+        Outros podem manipular eletricidade e controlar raios.
+    </p>
+
+    <p>
+        Alguns podem possuir habilidades relacionadas aos mortos.
+    </p>
+
+    <p>
+        Outros podem desenvolver capacidades que ainda não possuem
+        qualquer explicação conhecida.
+    </p>
+
+    <p>
+        O NEXO não transforma todas as pessoas da mesma maneira.
+    </p>
+
+    <p>
+        Cada despertar é diferente.
+    </p>
+
+    <p>
+        E ninguém sabe exatamente quando ele acontecerá.
+    </p>
+
+    <p>
+        Pode acontecer durante um momento de extremo perigo.
+    </p>
+
+    <p>
+        Pode acontecer depois de anos.
+    </p>
+
+    <p>
+        Pode acontecer quando a pessoa menos espera.
+    </p>
+
+    <p>
+        Ou pode simplesmente...
+    </p>
+
+    <p>
+        <strong>nunca acontecer.</strong>
+    </p>
+
+    <p>
+        É justamente essa incerteza que torna o NEXO tão perigoso.
+    </p>
+
+
+    <h3>1.10 — O Mundo em 2026</h3>
+
+    <p>
+        Agora, o mundo vive sobre uma verdade que quase ninguém conhece.
+    </p>
+
+    <p>
+        Os portais estão de volta.
+    </p>
+
+    <p>
+        Os Devorantes estão atravessando.
+    </p>
+
+    <p>
+        O governo sabe.
+    </p>
+
+    <p>
+        E algumas pessoas estão começando a despertar poderes que
+        não deveriam existir.
+    </p>
+
+    <p>
+        A maioria da humanidade continua vivendo normalmente.
+    </p>
+
+    <p>
+        Trabalhando.
+    </p>
+
+    <p>
+        Estudando.
+    </p>
+
+    <p>
+        Saindo com amigos.
+    </p>
+
+    <p>
+        Construindo suas vidas.
+    </p>
+
+    <p>
+        Sem saber que existe uma realidade diferente conectada
+        à sua própria.
+    </p>
+
+    <p>
+        Sem saber que criaturas evoluídas durante décadas estão
+        entrando em seu mundo.
+    </p>
+
+    <p>
+        Sem saber que algumas das pessoas ao seu redor podem
+        carregar dentro de si uma fonte de poder sobrenatural.
+    </p>
+
+    <p>
+        E, acima de tudo...
+    </p>
+
+    <p>
+        Sem saber por que tudo isso está acontecendo novamente.
+    </p>
+
+    <div class="quote">
+        Os portais voltaram.<br>
+        Os Devorantes despertaram.<br>
+        O NEXO começou a surgir.<br><br>
+        E a humanidade está prestes a descobrir que o mundo que
+        acreditava conhecer...<br>
+        <strong>nunca foi o mundo inteiro.</strong>
+    </div>
+
+    <a href="#sumario" class="back-button">
+        VOLTAR AO SUMÁRIO
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     CAPÍTULO 2
+======================================================= -->
+
+<section
+    class="chapter reveal"
+    id="capitulo-2"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-label">
+            Capítulo 02
+        </div>
+
+        <h2>
+            ORIGENS
+        </h2>
+
+        <p class="chapter-opening">
+            Quem seu personagem era antes de descobrir que o mundo
+            havia mudado.
+        </p>
+
+    </div>
+
+    <p>
+        A Origem representa aquilo que o personagem era antes dos
+        acontecimentos de NEXUS: AWAKENING.
+    </p>
+
+    <p>
+        Ela define parte de seu passado, suas experiências,
+        conhecimentos e recursos iniciais.
+    </p>
+
+    <p>
+        Cada personagem escolhe uma Origem.
+    </p>
+
+
+    <h3>2.1 — MILITAR</h3>
+
+    <div class="info-card">
+
+        <h4>Descrição</h4>
+
+        <p>
+            Treinado para obedecer ordens, trabalhar em equipe e
+            sobreviver em situações extremas. Aprendeu a lidar com
+            armas, estratégias e ambientes hostis.
+        </p>
+
+        <h4>Equipamentos</h4>
+
+        <p>
+            Faca Militar (1d6), Mochila Tática, Kit de Sobrevivência.
+        </p>
+
+        <h4>Perícias</h4>
+
+        <p>
+            Táticas de Combate, Resistência.
+        </p>
+
+        <h4>Vantagem — Treinamento Militar</h4>
+
+        <p>
+            Possui treinamento para reconhecer situações de combate
+            e agir rapidamente sob pressão.
+        </p>
+
+        <h4>Desvantagem — Disciplina Rígida</h4>
+
+        <p>
+            Tem dificuldade em ignorar ordens ou agir contra
+            procedimentos aos quais foi condicionado.
+        </p>
+
+        <h4>Talento Passivo — Soldado</h4>
+
+        <p>
+            Recebe +2 em testes relacionados a combate ou resistência
+            durante situações de perigo.
+        </p>
+
+    </div>
+
+    <p>
+        <strong>
+            As demais Origens seguem a mesma estrutura e devem ser
+            adicionadas aqui conforme o conteúdo definido no livro.
+        </strong>
+    </p>
+
+    <a href="#sumario" class="back-button">
+        VOLTAR AO SUMÁRIO
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     CAPÍTULO 3
+======================================================= -->
+
+<section
+    class="chapter reveal"
+    id="capitulo-3"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-label">
+            Capítulo 03
+        </div>
+
+        <h2>
+            SISTEMA BASE
+        </h2>
+
+        <p class="chapter-opening">
+            As regras fundamentais utilizadas para resolver as ações
+            e situações do jogo.
+        </p>
+
+    </div>
+
+    <p>
+        Em NEXUS: AWAKENING, praticamente todas as ações seguem o
+        mesmo sistema de resolução.
+    </p>
+
+    <p>
+        Sempre que um personagem tentar realizar uma ação cujo
+        resultado seja incerto, será necessário realizar uma rolagem
+        para determinar o resultado.
+    </p>
+
+    <div class="quote">
+        1d20 + 2 + Atributo + Perícia + Modificadores
+    </div>
+
+    <h3>Modificadores</h3>
+
+    <p>
+        Os modificadores representam fatores que podem alterar o
+        resultado de uma ação durante uma situação.
+    </p>
+
+    <ul>
+        <li>Equipamentos</li>
+        <li>NEXO</li>
+        <li>Clima</li>
+        <li>Ferimentos</li>
+        <li>Status</li>
+        <li>Vantagens</li>
+              <li>Desvantagens</li>
+        <li>Renome</li>
+        <li>Raiva</li>
+        <li>Contaminação</li>
+        <li>Traumas</li>
+        <li>Ambiente</li>
+    </ul>
+
+    <p>
+        O resultado final da rolagem será comparado à dificuldade
+        da ação para determinar se o personagem conseguiu ou não
+        realizar aquilo que tentou.
+    </p>
+
+
+    <h3>Acertos Críticos</h3>
+
+    <p>
+        Sempre que um jogador obtiver um 20 natural em uma rolagem
+        de ataque, ocorre um Acerto Crítico.
+    </p>
+
+    <p>
+        O ataque recebe:
+    </p>
+
+    <ul>
+        <li>Dano máximo dos dados</li>
+        <li>+50% do dano restante</li>
+        <li>Efeito especial da arma</li>
+        <li>Ignora metade da Defesa do alvo</li>
+    </ul>
+
+
+    <h3>Falhas Críticas</h3>
+
+    <p>
+        Sempre que o resultado de um teste for 1 natural,
+        o personagem sofre uma Falha Crítica.
+    </p>
+
+    <p>
+        Dependendo da situação, o Mestre pode determinar
+        consequências como:
+    </p>
+
+    <ul>
+        <li>Deixar a arma cair</li>
+        <li>Perder o equilíbrio e cair</li>
+        <li>Receber dano</li>
+        <li>Ficar vulnerável a um ataque</li>
+        <li>Atingir um aliado acidentalmente</li>
+        <li>Danificar ou quebrar um equipamento</li>
+        <li>Consumir munição adicional</li>
+    </ul>
+
+    <p>
+        As Falhas Críticas não devem servir apenas como uma forma
+        de castigar o jogador. Elas também podem gerar situações
+        inesperadas, tensas e até memoráveis durante a aventura.
+    </p>
+
+
+    <h3>Testes Opostos</h3>
+
+    <p>
+        Quando dois personagens entram em uma disputa direta,
+        ambos realizam um teste utilizando os atributos e perícias
+        adequados à situação.
+    </p>
+
+    <p>
+        Alguns exemplos de Testes Opostos:
+    </p>
+
+    <ul>
+        <li>Agarrão</li>
+        <li>Queda de braço</li>
+        <li>Mentira</li>
+        <li>Intimidação</li>
+        <li>Furtividade</li>
+        <li>Disputa de força</li>
+    </ul>
+
+    <p>
+        Após as duas rolagens, os resultados são comparados.
+        Aquele que obtiver o maior resultado vence a disputa.
+    </p>
+
+
+    <h3>Auxílio</h3>
+
+    <p>
+        Um personagem pode auxiliar outro durante a realização
+        de uma ação.
+    </p>
+
+    <p>
+        Ao prestar auxílio:
+    </p>
+
+    <ul>
+        <li>Realiza um teste utilizando a mesma perícia.</li>
+        <li>Se obtiver sucesso (CD 12), concede +2 ao teste do aliado.</li>
+        <li>Em um sucesso excepcional (20 natural), o bônus concedido aumenta para +4.</li>
+    </ul>
+
+    <p>
+        Apenas um personagem pode fornecer auxílio em uma mesma ação.
+    </p>
+
+
+    <h3>Vantagem e Desvantagem</h3>
+
+    <p>
+        Determinadas situações podem favorecer ou dificultar uma
+        ação, concedendo Vantagem ou Desvantagem ao personagem.
+    </p>
+
+    <p>
+        <strong>Vantagem:</strong> role 2d20 e considere apenas
+        o maior resultado.
+    </p>
+
+    <p>
+        <strong>Desvantagem:</strong> role 2d20 e considere apenas
+        o menor resultado.
+    </p>
+
+    <p>
+        Quando uma mesma ação possuir Vantagem e Desvantagem
+        simultaneamente, os dois efeitos se anulam e a rolagem
+        volta ao normal.
+    </p>
+
+
+    <h3>Testes em Grupo</h3>
+
+    <p>
+        Quando vários personagens realizam a mesma ação em conjunto,
+        o Mestre pode determinar que seja feito um Teste em Grupo.
+    </p>
+
+    <p>
+        Cada participante realiza sua própria rolagem normalmente,
+        utilizando os atributos, perícias e modificadores correspondentes.
+    </p>
+
+    <p>
+        O grupo é considerado bem-sucedido quando pelo menos metade
+        dos participantes obtiver sucesso no teste.
+    </p>
+
+
+    <h3>Esforço da Ação</h3>
+
+    <p>
+        Algumas ações exigem que o personagem ultrapasse seus
+        próprios limites, seja física ou mentalmente.
+    </p>
+
+    <p>
+        Quanto maior for a dificuldade ou intensidade da ação,
+        maior poderá ser o custo envolvido. Esse esforço pode
+        afetar diferentes recursos do personagem, como:
+    </p>
+
+    <ul>
+        <li>Vida</li>
+        <li>Esforço Mental</li>
+        <li>Resistência Física</li>
+        <li>Sanidade</li>
+    </ul>
+
+    <p>
+        O Mestre determina quando uma ação exige esforço e qual
+        será o custo adequado à situação.
+    </p>
+
+    <div class="quote">
+        Nem toda vitória acontece sem consequências.
+        Às vezes, sobreviver ao desafio significa pagar um preço.
+    </div>
+
+
+    <h3>Iniciativa Dinâmica</h3>
+
+    <div class="quote">
+        "Em uma batalha, um único instante pode decidir quem terá
+        a primeira oportunidade."
+    </div>
+
+    <p>
+        Em NEXUS: AWAKENING, a iniciativa não permanece necessariamente
+        fixa durante todo o combate. A ordem de ação pode sofrer
+        alterações conforme as escolhas dos personagens e os
+        acontecimentos da batalha, tornando os confrontos mais
+        imprevisíveis.
+    </p>
+
+
+    <h4>Primeiro Turno</h4>
+
+    <p>
+        No início do combate, cada jogador realiza:
+    </p>
+
+    <div class="quote">
+        1d20 + Destreza + Percepção
+    </div>
+
+    <p>
+        Depois que todos realizarem suas rolagens, os resultados
+        são comparados.
+    </p>
+
+    <p>
+        Quem obtiver o maior resultado age primeiro. Os demais
+        seguem em ordem decrescente de resultado.
+    </p>
+
+
+    <h4>Interrupções e Reações</h4>
+
+    <p>
+        Algumas habilidades permitem interromper o turno de outro
+        personagem.
+    </p>
+
+    <p>
+        Exemplos:
+    </p>
+
+    <ul>
+        <li>Contra-ataques</li>
+        <li>Parry</li>
+        <li>Esquivas perfeitas</li>
+        <li>Cobertura de aliados</li>
+        <li>Habilidades de NEXO</li>
+        <li>Disparos preparados</li>
+    </ul>
+
+    <p>
+        Essas ações acontecem imediatamente antes da ação inimiga.
+    </p>
+
+    <p>
+        Todo personagem possui 1 Reação por rodada. Ela pode ser
+        utilizada para:
+    </p>
+
+    <ul>
+        <li>Defender</li>
+        <li>Esquivar</li>
+        <li>Parry</li>
+        <li>Bloquear</li>
+        <li>Proteger um aliado</li>
+        <li>Contra-atacar (quando permitido)</li>
+    </ul>
+
+    <p>
+        Após utilizá-la, só poderá reagir novamente na rodada seguinte.
+    </p>
+
+    <a href="#sumario" class="back-button">
+        VOLTAR AO SUMÁRIO
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     CAPÍTULO 4
+======================================================= -->
+
+<section
+    class="chapter reveal"
+    id="capitulo-4"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-label">
+            Capítulo 04
+        </div>
+
+        <h2>
+            SISTEMA DE RAIVA
+        </h2>
+
+        <p class="chapter-opening">
+            Quando o personagem ultrapassa seus próprios limites,
+            o instinto assume o controle.
+        </p>
+
+    </div>
+
+    <p>
+        A Raiva representa o momento em que um personagem ultrapassa
+        seus limites físicos e emocionais. Ela não é um poder
+        sobrenatural, mas sim um estado extremo de adrenalina,
+        determinação e instinto. Qualquer personagem pode entrar
+        nesse estado.
+    </p>
+
+
+    <h3>Como acumular Raiva</h3>
+
+    <p>
+        O personagem recebe 1 Acúmulo de Raiva, podendo possuir
+        no máximo 3 Acúmulos, quando:
+    </p>
+
+    <ul>
+        <li>Sofrer um Acerto Crítico.</li>
+        <li>Ficar com menos de 30% dos Pontos de Vida.</li>
+        <li>Um aliado importante cair em combate.</li>
+        <li>Presenciar um trauma.</li>
+        <li>Receber dano superior a 25% da sua Vida máxima.</li>
+        <li>O Mestre considerar apropriado diante da situação.</li>
+    </ul>
+
+
+    <h3>Nível I — Fúria Instintiva</h3>
+
+    <p>
+        O personagem começa a agir de maneira mais agressiva e
+        impulsiva, deixando o instinto assumir parte do controle.
+    </p>
+
+    <p><strong>Recebe:</strong></p>
+
+    <ul>
+        <li>+1 em Ataques</li>
+        <li>+2 de dano em ataques corpo a corpo</li>
+        <li>Ignora o efeito de Medo</li>
+    </ul>
+
+    <p><strong>Penalidade:</strong> −1 em testes sociais.</p>
+
+
+    <h3>Nível II — Fúria Desenfreada</h3>
+
+    <p>
+        O coração dispara e a percepção da dor diminui. O personagem
+        passa a agir de maneira mais agressiva, colocando força e
+        instinto acima da cautela.
+    </p>
+
+    <p><strong>Recebe:</strong></p>
+
+    <ul>
+        <li>+2 em Ataques</li>
+        <li>+4 de dano</li>
+        <li>+2 em Resistência Física</li>
+        <li>Pode levantar imediatamente após ser Derrubado.</li>
+    </ul>
+
+    <p><strong>Penalidades:</strong></p>
+
+    <ul>
+        <li>Não pode utilizar ações defensivas complexas.</li>
+        <li>−2 em testes de Raciocínio.</li>
+    </ul>
+
+
+    <h3>Nível III — Limite Absoluto</h3>
+
+    <p>
+        O personagem força o próprio corpo além do que deveria ser
+        possível. A dor deixa de ser relevante e o instinto de
+        sobrevivência toma completamente o controle.
+    </p>
+
+    <p><strong>Recebe:</strong></p>
+
+    <ul>
+        <li>+4 em Ataques</li>
+        <li>+6 de dano</li>
+        <li>+4 em Resistência</li>
+        <li>Ignora Atordoamento</li>
+        <li>Ignora efeitos de Dor</li>
+        <li>Recebe 1 Ação de Movimento adicional</li>
+    </ul>
+
+    <p><strong>Penalidades:</strong></p>
+
+    <ul>
+        <li>Não pode recuar voluntariamente.</li>
+        <li>Deve atacar o inimigo mais próximo sempre que houver possibilidade.</li>
+        <li>Ao término da Raiva, recebe Exaustão II.</li>
+        <li>Perde 1d6 de Esforço Mental devido ao intenso desgaste psicológico.</li>
+    </ul>
+
+
+    <h3>Encerrando a Raiva</h3>
+
+    <p>
+        A Raiva chega ao fim quando uma das seguintes situações acontece:
+    </p>
+
+    <ul>
+        <li>O combate termina.</li>
+        <li>O personagem fica inconsciente.</li>
+        <li>O personagem passa uma rodada inteira sem atacar ou ser atacado.</li>
+        <li>Uma habilidade ou efeito interrompe o estado de Raiva.</li>
+    </ul>
+
+
+    <h3>Considerações do Mestre</h3>
+
+    <p>
+        A Raiva deve representar um momento marcante da narrativa,
+        e não apenas um aumento temporário nos atributos do personagem.
+    </p>
+
+    <p>
+        O Mestre pode destacar a intensidade desse estado descrevendo
+        mudanças na postura, expressão, respiração, voz ou comportamento
+        do personagem.
+    </p>
+
+    <p>
+        A ativação da Raiva deve fazer com que a cena pareça diferente,
+        deixando claro que o personagem está ultrapassando seus próprios
+        limites e tornando cada momento de fúria memorável.
+    </p>
+
+    <a href="#sumario" class="back-button">
+        VOLTAR AO SUMÁRIO
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     CAPÍTULO 5
+======================================================= -->
+
+<section
+    class="chapter reveal"
+    id="capitulo-5"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-label">
+            Capítulo 05
+        </div>
+
+        <h2>
+            SISTEMA DE RENOME
+        </h2>
+
+        <p class="chapter-opening">
+            Grandes feitos deixam marcas. Algumas são lembradas
+            como honra, outras como glória ou conhecimento.
+        </p>
+
+    </div>
+
+
+    <h3>Introdução</h3>
+
+    <p>
+        Ao longo de sua jornada em NEXUS: AWAKENING, as escolhas e
+        feitos de um personagem começam a deixar marcas no mundo.
+        Grandes vitórias, missões perigosas, atos de coragem ou até
+        acontecimentos trágicos podem fazer seu nome ser conhecido
+        por outras pessoas.
+    </p>
+
+    <p>
+        Esse reconhecimento é representado pelo Renome.
+    </p>
+
+    <p>
+        O Renome pode afetar interações sociais, oportunidades de
+        missão, acesso a equipamentos, relações com NPCs e até a
+        maneira como certas ameaças reagem à presença do personagem.
+    </p>
+
+    <p>
+        Cada personagem possui um único Caminho de Renome, que pode
+        evoluir através de três níveis: Nível I, Nível II e Nível III.
+    </p>
+
+
+    <h3>Conquistando Renome</h3>
+
+    <p>
+        Ao final de missões ou acontecimentos relevantes, o Mestre
+        pode conceder Pontos de Renome aos personagens de acordo
+        com suas ações.
+    </p>
+
+    <p>
+        Algumas situações que podem gerar Renome:
+    </p>
+
+    <ul>
+        <li>Derrotar um Devorante poderoso.</li>
+        <li>Salvar civis durante uma situação de risco.</li>
+        <li>Descobrir informações importantes para a equipe.</li>
+        <li>Liderar uma operação com sucesso.</li>
+        <li>Colocar a própria vida em risco para proteger aliados.</li>
+        <li>Resolver uma situação sem recorrer à violência.</li>
+        <li>Sobreviver a acontecimentos considerados praticamente impossíveis.</li>
+        <li>Realizar feitos que chamem a atenção de pessoas, organizações ou do próprio governo.</li>
+    </ul>
+
+    <p>
+        Quando o personagem acumular a quantidade necessária de
+        Pontos de Renome, seu Caminho poderá avançar para o próximo nível.
+    </p>
+
+
+    <h3>Os Três Caminhos</h3>
+
+    <p>
+        Cada personagem deve escolher um único Caminho de Renome,
+        definindo a maneira pela qual deseja construir sua reputação.
+        Essa escolha é permanente e acompanha o personagem durante
+        sua evolução.
+    </p>
+
+    <p>
+        Os três caminhos disponíveis são: <strong>Honra, Glória e Sabedoria.</strong>
+    </p>
+
+
+    <h3>Honra</h3>
+
+    <div class="quote">
+        “Ser lembrado não pelo poder que possuía, mas por aqueles
+        que escolheu proteger.”
+    </div>
+
+    <p>
+        A Honra representa disciplina, justiça, confiança e lealdade.
+        Personagens que seguem esse caminho constroem uma reputação
+        baseada em seus princípios e na capacidade de proteger os outros.
+    </p>
+
+    <p>
+        Com o tempo, tornam-se figuras respeitadas entre aliados e
+        civis, sendo vistos como exemplos de conduta.
+    </p>
+
+
+    <h4>Nível I — Reconhecido</h4>
+
+    <p>
+        O nome do personagem começa a ganhar credibilidade.
+    </p>
+
+    <ul>
+        <li>+2 em Persuasão.</li>
+        <li>+2 em Liderança.</li>
+        <li>Civis tendem a cooperar com maior facilidade.</li>
+        <li>Pequenos comerciantes podem oferecer descontos.</li>
+    </ul>
+
+
+    <h4>Nível II — Referência</h4>
+
+    <p>
+        Sua presença começa a motivar aqueles ao seu redor.
+    </p>
+
+    <ul>
+        <li>+2 em testes sociais.</li>
+        <li>Uma vez por missão, pode inspirar um aliado.</li>
+        <li>O aliado recebe +2 em qualquer teste.</li>
+        <li>O aliado recupera 1d6 de Esforço Mental.</li>
+    </ul>
+
+
+    <h4>Nível III — Ícone</h4>
+
+    <p>
+        O personagem tornou-se uma referência para aqueles que
+        compartilham seus ideais.
+    </p>
+
+    <ul>
+        <li>Aliados em um raio de 10 metros recebem +1 em todas as rolagens durante combates importantes.</li>
+        <li>NPCs aliados dificilmente recusam pedidos razoáveis.</li>
+        <li>Recebe prioridade em missões e recursos da Ordem.</li>
+    </ul>
+
+
+    <h3>Glória</h3>
+
+    <div class="quote">
+        “Algumas histórias são contadas porque ninguém acreditaria
+        nelas se não tivesse sobreviventes para contá-las.”
+    </div>
+
+    <p>
+        A Glória nasce de feitos extraordinários, coragem e
+        demonstrações de poder. Aqueles que seguem esse caminho
+        constroem sua reputação através de batalhas e acontecimentos
+        que parecem impossíveis.
+    </p>
+
+    <p>
+        Com o tempo, seu nome pode se tornar conhecido até mesmo
+        entre aqueles que nunca os encontraram pessoalmente.
+    </p>
+
+
+    <h4>Nível I — Notório</h4>
+
+    <p>
+        Os feitos do personagem começam a chamar atenção.
+    </p>
+
+    <ul>
+        <li>+2 em Ataques.</li>
+        <li>+2 em Intimidação.</li>
+        <li>Inimigos comuns podem demonstrar hesitação ao enfrentá-lo.</li>
+    </ul>
+
+
+    <h4>Nível II — Lendário</h4>
+
+    <p>
+        Poucos conseguem ignorar a reputação construída pelo personagem.
+    </p>
+
+    <ul>
+        <li>Uma vez por combate, pode repetir um ataque ou teste físico.</li>
+        <li>Recebe +2 em Resistência Mental durante confrontos.</li>
+    </ul>
+
+
+    <h4>Nível III — Intocável</h4>
+
+    <p>
+        Sua presença no campo de batalha é suficiente para alterar
+        o comportamento dos adversários.
+    </p>
+
+    <ul>
+        <li>Ao entrar em combate, todos os inimigos comuns devem realizar um teste de Autocontrole.</li>
+        <li>Aqueles que falharem começam o combate com a condição Abalado.</li>
+        <li>Uma vez por sessão, pode ignorar completamente um efeito de Medo ou Intimidação.</li>
+    </ul>
+
+
+    <h3>Sabedoria</h3>
+
+    <div class="quote">
+        “Quanto mais você entende o desconhecido, menos o desconhecido
+        consegue surpreendê-lo.”
+    </div>
+
+    <p>
+        A Sabedoria representa conhecimento, experiência, investigação
+        e compreensão dos fenômenos que desafiam a realidade.
+    </p>
+
+    <p>
+        Personagens desse caminho aprendem a observar antes de agir,
+        utilizando informações e estratégia para superar situações
+        que não poderiam enfrentar apenas pela força.
+    </p>
+
+
+    <h4>Nível I — Perspicaz</h4>
+
+    <p>
+        O personagem desenvolveu um olhar atento para aquilo que
+        outros não percebem.
+    </p>
+
+    <ul>
+        <li>+2 em Investigação.</li>
+        <li>+2 em Ocultismo.</li>
+        <li>Identifica fenômenos paranormais com maior facilidade.</li>
+    </ul>
+
+
+    <h4>Nível II — Erudito</h4>
+
+    <p>
+        Seu conhecimento começa a se tornar uma ferramenta
+        indispensável para a equipe.
+    </p>
+
+    <ul>
+        <li>Uma vez por missão, pode solicitar ao Mestre uma pista relevante relacionada à situação atual.</li>
+        <li>Após concluir uma investigação, recupera 1d6 de Esforço Mental.</li>
+    </ul>
+
+
+    <h4>Nível III — Arconte</h4>
+
+    <p>
+        O personagem alcançou um nível de conhecimento capaz de
+        transformar o paranormal em algo parcialmente compreensível.
+    </p>
+
+    <ul>
+        <li>Pode realizar rituais sem sofrer a primeira penalidade de Esforço Mental da cena.</li>
+        <li>Recebe +2 em todos os testes relacionados ao paranormal.</li>
+        <li>Após observar uma Anormalidade durante uma rodada, consegue identificar uma de suas fraquezas.</li>
+    </ul>
+
+
+    <h3>Renome Negativo</h3>
+
+    <p>
+        Nem todo reconhecimento traz respeito. Dependendo das escolhas
+        do personagem, seu nome pode começar a ser associado a traição,
+        violência, crimes ou acontecimentos perturbadores.
+    </p>
+
+    <p>
+        O Renome Negativo representa essa reputação ruim e pode alterar
+        a forma como pessoas, organizações e até criaturas inteligentes
+        enxergam o personagem.
+    </p>
+
+    <p>
+        O Mestre pode conceder Renome Negativo quando o personagem,
+        por exemplo:
+    </p>
+
+    <ul>
+        <li>Trair seus próprios aliados.</li>
+        <li>Abandonar uma missão sem justificativa.</li>
+        <li>Provocar mortes que poderiam ter sido evitadas.</li>
+        <li>Cometer crimes ou atos considerados graves.</li>
+        <li>Utilizar poderes proibidos de maneira recorrente.</li>
+        <li>Colocar inocentes em perigo deliberadamente.</li>
+        <li>Realizar ações que prejudiquem seriamente a Ordem ou outras pessoas.</li>
+    </ul>
+
+
+    <h3>Consequências</h3>
+
+    <p>
+        Uma reputação negativa pode começar a fechar portas para
+        o personagem. Entre os possíveis efeitos estão:
+    </p>
+
+    <ul>
+        <li>Comerciantes podem aumentar os preços ou se recusar a negociar.</li>
+        <li>NPCs podem evitar o personagem ou negar ajuda.</li>
+        <li>A Ordem pode passar a observá-lo com desconfiança.</li>
+        <li>Facções criminosas podem tentar recrutá-lo ou utilizá-lo.</li>
+        <li>NPCs podem reconhecer seu nome antes mesmo de conhecê-lo pessoalmente.</li>
+        <li>Devorantes inteligentes podem identificar o personagem e reagir de maneira diferente ao encontrá-lo.</li>
+    </ul>
+
+    <p>
+        O Renome Negativo não possui necessariamente níveis próprios.
+        Seu impacto depende da gravidade dos atos cometidos e da forma
+        como o mundo passou a enxergar o personagem.
+    </p>
+
+
+    <h3>Recuperando a Reputação</h3>
+
+    <p>
+        Uma reputação negativa não precisa ser permanente.
+        Personagens podem tentar reconstruir sua imagem através de
+        ações que demonstrem arrependimento, responsabilidade ou
+        mudança de comportamento.
+    </p>
+
+    <p>
+        Algumas formas de recuperar a reputação incluem:
+    </p>
+
+    <ul>
+        <li>Completar missões importantes para a Ordem.</li>
+        <li>Salvar pessoas que haviam sido colocadas em perigo por suas ações.</li>
+        <li>Reparar danos causados anteriormente.</li>
+        <li>Cooperar com autoridades ou organizações.</li>
+        <li>Demonstrar mudança através de ações durante várias missões.</li>
+        <li>Realizar um feito que altere significativamente a maneira como o personagem é visto.</li>
+    </ul>
+
+    <p>
+        O Mestre decide quando uma ação é suficiente para reduzir
+        ou remover parte da reputação negativa.
+    </p>
+
+
+    <h3>Renome e o Mundo</h3>
+
+    <p>
+        O Renome não representa apenas um número na ficha.
+        Ele representa a forma como o mundo reage ao personagem.
+    </p>
+
+    <p>
+        Um personagem conhecido por sua Honra pode encontrar portas
+        abertas onde outros encontrariam desconfiança.
+    </p>
+
+    <p>
+        Um personagem conhecido por seus feitos pode ser reconhecido
+        antes mesmo de se apresentar.
+    </p>
+
+    <p>
+        Um personagem conhecido por seu conhecimento pode ser
+        procurado quando acontecimentos inexplicáveis surgirem.
+    </p>
+
+    <p>
+        Da mesma maneira, alguém conhecido por atos violentos ou
+        traições pode descobrir que seu próprio nome se tornou
+        um problema.
+    </p>
+
+    <div class="quote">
+        Seu nome não é apenas aquilo que está escrito na sua ficha.
+        É aquilo que as pessoas dizem quando você não está presente.
+    </div>
+
+    <a href="#sumario" class="back-button">
+        VOLTAR AO SUMÁRIO
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     FIM DO LIVRO
+======================================================= -->
+
+<footer>
+
+    <p>
+        NEXUS: AWAKENING
+    </p>
+
+    <p>
+        <span>O mundo nunca foi aquilo que parecia.</span>
+    </p>
+
+</footer>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   BARRA DE PROGRESSO
+========================================================= */
+
+const progressBar =
+    document.getElementById("progressBar");
+
+function updateProgress(){
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        documentHeight > 0
+        ? (scrollTop / documentHeight) * 100
+        : 0;
+
+    progressBar.style.width =
+        progress + "%";
+}
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    { passive:true }
+);
+
+window.addEventListener(
+    "resize",
+    updateProgress
+);
+
+updateProgress();
+
+
+/* =========================================================
+   ANIMAÇÃO DOS CAPÍTULOS
+========================================================= */
+
+const chapters =
+    document.querySelectorAll(".chapter");
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(
+                (entry) => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "reveal"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:0.08
+        }
+    );
+
+chapters.forEach(
+    (chapter) => {
+
+        observer.observe(
+            chapter
+        );
+
+    }
+);
+
+
+/* =========================================================
+   ROLAGEM SUAVE DOS BOTÕES
+========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(
+    (link) => {
+
+        link.addEventListener(
+            "click",
+            function(event){
+
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                if(target){
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
+```0
