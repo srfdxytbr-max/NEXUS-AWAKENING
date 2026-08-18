@@ -5,19 +5,16 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ficha — NEXUS-AWAKENING</title>
 
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     box-sizing:border-box;
@@ -34,24 +31,19 @@ body{
     min-height:100vh;
 
     background:
-
         linear-gradient(
             rgba(15,3,25,.88),
             rgba(0,0,0,.97)
         ),
-
         url("https://i.pinimg.com/originals/a3/9b/66/a39b666e8432df8033c05559e61569b7.gif");
 
     background-size:cover;
-
     background-position:center;
-
     background-attachment:fixed;
 
     color:#eee;
 
     font-family:Georgia,serif;
-
 }
 
 
@@ -62,15 +54,11 @@ body{
 .topo{
 
     position:sticky;
-
     top:0;
-
     z-index:100;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     gap:10px;
@@ -83,9 +71,7 @@ body{
         rgba(168,85,247,.35);
 
     backdrop-filter:blur(12px);
-
 }
-
 
 .topo-esquerda,
 .topo-direita{
@@ -95,9 +81,7 @@ body{
     gap:8px;
 
     flex-wrap:wrap;
-
 }
-
 
 .topo button,
 .topo a{
@@ -120,9 +104,7 @@ body{
     font-family:Georgia,serif;
 
     transition:.25s;
-
 }
-
 
 .topo button:hover,
 .topo a:hover{
@@ -133,7 +115,6 @@ body{
     box-shadow:
         0 0 18px
         rgba(168,85,247,.45);
-
 }
 
 
@@ -148,7 +129,6 @@ body{
     max-width:1100px;
 
     margin:35px auto 80px;
-
 }
 
 
@@ -164,16 +144,18 @@ body{
 
     animation:
         aparecer .8s ease forwards;
-
 }
-
 
 .cabecalho h1{
 
     margin:0;
 
+    font-family:"Cinzel",Georgia,serif;
+
     font-size:
         clamp(38px,8vw,70px);
+
+    font-weight:700;
 
     letter-spacing:8px;
 
@@ -184,16 +166,13 @@ body{
         0 0 25px #7e22ce,
 
         0 0 50px #581c87;
-
 }
-
 
 .cabecalho p{
 
     color:#c4b5fd;
 
     letter-spacing:4px;
-
 }
 
 
@@ -216,15 +195,12 @@ body{
         rgba(15,4,25,.78);
 
     box-shadow:
-
         0 0 25px
         rgba(91,33,182,.12);
 
     animation:
         aparecer .7s ease both;
-
 }
-
 
 .secao h2{
 
@@ -238,28 +214,19 @@ body{
     color:#d8b4fe;
 
     letter-spacing:3px;
-
 }
-
 
 @keyframes aparecer{
 
     from{
-
         opacity:0;
-
         transform:translateY(25px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
-
 }
 
 
@@ -276,9 +243,7 @@ body{
     align-items:center;
 
     gap:15px;
-
 }
-
 
 .foto{
 
@@ -302,23 +267,17 @@ body{
     overflow:hidden;
 
     box-shadow:
-
         0 0 25px
         rgba(139,92,246,.3);
-
 }
-
 
 .foto img{
 
     width:100%;
-
     height:100%;
 
     object-fit:cover;
-
 }
-
 
 .foto-vazio{
 
@@ -327,7 +286,6 @@ body{
     text-align:center;
 
     padding:15px;
-
 }
 
 
@@ -343,9 +301,7 @@ body{
         repeat(2,minmax(0,1fr));
 
     gap:15px;
-
 }
-
 
 .campo{
 
@@ -354,9 +310,7 @@ body{
     flex-direction:column;
 
     gap:6px;
-
 }
-
 
 .campo label{
 
@@ -365,9 +319,7 @@ body{
     font-size:13px;
 
     letter-spacing:1px;
-
 }
-
 
 input,
 select{
@@ -389,9 +341,7 @@ select{
     color:white;
 
     font-family:Georgia,serif;
-
 }
-
 
 input:focus,
 select:focus{
@@ -401,22 +351,17 @@ select:focus{
     box-shadow:
         0 0 12px
         rgba(168,85,247,.25);
-
 }
-
 
 input[type=number]{
 
     appearance:textfield;
-
 }
-
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{
 
     appearance:none;
-
 }
 
 
@@ -428,15 +373,17 @@ input[type=number]::-webkit-outer-spin-button{
 
     border-color:
         rgba(168,85,247,.65);
-
 }
-
 
 .nexo-titulo{
 
     text-align:center;
 
+    font-family:"Cinzel",Georgia,serif;
+
     font-size:30px;
+
+    font-weight:700;
 
     letter-spacing:5px;
 
@@ -444,9 +391,7 @@ input[type=number]::-webkit-outer-spin-button{
 
     text-shadow:
         0 0 15px #7e22ce;
-
 }
-
 
 .nexo-grid{
 
@@ -456,17 +401,16 @@ input[type=number]::-webkit-outer-spin-button{
         repeat(2,minmax(0,1fr));
 
     gap:15px;
-
 }
 
 
 /* =====================================================
-   STATUS ESPECIAL
+   STATUS
 ===================================================== */
 
 .status-box{
 
-    margin-top:20px;
+    margin-top:15px;
 
     padding:20px;
 
@@ -481,18 +425,14 @@ input[type=number]::-webkit-outer-spin-button{
         rgba(255,255,255,.12);
 
     transition:.3s;
-
 }
-
 
 .status-numero{
 
     font-size:28px;
 
     font-weight:bold;
-
 }
-
 
 .status-mensagem{
 
@@ -501,12 +441,11 @@ input[type=number]::-webkit-outer-spin-button{
     color:#ddd;
 
     font-size:14px;
-
 }
 
 
 /* =====================================================
-   CORES DE STATUS
+   CORES
 ===================================================== */
 
 .status-verde{
@@ -516,16 +455,11 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 20px
         rgba(134,239,172,.18);
-
 }
-
 
 .status-verde .status-numero{
-
     color:#86efac;
-
 }
-
 
 .status-laranja{
 
@@ -534,16 +468,11 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 20px
         rgba(251,146,60,.18);
-
 }
-
 
 .status-laranja .status-numero{
-
     color:#fb923c;
-
 }
-
 
 .status-vermelho-claro{
 
@@ -552,16 +481,11 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 20px
         rgba(248,113,113,.18);
-
 }
-
 
 .status-vermelho-claro .status-numero{
-
     color:#f87171;
-
 }
-
 
 .status-vermelho-escuro{
 
@@ -570,14 +494,49 @@ input[type=number]::-webkit-outer-spin-button{
     box-shadow:
         0 0 25px
         rgba(220,38,38,.3);
+}
 
+.status-vermelho-escuro .status-numero{
+    color:#dc2626;
 }
 
 
-.status-vermelho-escuro .status-numero{
+/* =====================================================
+   CONTROLE DE STATUS
+===================================================== */
 
-    color:#dc2626;
+.status-valores{
 
+    display:grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items:end;
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+.status-separador{
+
+    padding-bottom:10px;
+
+    color:#a78bfa;
+
+    font-size:22px;
+}
+
+.status-valores label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#bda8d0;
+
+    font-size:12px;
 }
 
 
@@ -600,9 +559,7 @@ input[type=number]::-webkit-outer-spin-button{
 
     border:1px solid
         rgba(168,85,247,.3);
-
 }
-
 
 .pontos-grandes{
 
@@ -611,9 +568,7 @@ input[type=number]::-webkit-outer-spin-button{
     font-weight:bold;
 
     color:#d8b4fe;
-
 }
-
 
 .aviso-pontos{
 
@@ -624,9 +579,7 @@ input[type=number]::-webkit-outer-spin-button{
     font-weight:bold;
 
     display:none;
-
 }
-
 
 .atributos{
 
@@ -636,9 +589,7 @@ input[type=number]::-webkit-outer-spin-button{
         repeat(3,minmax(0,1fr));
 
     gap:12px;
-
 }
-
 
 .atributo{
 
@@ -651,9 +602,7 @@ input[type=number]::-webkit-outer-spin-button{
 
     background:
         rgba(0,0,0,.2);
-
 }
-
 
 .atributo label{
 
@@ -662,12 +611,11 @@ input[type=number]::-webkit-outer-spin-button{
     margin-bottom:7px;
 
     color:#c4b5fd;
-
 }
 
 
 /* =====================================================
-   STATUS
+   STATUS GRID
 ===================================================== */
 
 .status-grid{
@@ -678,9 +626,7 @@ input[type=number]::-webkit-outer-spin-button{
         repeat(2,minmax(0,1fr));
 
     gap:15px;
-
 }
-
 
 .status-card{
 
@@ -693,23 +639,13 @@ input[type=number]::-webkit-outer-spin-button{
 
     border:1px solid
         rgba(168,85,247,.25);
-
 }
-
 
 .status-card h3{
 
     margin-top:0;
 
     color:#d8b4fe;
-
-}
-
-
-.status-card .status-box{
-
-    margin-top:12px;
-
 }
 
 
@@ -724,7 +660,6 @@ input[type=number]::-webkit-outer-spin-button{
     color:#75677f;
 
     margin-top:40px;
-
 }
 
 
@@ -739,59 +674,49 @@ input[type=number]::-webkit-outer-spin-button{
     .status-grid{
 
         grid-template-columns:1fr;
-
     }
-
 
     .atributos{
 
         grid-template-columns:
             repeat(2,minmax(0,1fr));
-
     }
-
 
     .topo{
 
         position:relative;
 
         flex-direction:column;
-
     }
-
 
     .topo-esquerda,
     .topo-direita{
 
         justify-content:center;
-
     }
-
 }
-
 
 @media(max-width:430px){
 
     .container{
-
         width:96%;
-
     }
-
 
     .secao{
-
         padding:17px;
-
     }
-
 
     .atributos{
-
         grid-template-columns:1fr;
-
     }
 
+    .status-valores{
+        grid-template-columns:1fr;
+    }
+
+    .status-separador{
+        display:none;
+    }
 }
 
 </style>
@@ -814,6 +739,13 @@ input[type=number]::-webkit-outer-spin-button{
             🏠 Início
         </a>
 
+        <button
+            id="botaoMusica"
+            onclick="alternarMusica()"
+        >
+            🎸 Tocar música
+        </button>
+
     </div>
 
 
@@ -823,7 +755,13 @@ input[type=number]::-webkit-outer-spin-button{
             💾 Baixar ficha
         </button>
 
-        <button onclick="document.getElementById('arquivoFicha').click()">
+        <button
+            onclick="
+                document
+                .getElementById('arquivoFicha')
+                .click()
+            "
+        >
             📂 Carregar ficha
         </button>
 
@@ -839,6 +777,23 @@ input[type=number]::-webkit-outer-spin-button{
 
 </header>
 
+
+<!-- =====================================================
+     ÁUDIO
+===================================================== -->
+
+<audio
+    id="musica"
+    preload="auto"
+    loop
+>
+
+    <source
+        src="Dark Acoustic Guitar Instrumental Beat 2018 Betrayed - Ryini Beats (youtube).mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
 
 
 <main class="container">
@@ -857,9 +812,8 @@ input[type=number]::-webkit-outer-spin-button{
 </div>
 
 
-
 <!-- =====================================================
-     FOTO
+     IDENTIDADE
 ===================================================== -->
 
 <section class="secao">
@@ -880,14 +834,11 @@ input[type=number]::-webkit-outer-spin-button{
                 id="fotoVazia"
                 class="foto-vazio"
             >
-
                 🖼️<br>
                 Foto do personagem
-
             </div>
 
         </div>
-
 
         <input
             type="file"
@@ -897,9 +848,7 @@ input[type=number]::-webkit-outer-spin-button{
 
     </div>
 
-
     <br>
-
 
     <div class="grid">
 
@@ -908,42 +857,35 @@ input[type=number]::-webkit-outer-spin-button{
             <input id="nome">
         </div>
 
-
         <div class="campo">
             <label>Idade</label>
             <input id="idade" type="number">
         </div>
-
 
         <div class="campo">
             <label>Gênero</label>
             <input id="genero">
         </div>
 
-
         <div class="campo">
             <label>Peso</label>
             <input id="peso" type="number">
         </div>
-
 
         <div class="campo">
             <label>Altura</label>
             <input id="altura">
         </div>
 
-
         <div class="campo">
             <label>Cargo</label>
             <input id="cargo">
         </div>
 
-
         <div class="campo">
             <label>Origem</label>
             <input id="origem">
         </div>
-
 
         <div class="campo">
             <label>Organização</label>
@@ -953,7 +895,6 @@ input[type=number]::-webkit-outer-spin-button{
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -966,24 +907,57 @@ input[type=number]::-webkit-outer-spin-button{
         NEXO ✨
     </div>
 
-
     <br>
 
+    <div class="status-valores">
 
-    <div class="campo">
+        <div class="campo">
 
-        <label>
-            Vida do Núcleo
-        </label>
+            <label>Vida atual</label>
 
-        <input
-            id="vidaNucleo"
-            type="number"
-            min="0"
-            max="100"
-            value="100"
-            oninput="atualizarStatus('vidaNucleo',100,'statusNucleo')"
-        >
+            <input
+                id="vidaNucleo"
+                type="number"
+                min="0"
+                value="100"
+                oninput="
+                    atualizarStatus(
+                        'vidaNucleo',
+                        'limiteNucleo',
+                        'statusNucleo',
+                        false,
+                        'nucleo'
+                    )
+                "
+            >
+
+        </div>
+
+        <div class="status-separador">
+            /
+        </div>
+
+        <div class="campo">
+
+            <label>Limite</label>
+
+            <input
+                id="limiteNucleo"
+                type="number"
+                min="1"
+                value="100"
+                oninput="
+                    atualizarStatus(
+                        'vidaNucleo',
+                        'limiteNucleo',
+                        'statusNucleo',
+                        false,
+                        'nucleo'
+                    )
+                "
+            >
+
+        </div>
 
     </div>
 
@@ -1011,9 +985,7 @@ input[type=number]::-webkit-outer-spin-button{
 
         <div class="campo">
 
-            <label>
-                Nome do NEXO
-            </label>
+            <label>Nome do NEXO</label>
 
             <input id="nomeNexo">
 
@@ -1022,9 +994,7 @@ input[type=number]::-webkit-outer-spin-button{
 
         <div class="campo">
 
-            <label>
-                Estado atual do NEXO
-            </label>
+            <label>Estado atual do NEXO</label>
 
             <select id="estadoNexo">
 
@@ -1043,9 +1013,7 @@ input[type=number]::-webkit-outer-spin-button{
 
         <div class="campo">
 
-            <label>
-                Nível do NEXO
-            </label>
+            <label>Nível do NEXO</label>
 
             <input
                 id="nivelNexo"
@@ -1060,9 +1028,7 @@ input[type=number]::-webkit-outer-spin-button{
 
         <div class="campo">
 
-            <label>
-                Controle do NEXO
-            </label>
+            <label>Controle do NEXO</label>
 
             <input
                 id="controleNexo"
@@ -1079,7 +1045,6 @@ input[type=number]::-webkit-outer-spin-button{
 </section>
 
 
-
 <!-- =====================================================
      PROGRESSÃO
 ===================================================== -->
@@ -1088,14 +1053,11 @@ input[type=number]::-webkit-outer-spin-button{
 
     <h2>PROGRESSÃO</h2>
 
-
     <div class="grid">
 
         <div class="campo">
 
-            <label>
-                Nível atual
-            </label>
+            <label>Nível atual</label>
 
             <input
                 id="nivelAtual"
@@ -1107,12 +1069,9 @@ input[type=number]::-webkit-outer-spin-button{
 
         </div>
 
-
         <div class="campo">
 
-            <label>
-                XP
-            </label>
+            <label>XP</label>
 
             <input
                 id="xp"
@@ -1122,12 +1081,9 @@ input[type=number]::-webkit-outer-spin-button{
 
         </div>
 
-
         <div class="campo">
 
-            <label>
-                Missões concluídas
-            </label>
+            <label>Missões concluídas</label>
 
             <input
                 id="missoes"
@@ -1142,7 +1098,6 @@ input[type=number]::-webkit-outer-spin-button{
 </section>
 
 
-
 <!-- =====================================================
      RENOMES
 ===================================================== -->
@@ -1151,14 +1106,11 @@ input[type=number]::-webkit-outer-spin-button{
 
     <h2>RENOMES</h2>
 
-
     <div class="grid">
 
         <div class="campo">
 
-            <label>
-                Glória
-            </label>
+            <label>Glória</label>
 
             <input
                 id="gloria"
@@ -1167,12 +1119,9 @@ input[type=number]::-webkit-outer-spin-button{
 
         </div>
 
-
         <div class="campo">
 
-            <label>
-                Honra
-            </label>
+            <label>Honra</label>
 
             <input
                 id="honra"
@@ -1181,12 +1130,9 @@ input[type=number]::-webkit-outer-spin-button{
 
         </div>
 
-
         <div class="campo">
 
-            <label>
-                Sabedoria
-            </label>
+            <label>Sabedoria</label>
 
             <input
                 id="sabedoria"
@@ -1200,7 +1146,6 @@ input[type=number]::-webkit-outer-spin-button{
 </section>
 
 
-
 <!-- =====================================================
      ATRIBUTOS
 ===================================================== -->
@@ -1209,14 +1154,11 @@ input[type=number]::-webkit-outer-spin-button{
 
     <h2>ATRIBUTOS</h2>
 
-
     <div class="grid">
 
         <div class="campo">
 
-            <label>
-                Pontos extras
-            </label>
+            <label>Pontos extras</label>
 
             <input
                 id="pontosExtras"
@@ -1231,14 +1173,13 @@ input[type=number]::-webkit-outer-spin-button{
 
         <div class="campo">
 
-            <label>
-                Pontos disponíveis
-            </label>
+            <label>Pontos disponíveis</label>
 
             <input
                 id="pontosDisponiveis"
                 type="number"
                 min="0"
+                value="18"
                 oninput="atualizarPontos()"
             >
 
@@ -1259,11 +1200,9 @@ input[type=number]::-webkit-outer-spin-button{
             18 / 18
         </div>
 
-
         <div>
             Pontos restantes
         </div>
-
 
         <div
             id="avisoPontos"
@@ -1277,154 +1216,54 @@ input[type=number]::-webkit-outer-spin-button{
 
     <div class="atributos">
 
-
         <div class="atributo">
-
             <label>Força</label>
-
-            <input
-                class="atributo-input"
-                id="forca"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="forca" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Destreza</label>
-
-            <input
-                class="atributo-input"
-                id="destreza"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="destreza" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Vigor</label>
-
-            <input
-                class="atributo-input"
-                id="vigor"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="vigor" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Intel</label>
-
-            <input
-                class="atributo-input"
-                id="intel"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="intel" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Auto Controle</label>
-
-            <input
-                class="atributo-input"
-                id="autocontrole"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="autocontrole" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Determinação</label>
-
-            <input
-                class="atributo-input"
-                id="determinacao"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="determinacao" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Raciocínio</label>
-
-            <input
-                class="atributo-input"
-                id="raciocinio"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="raciocinio" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Carisma</label>
-
-            <input
-                class="atributo-input"
-                id="carisma"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="carisma" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
-
         <div class="atributo">
-
             <label>Manipulação</label>
-
-            <input
-                class="atributo-input"
-                id="manipulacao"
-                type="number"
-                min="0"
-                value="0"
-                oninput="atualizarPontos()"
-            >
-
+            <input class="atributo-input" id="manipulacao" type="number" min="0" value="0" oninput="atualizarPontos()">
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1435,7 +1274,6 @@ input[type=number]::-webkit-outer-spin-button{
 
     <h2>STATUS</h2>
 
-
     <div class="status-grid">
 
 
@@ -1445,191 +1283,454 @@ input[type=number]::-webkit-outer-spin-button{
 
             <h3>❤️ Pontos de Vida</h3>
 
-            <input
-                id="vidaAtual"
-                type="number"
-                min="0"
-                value="40"
-                oninput="atualizarStatus('vidaAtual',40,'statusVida')"
-        >
+            <div class="status-valores">
 
-        <div
-            id="statusVida"
-            class="status-box status-verde"
-        >
+                <div class="campo">
 
-            <div class="status-numero">
-                40 / 40
+                    <label>Atual</label>
+
+                    <input
+                        id="vidaAtual"
+                        type="number"
+                        min="0"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'vidaAtual',
+                                'limiteVida',
+                                'statusVida',
+                                false,
+                                'vida'
+                            )
+                        "
+                    >
+
+                </div>
+
+                <div class="status-separador">
+                    /
+                </div>
+
+                <div class="campo">
+
+                    <label>Limite</label>
+
+                    <input
+                        id="limiteVida"
+                        type="number"
+                        min="1"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'vidaAtual',
+                                'limiteVida',
+                                'statusVida',
+                                false,
+                                'vida'
+                            )
+                        "
+                    >
+
+                </div>
+
             </div>
 
-            <div class="status-mensagem">
-                Ótimas condições, sua vida está excelente!
-            </div>
+            <div
+                id="statusVida"
+                class="status-box status-verde"
+            >
 
-        </div>
+                <div class="status-numero">
+                    40 / 40
+                </div>
 
-    </div>
+                <div class="status-mensagem">
+                    Ótimas condições! Você está muito bem.
+                </div>
 
-
-    <!-- SANIDADE -->
-
-    <div class="status-card">
-
-        <h3>🧠 Sanidade</h3>
-
-        <input
-            id="sanidadeAtual"
-            type="number"
-            min="0"
-            value="40"
-            oninput="atualizarStatus('sanidadeAtual',40,'statusSanidade')"
-        >
-
-        <div
-            id="statusSanidade"
-            class="status-box status-verde"
-        >
-
-            <div class="status-numero">
-                40 / 40
-            </div>
-
-            <div class="status-mensagem">
-                Sua mente está em ótimas condições!
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- CONTAMINAÇÃO -->
-
-    <div class="status-card">
-
-        <h3>☣️ Contaminação</h3>
-
-        <input
-            id="contaminacaoAtual"
-            type="number"
-            min="0"
-            value="0"
-            oninput="atualizarStatus('contaminacaoAtual',100,'statusContaminacao')"
-        >
-
-        <div
-            id="statusContaminacao"
-            class="status-box status-verde"
-        >
-
-            <div class="status-numero">
-                0 / 100
-            </div>
-
-            <div class="status-mensagem">
-                Nenhuma contaminação detectada.
             </div>
 
         </div>
 
-    </div>
 
+        <!-- SANIDADE -->
 
-    <!-- ESFORÇO MENTAL -->
+        <div class="status-card">
 
-    <div class="status-card">
+            <h3>🧠 Sanidade</h3>
 
-        <h3>🧠 Esforço Mental</h3>
+            <div class="status-valores">
 
-        <input
-            id="esforcoMentalAtual"
-            type="number"
-            min="0"
-            value="0"
-            oninput="atualizarStatus('esforcoMentalAtual',100,'statusEsforcoMental')"
-        >
+                <div class="campo">
 
-        <div
-            id="statusEsforcoMental"
-            class="status-box status-verde"
-        >
+                    <label>Atual</label>
 
-            <div class="status-numero">
-                0 / 100
+                    <input
+                        id="sanidadeAtual"
+                        type="number"
+                        min="0"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'sanidadeAtual',
+                                'limiteSanidade',
+                                'statusSanidade',
+                                false,
+                                'sanidade'
+                            )
+                        "
+                    >
+
+                </div>
+
+                <div class="status-separador">
+                    /
+                </div>
+
+                <div class="campo">
+
+                    <label>Limite</label>
+
+                    <input
+                        id="limiteSanidade"
+                        type="number"
+                        min="1"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'sanidadeAtual',
+                                'limiteSanidade',
+                                'statusSanidade',
+                                false,
+                                'sanidade'
+                            )
+                        "
+                    >
+
+                </div>
+
             </div>
 
-            <div class="status-mensagem">
-                Nenhum esforço mental acumulado.
-            </div>
+            <div
+                id="statusSanidade"
+                class="status-box status-verde"
+            >
 
-        </div>
+                <div class="status-numero">
+                    40 / 40
+                </div>
 
-    </div>
+                <div class="status-mensagem">
+                    Sua mente está em ótimas condições.
+                </div>
 
-
-    <!-- ESFORÇO FÍSICO -->
-
-    <div class="status-card">
-
-        <h3>💪 Esforço Físico</h3>
-
-        <input
-            id="esforcoFisicoAtual"
-            type="number"
-            min="0"
-            value="0"
-            oninput="atualizarStatus('esforcoFisicoAtual',100,'statusEsforcoFisico')"
-        >
-
-        <div
-            id="statusEsforcoFisico"
-            class="status-box status-verde"
-        >
-
-            <div class="status-numero">
-                0 / 100
-            </div>
-
-            <div class="status-mensagem">
-                Nenhum esforço físico acumulado.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- SOBRECARGA -->
-
-    <div class="status-card">
-
-        <h3>⚡ Sobrecarga</h3>
-
-        <input
-            id="sobrecargaAtual"
-            type="number"
-            min="0"
-            value="0"
-            oninput="atualizarStatus('sobrecargaAtual',100,'statusSobrecarga')"
-        >
-
-        <div
-            id="statusSobrecarga"
-            class="status-box status-verde"
-        >
-
-            <div class="status-numero">
-                0 / 100
-            </div>
-
-            <div class="status-mensagem">
-                Nenhuma sobrecarga detectada.
             </div>
 
         </div>
 
-    </div>
 
+        <!-- CONTAMINAÇÃO -->
+
+        <div class="status-card">
+
+            <h3>☣️ Contaminação</h3>
+
+            <div class="status-valores">
+
+                <div class="campo">
+
+                    <label>Atual</label>
+
+                    <input
+                        id="contaminacaoAtual"
+                        type="number"
+                        min="0"
+                        value="0"
+                        oninput="
+                            atualizarStatus(
+                                'contaminacaoAtual',
+                                'limiteContaminacao',
+                                'statusContaminacao',
+                                true,
+                                'contaminacao'
+                            )
+                        "
+                    >
+
+                </div>
+
+                <div class="status-separador">
+                    /
+                </div>
+
+                <div class="campo">
+
+                    <label>Limite</label>
+
+                    <input
+                        id="limiteContaminacao"
+                        type="number"
+                        min="1"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'contaminacaoAtual',
+                                'limiteContaminacao',
+                                'statusContaminacao',
+                                true,
+                                'contaminacao'
+                            )
+                        "
+                    >
+
+                </div>
+
+            </div>
+
+            <div
+                id="statusContaminacao"
+                class="status-box status-verde"
+            >
+
+                <div class="status-numero">
+                    0 / 40
+                </div>
+
+                <div class="status-mensagem">
+                    Nenhuma contaminação detectada.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ESFORÇO MENTAL -->
+
+        <div class="status-card">
+
+            <h3>🧠 Esforço Mental</h3>
+
+            <div class="status-valores">
+
+                <div class="campo">
+
+                    <label>Atual</label>
+
+                    <input
+                        id="esforcoMentalAtual"
+                        type="number"
+                        min="0"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'esforcoMentalAtual',
+                                'limiteEsforcoMental',
+                                'statusEsforcoMental',
+                                false,
+                                'mental'
+                            )
+                        "
+                    >
+
+                </div>
+
+                <div class="status-separador">
+                    /
+                </div>
+
+                <div class="campo">
+
+                    <label>Limite</label>
+
+                    <input
+                        id="limiteEsforcoMental"
+                        type="number"
+                        min="1"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'esforcoMentalAtual',
+                                'limiteEsforcoMental',
+                                'statusEsforcoMental',
+                                false,
+                                'mental'
+                            )
+                        "
+                    >
+
+                </div>
+
+            </div>
+
+            <div
+                id="statusEsforcoMental"
+                class="status-box status-verde"
+            >
+
+                <div class="status-numero">
+                    40 / 40
+                </div>
+
+                <div class="status-mensagem">
+                    Sua mente está descansada.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ESFORÇO FÍSICO -->
+
+        <div class="status-card">
+
+            <h3>💪 Esforço Físico</h3>
+
+            <div class="status-valores">
+
+                <div class="campo">
+
+                    <label>Atual</label>
+
+                    <input
+                        id="esforcoFisicoAtual"
+                        type="number"
+                        min="0"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'esforcoFisicoAtual',
+                                'limiteEsforcoFisico',
+                                'statusEsforcoFisico',
+                                false,
+                                'fisico'
+                            )
+                        "
+                    >
+
+                </div>
+
+                <div class="status-separador">
+                    /
+                </div>
+
+                <div class="campo">
+
+                    <label>Limite</label>
+
+                    <input
+                        id="limiteEsforcoFisico"
+                        type="number"
+                        min="1"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'esforcoFisicoAtual',
+                                'limiteEsforcoFisico',
+                                'statusEsforcoFisico',
+                                false,
+                                'fisico'
+                            )
+                        "
+                    >
+
+                </div>
+
+            </div>
+
+            <div
+                id="statusEsforcoFisico"
+                class="status-box status-verde"
+            >
+
+                <div class="status-numero">
+                    40 / 40
+                </div>
+
+                <div class="status-mensagem">
+                    Seu corpo está em ótimas condições.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOBRECARGA -->
+
+        <div class="status-card">
+
+            <h3>⚡ Sobrecarga</h3>
+
+            <div class="status-valores">
+
+                <div class="campo">
+
+                    <label>Atual</label>
+
+                    <input
+                        id="sobrecargaAtual"
+                        type="number"
+                        min="0"
+                        value="0"
+                        oninput="
+                            atualizarStatus(
+                                'sobrecargaAtual',
+                                'limiteSobrecarga',
+                                'statusSobrecarga',
+                                true,
+                                'sobrecarga'
+                            )
+                        "
+                    >
+
+                </div>
+
+                <div class="status-separador">
+                    /
+                </div>
+
+                <div class="campo">
+
+                    <label>Limite</label>
+
+                    <input
+                        id="limiteSobrecarga"
+                        type="number"
+                        min="1"
+                        value="40"
+                        oninput="
+                            atualizarStatus(
+                                'sobrecargaAtual',
+                                'limiteSobrecarga',
+                                'statusSobrecarga',
+                                true,
+                                'sobrecarga'
+                            )
+                        "
+                    >
+
+                </div>
+
+            </div>
+
+            <div
+                id="statusSobrecarga"
+                class="status-box status-verde"
+            >
+
+                <div class="status-numero">
+                    0 / 40
+                </div>
+
+                <div class="status-mensagem">
+                    Nenhuma sobrecarga detectada.
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -1640,246 +1741,426 @@ input[type=number]::-webkit-outer-spin-button{
     NEXUS-AWAKENING • FICHA DO PERSONAGEM
 </div>
 
+
 </main>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+const musica =
+    document.getElementById("musica");
+
+const botaoMusica =
+    document.getElementById("botaoMusica");
+
+let musicaTocando = false;
+
+
+function alternarMusica(){
+
+    if(!musica){
+        return;
+    }
+
+    if(!musicaTocando){
+
+        musica.volume = 0.45;
+
+        musica.play()
+        .then(() => {
+
+            musicaTocando = true;
+
+            botaoMusica.innerHTML =
+                "🔊 Música ligada";
+
+        })
+        .catch(() => {
+
+            alert(
+                "Não foi possível iniciar a música. Verifique se o arquivo MP3 está na mesma pasta da ficha."
+            );
+
+        });
+
+    }else{
+
+        musica.pause();
+
+        musicaTocando = false;
+
+        botaoMusica.innerHTML =
+            "🎸 Tocar música";
+
+    }
+
+}
+
 
 /* =====================================================
    FOTO DO PERSONAGEM
 ===================================================== */
 
 document
-    .getElementById("fotoInput")
-    .addEventListener("change", function(event){
+.getElementById("fotoInput")
+.addEventListener("change", function(event){
 
-        const arquivo = event.target.files[0];
+    const arquivo =
+        event.target.files[0];
 
-        if(!arquivo) return;
+    if(!arquivo){
+        return;
+    }
 
-        const leitor = new FileReader();
+    const leitor =
+        new FileReader();
 
-        leitor.onload = function(e){
+    leitor.onload =
+        function(e){
 
             const imagem =
-                document.getElementById("fotoPersonagem");
+                document.getElementById(
+                    "fotoPersonagem"
+                );
 
             const vazio =
-                document.getElementById("fotoVazia");
+                document.getElementById(
+                    "fotoVazia"
+                );
 
-            imagem.src = e.target.result;
+            imagem.src =
+                e.target.result;
 
-            imagem.style.display = "block";
+            imagem.style.display =
+                "block";
 
-            vazio.style.display = "none";
+            vazio.style.display =
+                "none";
 
         };
 
-        leitor.readAsDataURL(arquivo);
+    leitor.readAsDataURL(arquivo);
 
-    });
+});
 
 
 /* =====================================================
    STATUS
 ===================================================== */
 
-function atualizarStatus(inputId, maximo, statusId){
+function atualizarStatus(
+    atualId,
+    limiteId,
+    statusId,
+    invertido,
+    tipo
+){
 
-    const input =
-        document.getElementById(inputId);
+    const atualElemento =
+        document.getElementById(atualId);
 
-    const box =
+    const limiteElemento =
+        document.getElementById(limiteId);
+
+    const caixa =
         document.getElementById(statusId);
 
-    let valor =
-        Number(input.value);
 
-    if(isNaN(valor)){
-        valor = 0;
+    let atual =
+        Number(atualElemento.value);
+
+    let limite =
+        Number(limiteElemento.value);
+
+
+    if(isNaN(atual)){
+        atual = 0;
     }
 
-    valor = Math.max(0, Math.min(valor, maximo));
-
-    input.value = valor;
-
-    const numero =
-        box.querySelector(".status-numero");
-
-    const mensagem =
-        box.querySelector(".status-mensagem");
+    if(isNaN(limite) || limite < 1){
+        limite = 1;
+    }
 
 
-    numero.textContent =
-        valor + " / " + maximo;
+    /* Impede valor atual maior que o limite */
 
+    if(atual > limite){
 
-    box.classList.remove(
-        "status-verde",
-        "status-laranja",
-        "status-vermelho-claro",
-        "status-vermelho-escuro"
-    );
+        atual = limite;
 
-
-    /*
-       CONTAMINAÇÃO, ESFORÇO E SOBRECARGA
-
-       Quanto MAIOR o valor,
-       pior fica o estado.
-
-       Vida e Sanidade:
-       quanto MENOR, pior.
-    */
-
-    const campoPioraComMaiorValor =
-        inputId === "contaminacaoAtual" ||
-        inputId === "esforcoMentalAtual" ||
-        inputId === "esforcoFisicoAtual" ||
-        inputId === "sobrecargaAtual";
-
-
-    let porcentagem;
-
-
-    if(campoPioraComMaiorValor){
-
-        porcentagem =
-            maximo === 0
-            ? 0
-            : (valor / maximo) * 100;
-
-    }else{
-
-        porcentagem =
-            maximo === 0
-            ? 0
-            : (valor / maximo) * 100;
+        atualElemento.value =
+            limite;
 
     }
+
+
+    if(atual < 0){
+
+        atual = 0;
+
+        atualElemento.value =
+            0;
+
+    }
+
+
+    const porcentagem =
+        (atual / limite) * 100;
+
+
+    caixa.className =
+        "status-box";
+
+
+    let classe;
+    let mensagem;
 
 
     /*
        STATUS NORMAL
+
+       Para vida, sanidade e esforços:
+       quanto maior, melhor.
+
+       Para contaminação e sobrecarga:
+       quanto menor, melhor.
     */
 
-    if(campoPioraComMaiorValor){
 
-        if(valor === 0){
+    if(!invertido){
 
-            box.classList.add("status-verde");
+        if(porcentagem >= 70){
 
-            if(inputId === "contaminacaoAtual")
-                mensagem.textContent =
-                    "Nenhuma contaminação detectada.";
+            classe =
+                "status-verde";
 
-            else if(inputId === "esforcoMentalAtual")
-                mensagem.textContent =
-                    "Nenhum esforço mental acumulado.";
+            if(tipo === "nucleo"){
+                mensagem =
+                    "Ótimas condições, seu núcleo está perfeito!";
+            }else if(tipo === "vida"){
+                mensagem =
+                    "Ótimas condições! Você está muito bem.";
+            }else if(tipo === "sanidade"){
+                mensagem =
+                    "Sua mente está em ótimas condições.";
+            }else if(tipo === "mental"){
+                mensagem =
+                    "Sua mente está descansada.";
+            }else if(tipo === "fisico"){
+                mensagem =
+                    "Seu corpo está em ótimas condições.";
+            }
 
-            else if(inputId === "esforcoFisicoAtual")
-                mensagem.textContent =
-                    "Nenhum esforço físico acumulado.";
+        }else if(porcentagem >= 50){
 
-            else
-                mensagem.textContent =
-                    "Nenhuma sobrecarga detectada.";
+            classe =
+                "status-laranja";
+
+            if(tipo === "nucleo"){
+                mensagem =
+                    "Atenção! Seu núcleo começou a perder estabilidade.";
+            }else{
+                mensagem =
+                    "Atenção! O estado está começando a ficar preocupante.";
+            }
+
+        }else if(porcentagem >= 30){
+
+            classe =
+                "status-vermelho-claro";
+
+            if(tipo === "nucleo"){
+                mensagem =
+                    "Cuidado! Seu núcleo está em estado crítico.";
+            }else{
+                mensagem =
+                    "Cuidado! Seu estado está bastante comprometido.";
+            }
+
+        }else{
+
+            classe =
+                "status-vermelho-escuro";
+
+            if(tipo === "nucleo"){
+                mensagem =
+                    "PERIGO! Seu núcleo está à beira da falha!";
+            }else{
+                mensagem =
+                    "PERIGO! Você está em estado extremamente crítico!";
+            }
 
         }
 
-        else if(porcentagem <= 30){
+    }else{
 
-            box.classList.add("status-verde");
+        /*
+          CONTAMINAÇÃO / SOBRECARGA
 
-            mensagem.textContent =
-                "Condições estáveis. Ainda há pouco acúmulo.";
+          Aqui 0 é o melhor estado.
+        */
 
-        }
+        if(porcentagem <= 30){
 
-        else if(porcentagem <= 50){
+            classe =
+                "status-verde";
 
-            box.classList.add("status-laranja");
+            if(tipo === "contaminacao"){
+                mensagem =
+                    "Nenhuma contaminação significativa detectada.";
+            }else{
+                mensagem =
+                    "Nenhuma sobrecarga significativa detectada.";
+            }
 
-            mensagem.textContent =
-                "Atenção! O nível está começando a ficar preocupante.";
+        }else if(porcentagem <= 50){
 
-        }
+            classe =
+                "status-laranja";
 
-        else if(porcentagem <= 70){
+            if(tipo === "contaminacao"){
+                mensagem =
+                    "Atenção! A contaminação está aumentando.";
+            }else{
+                mensagem =
+                    "Atenção! A sobrecarga está aumentando.";
+            }
 
-            box.classList.add("status-vermelho-claro");
+        }else if(porcentagem <= 70){
 
-            mensagem.textContent =
-                "Cuidado! O nível está elevado.";
+            classe =
+                "status-vermelho-claro";
 
-        }
+            if(tipo === "contaminacao"){
+                mensagem =
+                    "Cuidado! A contaminação está em nível preocupante.";
+            }else{
+                mensagem =
+                    "Cuidado! A sobrecarga está em nível preocupante.";
+            }
 
-        else{
+        }else{
 
-            box.classList.add("status-vermelho-escuro");
+            classe =
+                "status-vermelho-escuro";
 
-            mensagem.textContent =
-                "PERIGO! O nível está extremamente elevado.";
+            if(tipo === "contaminacao"){
+                mensagem =
+                    "PERIGO! Nível extremo de contaminação!";
+            }else{
+                mensagem =
+                    "PERIGO! Sobrecarga crítica!";
+            }
 
         }
 
     }
 
-    else{
 
-        if(porcentagem >= 70){
+    caixa.classList.add(classe);
 
-            box.classList.add("status-verde");
 
-            if(inputId === "vidaNucleo")
-                mensagem.textContent =
-                    "Ótimas condições, seu núcleo está perfeito!";
+    caixa.querySelector(
+        ".status-numero"
+    ).textContent =
+        atual + " / " + limite;
 
-            else if(inputId === "vidaAtual")
-                mensagem.textContent =
-                    "Ótimas condições, sua vida está excelente!";
 
-            else
-                mensagem.textContent =
-                    "Sua mente está em ótimas condições!";
+    caixa.querySelector(
+        ".status-mensagem"
+    ).textContent =
+        mensagem;
+
+}
+
+
+/* =====================================================
+   ATRIBUTOS
+===================================================== */
+
+function atualizarPontos(){
+
+    const limite =
+        Number(
+            document.getElementById(
+                "pontosDisponiveis"
+            ).value
+        ) || 0;
+
+
+    const extras =
+        Number(
+            document.getElementById(
+                "pontosExtras"
+            ).value
+        ) || 0;
+
+
+    const limiteTotal =
+        limite + extras;
+
+
+    let usados = 0;
+
+
+    document
+    .querySelectorAll(".atributo-input")
+    .forEach(input => {
+
+        let valor =
+            Number(input.value);
+
+        if(isNaN(valor) || valor < 0){
+
+            valor = 0;
+
+            input.value = 0;
 
         }
 
-        else if(porcentagem >= 50){
+        usados += valor;
 
-            box.classList.add("status-laranja");
+    });
 
-            mensagem.textContent =
-                "Atenção! O estado começa a ficar preocupante.";
 
-        }
+    const restantes =
+        limiteTotal - usados;
 
-        else if(porcentagem >= 30){
 
-            box.classList.add("status-vermelho-claro");
+    const texto =
+        document.getElementById(
+            "pontosTexto"
+        );
 
-            mensagem.textContent =
-                "Cuidado! O estado está crítico.";
+    const aviso =
+        document.getElementById(
+           "avisoPontos"
+    );
 
-        }
 
-        else if(porcentagem > 0){
+    if(restantes < 0){
 
-            box.classList.add("status-vermelho-escuro");
+        texto.textContent =
+            restantes + " / " + limiteTotal;
 
-            mensagem.textContent =
-                "PERIGO! O estado está extremamente crítico.";
+        aviso.style.display =
+            "block";
 
-        }
+    }else{
 
-        else{
+        texto.textContent =
+            restantes + " / " + limiteTotal;
 
-            box.classList.add("status-vermelho-escuro");
-
-            mensagem.textContent =
-                "Estado zerado! É necessário atenção imediata.";
-
-        }
+        aviso.style.display =
+            "none";
 
     }
 
@@ -1890,28 +2171,38 @@ function atualizarStatus(inputId, maximo, statusId){
    PONTOS POR NÍVEL
 ===================================================== */
 
-const pontosPorNivel = {
-
-    1:18,
-    2:21,
-    3:24,
-    4:27,
-    5:30,
-    6:33,
-    7:36,
-    8:39,
-    9:42,
-    10:45
-
-};
-
-
 function atualizarPontosNivel(){
 
     const nivel =
         Number(
-            document.getElementById("nivelAtual").value
-        );
+            document.getElementById(
+                "nivelAtual"
+            ).value
+        ) || 1;
+
+
+    /*
+       Quantidade base de pontos
+       por nível.
+
+       Você pode alterar esses valores
+       depois conforme o sistema do RPG.
+    */
+
+    const pontosPorNivel = {
+
+        1: 18,
+        2: 21,
+        3: 24,
+        4: 27,
+        5: 30,
+        6: 33,
+        7: 36,
+        8: 39,
+        9: 42,
+        10: 45
+
+    };
 
 
     const pontos =
@@ -1920,150 +2211,13 @@ function atualizarPontosNivel(){
 
     if(pontos !== undefined){
 
-        document
-            .getElementById("pontosDisponiveis")
-            .value = pontos;
-
-    }
-
-    atualizarPontos();
-
-}
-
-
-/* =====================================================
-   DISTRIBUIÇÃO DE PONTOS
-===================================================== */
-
-function atualizarPontos(){
-
-    const disponiveis =
-        Number(
-            document
-                .getElementById("pontosDisponiveis")
-                .value
-        ) || 0;
-
-
-    const extras =
-        Number(
-            document
-                .getElementById("pontosExtras")
-                .value
-        ) || 0;
-
-
-    const limite =
-        disponiveis + extras;
-
-
-    const campos =
-        document.querySelectorAll(
-            ".atributo-input"
-        );
-
-
-    let usados = 0;
-
-
-    campos.forEach(campo => {
-
-        let valor =
-            Number(campo.value) || 0;
-
-        if(valor < 0){
-
-            valor = 0;
-
-            campo.value = 0;
-
-        }
-
-        usados += valor;
-
-    });
-
-
-    const restantes =
-        limite - usados;
-
-
-    const texto =
-        document.getElementById("pontosTexto");
-
-
-    const aviso =
-        document.getElementById("avisoPontos");
-
-
-    texto.textContent =
-        Math.max(restantes, 0) +
-        " / " +
-        limite;
-
-
-    if(restantes < 0){
-
-        texto.style.color = "#ff5555";
-
-        aviso.style.display = "block";
-
-    }else{
-
-        texto.style.color = "#d8b4fe";
-
-        aviso.style.display = "none";
-
-    }
-
-}
-
-
-/* =====================================================
-   COLETAR DADOS
-===================================================== */
-
-function coletarDados(){
-
-    const dados = {};
-
-
-    document
-        .querySelectorAll(
-            "input, select"
-        )
-        .forEach(elemento => {
-
-            if(
-                elemento.type !== "file"
-            ){
-
-                dados[elemento.id] =
-                    elemento.value;
-
-            }
-
-        });
-
-
-    const imagem =
         document.getElementById(
-            "fotoPersonagem"
-        );
+            "pontosDisponiveis"
+        ).value = pontos;
 
-
-    if(
-        imagem.style.display !== "none" &&
-        imagem.src
-    ){
-
-        dados.foto =
-            imagem.src;
+        atualizarPontos();
 
     }
-
-
-    return dados;
 
 }
 
@@ -2074,11 +2228,58 @@ function coletarDados(){
 
 function baixarFicha(){
 
-    const dados =
-        coletarDados();
+    const dados = {};
 
 
-    const json =
+    /*
+       Todos os campos de texto,
+       números e seleções.
+    */
+
+    document
+    .querySelectorAll(
+        "input:not([type='file']), select"
+    )
+    .forEach(elemento => {
+
+        if(elemento.id){
+
+            dados[elemento.id] =
+                elemento.value;
+
+        }
+
+    });
+
+
+    /*
+       Salva também a imagem
+       do personagem.
+    */
+
+    const imagem =
+        document.getElementById(
+            "fotoPersonagem"
+        );
+
+
+    if(
+        imagem &&
+        imagem.src &&
+        imagem.style.display !== "none"
+    ){
+
+        dados.fotoPersonagem =
+            imagem.src;
+
+    }
+
+
+    /*
+       Cria o arquivo JSON.
+    */
+
+    const conteudo =
         JSON.stringify(
             dados,
             null,
@@ -2086,9 +2287,9 @@ function baixarFicha(){
         );
 
 
-    const blob =
+    const arquivo =
         new Blob(
-            [json],
+            [conteudo],
             {
                 type:
                     "application/json"
@@ -2097,7 +2298,9 @@ function baixarFicha(){
 
 
     const url =
-        URL.createObjectURL(blob);
+        URL.createObjectURL(
+            arquivo
+        );
 
 
     const link =
@@ -2110,11 +2313,16 @@ function baixarFicha(){
         "ficha-nexus.json";
 
 
-    document.body.appendChild(link);
+    document
+    .body
+    .appendChild(link);
+
 
     link.click();
 
-    document.body.removeChild(link);
+
+    link.remove();
+
 
     URL.revokeObjectURL(url);
 
@@ -2131,7 +2339,9 @@ function carregarFicha(event){
         event.target.files[0];
 
 
-    if(!arquivo) return;
+    if(!arquivo){
+        return;
+    }
 
 
     const leitor =
@@ -2149,34 +2359,50 @@ function carregarFicha(event){
                     );
 
 
+                /*
+                   Preenche todos os
+                   campos existentes.
+                */
+
                 Object.keys(dados)
-                    .forEach(id => {
+                .forEach(id => {
 
-                        if(id === "foto")
-                            return;
-
-
-                        const elemento =
-                            document.getElementById(id);
-
-
-                        if(elemento){
-
-                            elemento.value =
-                                dados[id];
-
-                        }
-
-                    });
+                    if(
+                        id ===
+                        "fotoPersonagem"
+                    ){
+                        return;
+                    }
 
 
-                if(dados.foto){
+                    const elemento =
+                        document.getElementById(
+                            id
+                        );
+
+
+                    if(elemento){
+
+                        elemento.value =
+                            dados[id];
+
+                    }
+
+                });
+
+
+                /*
+                   Restaura a imagem.
+                */
+
+                if(
+                    dados.fotoPersonagem
+                ){
 
                     const imagem =
                         document.getElementById(
                             "fotoPersonagem"
                         );
-
 
                     const vazio =
                         document.getElementById(
@@ -2185,7 +2411,7 @@ function carregarFicha(event){
 
 
                     imagem.src =
-                        dados.foto;
+                        dados.fotoPersonagem;
 
 
                     imagem.style.display =
@@ -2199,72 +2425,85 @@ function carregarFicha(event){
 
 
                 /*
-                   Atualiza todos os status
+                   Atualiza todos os
+                   sistemas visuais.
                 */
 
                 atualizarStatus(
                     "vidaNucleo",
-                    100,
-                    "statusNucleo"
+                    "limiteNucleo",
+                    "statusNucleo",
+                    false,
+                    "nucleo"
                 );
 
 
                 atualizarStatus(
                     "vidaAtual",
-                    40,
-                    "statusVida"
+                    "limiteVida",
+                    "statusVida",
+                    false,
+                    "vida"
                 );
 
 
                 atualizarStatus(
                     "sanidadeAtual",
-                    40,
-                    "statusSanidade"
+                    "limiteSanidade",
+                    "statusSanidade",
+                    false,
+                    "sanidade"
                 );
 
 
                 atualizarStatus(
                     "contaminacaoAtual",
-                    100,
-                    "statusContaminacao"
+                    "limiteContaminacao",
+                    "statusContaminacao",
+                    true,
+                    "contaminacao"
                 );
 
 
                 atualizarStatus(
-                    "esforcoMentalAtimual",
-                    100,
-                    "statusEsforcoMental"
+                    "esforcoMentalAtual",
+                    "limiteEsforcoMental",
+                    "statusEsforcoMental",
+                    false,
+                    "mental"
                 );
 
 
                 atualizarStatus(
                     "esforcoFisicoAtual",
-                    100,
-                    "statusEsforcoFisico"
+                    "limiteEsforcoFisico",
+                    "statusEsforcoFisico",
+                    false,
+                    "fisico"
                 );
 
 
                 atualizarStatus(
                     "sobrecargaAtual",
-                    100,
-                    "statusSobrecarga"
+                    "limiteSobrecarga",
+                    "statusSobrecarga",
+                    true,
+                    "sobrecarga"
                 );
 
-
-                atualizarPontosNivel();
 
                 atualizarPontos();
 
 
                 alert(
-                    "Ficha carregada com sucesso!"
+                    "✅ Ficha carregada com sucesso!"
                 );
 
 
             }catch(erro){
 
                 alert(
-                    "Não foi possível carregar essa ficha."
+                    "❌ Não foi possível carregar esta ficha. O arquivo pode estar corrompido ou não ser uma ficha NEXUS."
                 );
 
             }
@@ -2278,65 +2517,6 @@ function carregarFicha(event){
 
 
 /* =====================================================
-   LIMITES DOS CAMPOS
-===================================================== */
-
-function limitarCampo(id,min,max){
-
-    const elemento =
-        document.getElementById(id);
-
-
-    if(!elemento) return;
-
-
-    elemento.addEventListener(
-        "input",
-        function(){
-
-            let valor =
-                Number(this.value);
-
-
-            if(isNaN(valor))
-                valor = min;
-
-
-            if(valor < min)
-                valor = min;
-
-
-            if(valor > max)
-                valor = max;
-
-
-            this.value = valor;
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   LIMITES DO NEXO
-===================================================== */
-
-limitarCampo(
-    "nivelNexo",
-    1,
-    5
-);
-
-
-limitarCampo(
-    "controleNexo",
-    0,
-    5
-);
-
-
-/* =====================================================
    INICIALIZAÇÃO
 ===================================================== */
 
@@ -2346,61 +2526,74 @@ document.addEventListener(
 
         atualizarStatus(
             "vidaNucleo",
-            100,
-            "statusNucleo"
+            "limiteNucleo",
+            "statusNucleo",
+            false,
+            "nucleo"
         );
 
 
         atualizarStatus(
             "vidaAtual",
-            40,
-            "statusVida"
+            "limiteVida",
+            "statusVida",
+            false,
+            "vida"
         );
 
 
         atualizarStatus(
             "sanidadeAtual",
-            40,
-            "statusSanidade"
+            "limiteSanidade",
+            "statusSanidade",
+            false,
+            "sanidade"
         );
 
 
         atualizarStatus(
             "contaminacaoAtual",
-            100,
-            "statusContaminacao"
+            "limiteContaminacao",
+            "statusContaminacao",
+            true,
+            "contaminacao"
         );
 
 
         atualizarStatus(
             "esforcoMentalAtual",
-            100,
-            "statusEsforcoMental"
+            "limiteEsforcoMental",
+            "statusEsforcoMental",
+            false,
+            "mental"
         );
 
 
         atualizarStatus(
             "esforcoFisicoAtual",
-            100,
-            "statusEsforcoFisico"
+            "limiteEsforcoFisico",
+            "statusEsforcoFisico",
+            false,
+            "fisico"
         );
 
 
         atualizarStatus(
             "sobrecargaAtual",
-            100,
-            "statusSobrecarga"
+            "limiteSobrecarga",
+            "statusSobrecarga",
+            true,
+            "sobrecarga"
         );
 
 
-        atualizarPontosNivel();
-
         atualizarPontos();
 
-    });
+    }
+
+);
 
 </script>
-
 
 </body>
 
