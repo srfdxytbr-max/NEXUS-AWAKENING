@@ -5305,7 +5305,93 @@ document.querySelectorAll(
 
 </script>
 
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
+
+<audio
+    id="musica-livro"
+    loop
+    preload="auto"
+>
+
+    <source
+        src="Dark Acoustic Guitar Instrumental Beat 2018 Betrayed - Ryini Beats (youtube).mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<button
+    id="music-button"
+    class="music-button"
+    onclick="alternarMusicaLivro()"
+>
+
+    🎸 Tocar música
+
+</button>
+
+
+<script>
+
+const musicaLivro =
+    document.getElementById("musica-livro");
+
+const musicButton =
+    document.getElementById("music-button");
+
+let musicaLivroTocando = false;
+
+
+function alternarMusicaLivro(){
+
+    if(!musicaLivroTocando){
+
+        musicaLivro.volume = 0.35;
+
+        const tentativa =
+            musicaLivro.play();
+
+        if(tentativa !== undefined){
+
+            tentativa
+                .then(function(){
+
+                    musicaLivroTocando = true;
+
+                    musicButton.innerHTML =
+                        "🔊 Música ligada";
+
+                })
+
+                .catch(function(){
+
+                    alert(
+                        "Não foi possível iniciar a música. Verifique se o arquivo MP3 está na mesma pasta do livro.html."
+                    );
+
+                });
+
+        }
+
+    }else{
+
+        musicaLivro.pause();
+
+        musicaLivroTocando = false;
+
+        musicButton.innerHTML =
+            "🎸 Tocar música";
+
+    }
+
+}
+
+</script>
+
 </body>
 
 </html>
-```0
+
